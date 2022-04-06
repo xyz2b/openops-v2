@@ -130,4 +130,6 @@ logs
 logs/*
 **/.mvn
 **/target
-mvnw*
+mvnw
+mvnw.cmd
+HELP.md
