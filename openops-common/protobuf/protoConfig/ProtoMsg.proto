@@ -1,5 +1,7 @@
 syntax = "proto3";
 package com.openops.common.bean.msg;
+option java_outer_classname = "ProtoMsgFactory";
+
 message ProtoMsg {
     /*消息类型*/
     enum HeadType {

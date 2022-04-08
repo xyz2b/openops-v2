@@ -21,5 +21,46 @@
             <artifactId>guava</artifactId>
             <version>31.1-jre</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.20.0</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!--默认值-->
+                    <protoSourceRoot>${project.basedir}/protobuf/protoConfig</protoSourceRoot>
+                    <!--默认值-->
+                    <!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <!--默认值-->
+                    <temporaryProtoFileDirectory>${project.build.directory}/protobuf/protoTemp</temporaryProtoFileDirectory>
+                    <!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
+
+                    <protocExecutable>${project.basedir}/protobuf/protoBin/protoc</protocExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
+                        </goals>
+
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
