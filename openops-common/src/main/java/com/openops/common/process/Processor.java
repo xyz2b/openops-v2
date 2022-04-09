@@ -10,7 +10,7 @@ public interface Processor {
     /**
      * 处理器的类型
      * */
-    ProtoMsg.HeadType type();
+    int type();
     /**
      * 处理器的处理任务
      * @param session session（绑定channel和client_id）

@@ -20,48 +20,36 @@ public class ProtoMsgSender extends AbstractSender {
     public void sendMsg(Object message) {
         if (message instanceof ProtoMsg.Message) {
             ProtoMsg.Message msg = (ProtoMsg.Message) message;
-            CallbackTaskScheduler.add(new CallbackTask<Boolean>()
-            {
+            CallbackTaskScheduler.add(new CallbackTask<Boolean>() {
                 @Override
-                public Boolean execute() throws Exception
-                {
-                    if (null == session)
-                    {
+                public Boolean execute() throws Exception {
+                    if (null == session) {
+                        log.error("session is null");
                         throw new Exception("session is null");
                     }
 
-                    if (!session.isConnected())
-                    {
-                        log.info("连接还没成功");
+                    if (!session.isConnected()) {
+                        log.error("连接还没成功");
                         throw new Exception("连接还没成功");
                     }
 
-                    final Boolean[] isSuccess = {false};
+                    final Boolean[] isSuccess = { false };
 
                     ChannelFuture f = session.writeAndFlush(msg);
-                    f.addListener(new GenericFutureListener<Future<? super Void>>()
-                    {
+                    f.addListener(new GenericFutureListener<Future<? super Void>>() {
                         @Override
-                        public void operationComplete(Future<? super Void> future)
-                                throws Exception
-                        {
+                        public void operationComplete(Future<? super Void> future) throws Exception {
                             // 回调
-                            if (future.isSuccess())
-                            {
+                            if (future.isSuccess()) {
                                 isSuccess[0] = true;
-
-                                log.info("操作成功");
+                                log.info("发送消息成功");
                             }
                         }
-
                     });
 
-
-                    try
-                    {
+                    try {
                         f.sync();
-                    } catch (InterruptedException e)
-                    {
+                    } catch (InterruptedException e) {
                         isSuccess[0] = false;
                         e.printStackTrace();
                         throw new Exception("error occur");
@@ -71,43 +59,28 @@ public class ProtoMsgSender extends AbstractSender {
                 }
 
                 @Override
-                public void onSuccess(Boolean b)
-                {
-                    if (b)
-                    {
-                        sendSucced(msg);
-
-                    } else
-                    {
-                        sendfailed(msg);
-
+                public void onSuccess(Boolean b) {
+                    if (b) {
+                        sendSucceed(msg);
+                    } else {
+                        sendFailed(msg);
                     }
-
                 }
 
                 @Override
-                public void onFailure(Throwable t)
-                {
+                public void onFailure(Throwable t) {
                     sendException(msg);
                 }
             });
         }
     }
 
-    protected void sendSucced(ProtoMsg.Message message)
-    {
-        log.info("发送成功");
+    protected void sendSucceed(ProtoMsg.Message message) { log.info("发送成功"); }
 
-    }
-
-    protected void sendfailed(ProtoMsg.Message message)
+    protected void sendFailed(ProtoMsg.Message message)
     {
         log.info("发送失败");
     }
 
-    protected void sendException(ProtoMsg.Message message)
-    {
-        log.info("发送消息出现异常");
-
-    }
+    protected void sendException(ProtoMsg.Message message) { log.info("发送消息出现异常"); }
 }
