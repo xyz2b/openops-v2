@@ -17,5 +17,5 @@ public interface Processor {
      * @param message 消息报文
      * @return 任务处理结果（成功、失败）
      * */
-    boolean action(Session session, ProtoMsg.Message message);
+    boolean action(Session session, Object message);
 }
