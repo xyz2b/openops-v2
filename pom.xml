@@ -25,9 +25,17 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
         <lombok.version>1.18.20</lombok.version>
         <log4j.version>2.16.0</log4j.version>
+        <netty.version>4.1.75.Final</netty.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package com.openops.common.bean.msg;
+package com.openops.common.msg;
 option java_outer_classname = "ProtoMsgFactory";
 
 message ProtoMsg {
