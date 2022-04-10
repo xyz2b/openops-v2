@@ -3,26 +3,25 @@ package com.openops.common.builder;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 
 public class TestBuilder extends ProtoBufMsgBuilder {
-    public TestBuilder(int type, String clientId) {
+    private final String token;
+    public TestBuilder(int type, String clientId, String token) {
         super(type, clientId);
+        this.token = token;
     }
 
     @Override
-    protected Object buildInner() {
+    protected Object buildMsgInner() {
         ProtoMsg.AuthRequest.Builder lb =
                 ProtoMsg.AuthRequest.newBuilder()
                         .setPlatform("")
-                        .setToken("");
+                        .setToken(token);
         return lb.buildPartial();
     }
 
-    @Override
-    protected Object buildMsg() {
-        ProtoMsg.Message message = buildMsgOuter(1);
-        Object innerMsg = buildInner();
-        if (innerMsg instanceof ProtoMsg.AuthRequest) {
-            return message.toBuilder().setAuthRequest(((ProtoMsg.AuthRequest) innerMsg).toBuilder()).build();
-        }
-        return null;
+    public static void main(String[] args) {
+        TestBuilder testBuilder = new TestBuilder(1, "1", "12323");
+        ProtoMsg.Message msg = (ProtoMsg.Message) testBuilder.build();
+        System.out.println(msg.getAuthRequest().getToken());
+
     }
 }

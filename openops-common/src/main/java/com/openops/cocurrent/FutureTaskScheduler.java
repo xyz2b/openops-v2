@@ -1,5 +1,7 @@
 package com.openops.cocurrent;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -20,9 +22,18 @@ public class FutureTaskScheduler {
     /**
      * 添加任务
      *
-     * @param executeTask 普通任务
+     * @param task 普通任务
+     * @return future
      */
-    public static void add(Runnable executeTask) {
-        mixPool.submit(()->{ executeTask.run(); });
+    public static <R> Future<R> add(Task<R> task) {
+        return mixPool.submit(
+            new Callable<R>() {
+
+                @Override
+                public R call() throws Exception {
+                    return task.execute();
+                }
+            }
+        );
     }
 }

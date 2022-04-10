@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractSender implements Sender {
     protected final Session session;
 
-    public AbstractSender(Session session) {
+    protected AbstractSender(Session session) {
         this.session = session;
     }
 
