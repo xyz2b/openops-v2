@@ -1,10 +1,11 @@
 package com.openops.common.session;
 
+import com.openops.common.Client;
 import io.netty.channel.ChannelFuture;
 
 public interface Session {
-    String sessionId();
-    String clientId();
+    Session session();
+    Client client();
 
     ChannelFuture writeAndFlush(Object pkg);
     ChannelFuture close();

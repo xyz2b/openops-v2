@@ -28,14 +28,6 @@
             <artifactId>protobuf-java</artifactId>
             <version>3.20.0</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.aventrix.jnanoid/jnanoid -->
-        <dependency>
-            <groupId>com.aventrix.jnanoid</groupId>
-            <artifactId>jnanoid</artifactId>
-            <version>2.0.0</version>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
 
     <build>

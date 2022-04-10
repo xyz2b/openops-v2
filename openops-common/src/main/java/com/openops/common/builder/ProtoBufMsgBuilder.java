@@ -7,54 +7,52 @@ import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicLong;
 
 public abstract class ProtoBufMsgBuilder extends AbstractMsgBuilder {
-    protected final int type;
+    protected final ProtoMsg.HeadType type;
     private final AtomicLong sequence = new AtomicLong(0);
     protected final String clientId;
 
-    protected ProtoBufMsgBuilder(int type, String clientId) {
+    protected ProtoBufMsgBuilder(ProtoMsg.HeadType type, String clientId) {
         this.type = type;
         this.clientId = clientId;
     }
 
-    protected ProtoMsg.Message buildMsgOuter() {
-        ProtoMsg.Message.Builder mb =
-                ProtoMsg.Message
-                        .newBuilder()
-                        .setType(ProtoMsg.HeadType.forNumber(type))
-                        .setSessionId(clientId)
-                        .setSequence(sequence.getAndIncrement());
-        return mb.buildPartial();
+    protected ProtoMsg.Message.Builder assembleMsgOuter() {
+        return ProtoMsg.Message
+                .newBuilder()
+                .setType(type)
+                .setSessionId(clientId)
+                .setSequence(sequence.getAndIncrement());
     }
 
-    protected abstract Object buildMsgInner();
+    protected abstract Object assembleMsgInner();
 
     @Override
     protected Object buildMsg() {
-        ProtoMsg.Message message = buildMsgOuter();
-        Object innerMsg = buildMsgInner();
-        Class innerMsgClass = innerMsg.getClass();
+        ProtoMsg.Message.Builder outerMsgBuilder = assembleMsgOuter();
 
-        ProtoMsg.Message.Builder outerMsgBuilder = message.toBuilder();
+        Object innerMsgBuilder = assembleMsgInner();
+        if (innerMsgBuilder != null) {
+            Class innerMsgClass = innerMsgBuilder.getClass();
+            String[] innerMsgClassNames = innerMsgClass.getName().split("\\$");
+            String innerMsgClassName = innerMsgClassNames[innerMsgClassNames.length - 2];
 
-        ((ProtoMsg.AuthRequest)innerMsg).toBuilder();
-
-        try {
-            Class builder = Class.forName(innerMsgClass.getName() + "$Builder");
-            Method outerMsgSetMethod = outerMsgBuilder.getClass().getMethod("set" + innerMsgClass.getSimpleName(), builder);
-
-            Method innerMsgBuilderMethod = innerMsgClass.getMethod("toBuilder");
-
-            outerMsgSetMethod.invoke(outerMsgBuilder, innerMsgBuilderMethod.invoke(innerMsg));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            try {
+                Class builder = Class.forName(innerMsgClass.getName());
+                Method outerMsgSetMethod = outerMsgBuilder.getClass().getMethod("set" + innerMsgClassName, builder);
+                outerMsgSetMethod.invoke(outerMsgBuilder, innerMsgBuilder);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (ArrayIndexOutOfBoundsException e) {
+                e.printStackTrace();
+            }
         }
-
         return outerMsgBuilder.build();
+
     }
 }

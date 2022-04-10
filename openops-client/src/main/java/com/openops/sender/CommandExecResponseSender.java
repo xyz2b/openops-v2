@@ -1,16 +1,12 @@
 package com.openops.sender;
 
-import com.openops.common.sender.AbstractSender;
+import com.openops.common.sender.ProtoMsgSender;
 import com.openops.common.session.Session;
 
-public class CommandExecResponseSender extends AbstractSender {
+// 仅用于注册不同的回调函数
+public class CommandExecResponseSender extends ProtoMsgSender {
     public CommandExecResponseSender(Session session) {
         super(session);
-    }
-
-    @Override
-    public void send(Object message) {
-
     }
 
     @Override

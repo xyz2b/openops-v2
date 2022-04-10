@@ -1,14 +1,22 @@
 package com.openops.builder;
 
+import com.openops.common.Client;
 import com.openops.common.builder.ProtoBufMsgBuilder;
+import com.openops.common.msg.AuthResponse;
+import com.openops.common.msg.ProtoMsgFactory;
 
 public class AuthResponseMsgBuilder extends ProtoBufMsgBuilder {
-    public AuthResponseMsgBuilder(int type, String clientId) {
-        super(type, clientId);
+    private AuthResponse authResponse;
+
+    public AuthResponseMsgBuilder(Client client, AuthResponse authResponse) {
+        super(ProtoMsgFactory.ProtoMsg.HeadType.AUTH_RESPONSE, client.getClientId());
+        this.authResponse = authResponse;
     }
 
     @Override
-    protected Object buildMsgInner() {
-        return null;
+    protected Object assembleMsgInner() {
+        return ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder()
+                .setCode(authResponse.getCode())
+                .setInfo(authResponse.getInfo());
     }
 }

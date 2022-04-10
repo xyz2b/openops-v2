@@ -4,9 +4,9 @@ import com.openops.common.Client;
 import com.openops.common.builder.ProtoBufMsgBuilder;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 
-public class HeartBeatRequestMsgBuilder extends ProtoBufMsgBuilder {
-    public HeartBeatRequestMsgBuilder(Client client) {
-        super(ProtoMsg.HeadType.HEARTBEAT_REQUEST, client.getClientId());
+public class HeartBeatResponseMsgBuilder extends ProtoBufMsgBuilder {
+    public HeartBeatResponseMsgBuilder(Client client) {
+        super(ProtoMsg.HeadType.HEARTBEAT_RESPONSE, client.getClientId());
     }
 
     @Override
@@ -15,7 +15,7 @@ public class HeartBeatRequestMsgBuilder extends ProtoBufMsgBuilder {
     }
 
     public static void main(String[] args) {
-        HeartBeatRequestMsgBuilder builder = new HeartBeatRequestMsgBuilder(new Client("111", "222", "333", "4444"));
+        HeartBeatResponseMsgBuilder builder = new HeartBeatResponseMsgBuilder(new Client("111", "222", "333", "4444"));
         ProtoMsg.Message message = (ProtoMsg.Message) builder.build();
         System.out.println(message.getType());
     }

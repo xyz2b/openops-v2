@@ -1,9 +1,6 @@
 package com.openops.common.sender;
 
-import com.openops.cocurrent.CallbackTask;
-import com.openops.cocurrent.CallbackTaskScheduler;
 import com.openops.cocurrent.FutureTaskScheduler;
-import com.openops.common.msg.ProtoMsgFactory;
 import com.openops.common.session.Session;
 import io.netty.channel.ChannelFuture;
 import io.netty.util.concurrent.Future;
