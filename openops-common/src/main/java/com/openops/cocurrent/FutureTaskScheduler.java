@@ -28,7 +28,6 @@ public class FutureTaskScheduler {
     public static <R> Future<R> add(Task<R> task) {
         return mixPool.submit(
             new Callable<R>() {
-
                 @Override
                 public R call() throws Exception {
                     return task.execute();

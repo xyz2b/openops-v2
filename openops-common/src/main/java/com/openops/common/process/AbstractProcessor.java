@@ -5,7 +5,7 @@ import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 public abstract class AbstractProcessor implements Processor {
     private final int type;
 
-    public AbstractProcessor(int type) {
+    protected AbstractProcessor(int type) {
         this.type = type;
     }
 
