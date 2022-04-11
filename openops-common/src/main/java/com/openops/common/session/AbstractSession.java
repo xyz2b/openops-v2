@@ -1,6 +1,7 @@
 package com.openops.common.session;
 
 import com.openops.common.Client;
+import com.openops.common.sender.Sender;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import lombok.extern.slf4j.Slf4j;
@@ -14,11 +15,17 @@ public abstract class AbstractSession implements Session {
     private boolean connected;
     private boolean logged;
 
+    protected Sender sender;
+
     public AbstractSession(Channel channel, Client client) {
         this.channel = channel;
         this.client = client;
         connected = true;
         logged = false;
+    }
+
+    public void send(Object msg) {
+        sender.send(msg);
     }
 
     public Client client() {

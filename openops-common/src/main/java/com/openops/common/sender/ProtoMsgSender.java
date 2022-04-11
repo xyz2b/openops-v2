@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ProtoMsgSender extends AbstractSender {
-    protected ProtoMsgSender(Session session) {
+    public ProtoMsgSender(Session session) {
         super(session);
     }
 

@@ -1,6 +1,7 @@
 package com.openops.session;
 
 import com.openops.common.Client;
+import com.openops.common.sender.ProtoMsgSender;
 import com.openops.common.session.AbstractSession;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -16,6 +17,7 @@ public class ServerSession extends AbstractSession {
     public ServerSession(Channel channel, Client client) {
         super(channel, client);
         channel.attr(ServerSession.SESSION_KEY).set(this);
+        sender = new ProtoMsgSender(this);
     }
 
     @Override

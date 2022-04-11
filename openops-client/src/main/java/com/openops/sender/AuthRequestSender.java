@@ -3,7 +3,7 @@ package com.openops.sender;
 import com.openops.common.sender.ProtoMsgSender;
 import com.openops.common.session.Session;
 
-// 仅用于注册不同的回调函数
+// 仅用于注册不同的回调函数，实际发送Msg使用ProtoMsgSender.send()方法
 public class AuthRequestSender extends ProtoMsgSender {
     protected AuthRequestSender(Session session) {
         super(session);
