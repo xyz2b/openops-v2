@@ -19,6 +19,8 @@ public class CommandExecRequestMsgBuilder extends ProtoBufMsgBuilder {
                 .setCmd(cmd.getCmd())
                 .setUser(cmd.getUser())
                 .setTimeout(cmd.getTimeout())
-                .setPriority(cmd.getPriority());
+                .setPriority(cmd.getPriority())
+                .setUuid(cmd.getUuid())
+                .setHost(cmd.getHost());
     }
 }

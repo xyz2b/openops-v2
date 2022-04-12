@@ -15,15 +15,15 @@ public final class ProtoMsgFactory {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface ProtoMsgOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg)
+      // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg)
       com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg}
+   * Protobuf type {@code com.openops.common.msg.ProtoMsg}
    */
   public static final class ProtoMsg extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg)
+      // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg)
       ProtoMsgOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use ProtoMsg.newBuilder() to construct.
@@ -86,15 +86,15 @@ public final class ProtoMsgFactory {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor;
+      return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_fieldAccessorTable
+      return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProtoMsgFactory.ProtoMsg.class, ProtoMsgFactory.ProtoMsg.Builder.class);
+              com.openops.common.msg.ProtoMsgFactory.ProtoMsg.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Builder.class);
     }
 
     /**
@@ -102,7 +102,7 @@ public final class ProtoMsgFactory {
      *消息类型
      * </pre>
      *
-     * Protobuf enum {@code com.openops.common.bean.msg.ProtoMsg.HeadType}
+     * Protobuf enum {@code com.openops.common.msg.ProtoMsg.HeadType}
      */
     public enum HeadType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -301,7 +301,7 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return ProtoMsgFactory.ProtoMsg.getDescriptor().getEnumTypes().get(0);
+        return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final HeadType[] VALUES = values();
@@ -324,11 +324,11 @@ public final class ProtoMsgFactory {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:com.openops.common.bean.msg.ProtoMsg.HeadType)
+      // @@protoc_insertion_point(enum_scope:com.openops.common.msg.ProtoMsg.HeadType)
     }
 
     public interface AuthRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.AuthRequest)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.AuthRequest)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -396,11 +396,11 @@ public final class ProtoMsgFactory {
      *登陆验证请求
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.AuthRequest}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.AuthRequest}
      */
     public static final class AuthRequest extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.AuthRequest)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.AuthRequest)
         AuthRequestOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use AuthRequest.newBuilder() to construct.
@@ -484,15 +484,15 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.AuthRequest.class, ProtoMsgFactory.ProtoMsg.AuthRequest.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder.class);
       }
 
       public static final int TOKEN_FIELD_NUMBER = 1;
@@ -684,10 +684,10 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.AuthRequest)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.AuthRequest other = (ProtoMsgFactory.ProtoMsg.AuthRequest) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest) obj;
 
         if (!getToken()
             .equals(other.getToken())) return false;
@@ -717,69 +717,69 @@ public final class ProtoMsgFactory {
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -792,7 +792,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.AuthRequest prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -812,26 +812,26 @@ public final class ProtoMsgFactory {
        *登陆验证请求
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.AuthRequest}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.AuthRequest}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.AuthRequest)
-          ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.AuthRequest)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.AuthRequest.class, ProtoMsgFactory.ProtoMsg.AuthRequest.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.AuthRequest.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -861,17 +861,17 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthRequest build() {
-          ProtoMsgFactory.ProtoMsg.AuthRequest result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -879,8 +879,8 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthRequest buildPartial() {
-          ProtoMsgFactory.ProtoMsg.AuthRequest result = new ProtoMsgFactory.ProtoMsg.AuthRequest(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest(this);
           result.token_ = token_;
           result.platform_ = platform_;
           result.clientVersion_ = clientVersion_;
@@ -922,16 +922,16 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.AuthRequest) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.AuthRequest)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.AuthRequest other) {
-          if (other == ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance()) return this;
           if (!other.getToken().isEmpty()) {
             token_ = other.token_;
             onChanged();
@@ -959,11 +959,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.AuthRequest parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.AuthRequest) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -1273,16 +1273,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.AuthRequest)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.AuthRequest)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.AuthRequest)
-      private static final ProtoMsgFactory.ProtoMsg.AuthRequest DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.AuthRequest)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.AuthRequest();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -1307,14 +1307,14 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface AuthResponseOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.AuthResponse)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.AuthResponse)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -1340,11 +1340,11 @@ public final class ProtoMsgFactory {
      *登陆验证响应
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.AuthResponse}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.AuthResponse}
      */
     public static final class AuthResponse extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.AuthResponse)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.AuthResponse)
         AuthResponseOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use AuthResponse.newBuilder() to construct.
@@ -1419,15 +1419,15 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.AuthResponse.class, ProtoMsgFactory.ProtoMsg.AuthResponse.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder.class);
       }
 
       public static final int CODE_FIELD_NUMBER = 1;
@@ -1525,10 +1525,10 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.AuthResponse)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.AuthResponse other = (ProtoMsgFactory.ProtoMsg.AuthResponse) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse) obj;
 
         if (getCode()
             != other.getCode()) return false;
@@ -1554,69 +1554,69 @@ public final class ProtoMsgFactory {
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -1629,7 +1629,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.AuthResponse prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -1649,26 +1649,26 @@ public final class ProtoMsgFactory {
        *登陆验证响应
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.AuthResponse}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.AuthResponse}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.AuthResponse)
-          ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.AuthResponse)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.AuthResponse.class, ProtoMsgFactory.ProtoMsg.AuthResponse.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -1696,17 +1696,17 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthResponse build() {
-          ProtoMsgFactory.ProtoMsg.AuthResponse result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -1714,8 +1714,8 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.AuthResponse buildPartial() {
-          ProtoMsgFactory.ProtoMsg.AuthResponse result = new ProtoMsgFactory.ProtoMsg.AuthResponse(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse(this);
           result.code_ = code_;
           result.info_ = info_;
           onBuilt();
@@ -1756,16 +1756,16 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.AuthResponse) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.AuthResponse)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.AuthResponse other) {
-          if (other == ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance()) return this;
           if (other.getCode() != 0) {
             setCode(other.getCode());
           }
@@ -1788,11 +1788,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.AuthResponse parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.AuthResponse) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -1921,16 +1921,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.AuthResponse)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.AuthResponse)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.AuthResponse)
-      private static final ProtoMsgFactory.ProtoMsg.AuthResponse DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.AuthResponse)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.AuthResponse();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -1955,62 +1955,86 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface CommandExecuteRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.CommandExecuteRequest)
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>string cmd = 1;</code>
+       * <code>string host = 1;</code>
+       * @return The host.
+       */
+      java.lang.String getHost();
+      /**
+       * <code>string host = 1;</code>
+       * @return The bytes for host.
+       */
+      com.google.protobuf.ByteString
+          getHostBytes();
+
+      /**
+       * <code>string cmd = 2;</code>
        * @return The cmd.
        */
       java.lang.String getCmd();
       /**
-       * <code>string cmd = 1;</code>
+       * <code>string cmd = 2;</code>
        * @return The bytes for cmd.
        */
       com.google.protobuf.ByteString
           getCmdBytes();
 
       /**
-       * <code>string user = 2;</code>
+       * <code>string user = 3;</code>
        * @return The user.
        */
       java.lang.String getUser();
       /**
-       * <code>string user = 2;</code>
+       * <code>string user = 3;</code>
        * @return The bytes for user.
        */
       com.google.protobuf.ByteString
           getUserBytes();
 
       /**
-       * <code>int64 timeout = 3;</code>
+       * <code>int64 timeout = 4;</code>
        * @return The timeout.
        */
       long getTimeout();
 
       /**
-       * <code>int32 priority = 4;</code>
+       * <code>int32 priority = 5;</code>
        * @return The priority.
        */
       int getPriority();
+
+      /**
+       * <code>string uuid = 6;</code>
+       * @return The uuid.
+       */
+      java.lang.String getUuid();
+      /**
+       * <code>string uuid = 6;</code>
+       * @return The bytes for uuid.
+       */
+      com.google.protobuf.ByteString
+          getUuidBytes();
     }
     /**
      * <pre>
      *命令执行请求请求
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.CommandExecuteRequest}
      */
     public static final class CommandExecuteRequest extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.CommandExecuteRequest)
         CommandExecuteRequestOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use CommandExecuteRequest.newBuilder() to construct.
@@ -2018,8 +2042,10 @@ public final class ProtoMsgFactory {
         super(builder);
       }
       private CommandExecuteRequest() {
+        host_ = "";
         cmd_ = "";
         user_ = "";
+        uuid_ = "";
       }
 
       @java.lang.Override
@@ -2055,23 +2081,35 @@ public final class ProtoMsgFactory {
               case 10: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                cmd_ = s;
+                host_ = s;
                 break;
               }
               case 18: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                user_ = s;
+                cmd_ = s;
                 break;
               }
-              case 24: {
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
 
-                timeout_ = input.readInt64();
+                user_ = s;
                 break;
               }
               case 32: {
 
+                timeout_ = input.readInt64();
+                break;
+              }
+              case 40: {
+
                 priority_ = input.readInt32();
+                break;
+              }
+              case 50: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                uuid_ = s;
                 break;
               }
               default: {
@@ -2097,21 +2135,59 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.class, ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder.class);
       }
 
-      public static final int CMD_FIELD_NUMBER = 1;
+      public static final int HOST_FIELD_NUMBER = 1;
+      private volatile java.lang.Object host_;
+      /**
+       * <code>string host = 1;</code>
+       * @return The host.
+       */
+      @java.lang.Override
+      public java.lang.String getHost() {
+        java.lang.Object ref = host_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          host_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string host = 1;</code>
+       * @return The bytes for host.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getHostBytes() {
+        java.lang.Object ref = host_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          host_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int CMD_FIELD_NUMBER = 2;
       private volatile java.lang.Object cmd_;
       /**
-       * <code>string cmd = 1;</code>
+       * <code>string cmd = 2;</code>
        * @return The cmd.
        */
       @java.lang.Override
@@ -2128,7 +2204,7 @@ public final class ProtoMsgFactory {
         }
       }
       /**
-       * <code>string cmd = 1;</code>
+       * <code>string cmd = 2;</code>
        * @return The bytes for cmd.
        */
       @java.lang.Override
@@ -2146,10 +2222,10 @@ public final class ProtoMsgFactory {
         }
       }
 
-      public static final int USER_FIELD_NUMBER = 2;
+      public static final int USER_FIELD_NUMBER = 3;
       private volatile java.lang.Object user_;
       /**
-       * <code>string user = 2;</code>
+       * <code>string user = 3;</code>
        * @return The user.
        */
       @java.lang.Override
@@ -2166,7 +2242,7 @@ public final class ProtoMsgFactory {
         }
       }
       /**
-       * <code>string user = 2;</code>
+       * <code>string user = 3;</code>
        * @return The bytes for user.
        */
       @java.lang.Override
@@ -2184,10 +2260,10 @@ public final class ProtoMsgFactory {
         }
       }
 
-      public static final int TIMEOUT_FIELD_NUMBER = 3;
+      public static final int TIMEOUT_FIELD_NUMBER = 4;
       private long timeout_;
       /**
-       * <code>int64 timeout = 3;</code>
+       * <code>int64 timeout = 4;</code>
        * @return The timeout.
        */
       @java.lang.Override
@@ -2195,15 +2271,53 @@ public final class ProtoMsgFactory {
         return timeout_;
       }
 
-      public static final int PRIORITY_FIELD_NUMBER = 4;
+      public static final int PRIORITY_FIELD_NUMBER = 5;
       private int priority_;
       /**
-       * <code>int32 priority = 4;</code>
+       * <code>int32 priority = 5;</code>
        * @return The priority.
        */
       @java.lang.Override
       public int getPriority() {
         return priority_;
+      }
+
+      public static final int UUID_FIELD_NUMBER = 6;
+      private volatile java.lang.Object uuid_;
+      /**
+       * <code>string uuid = 6;</code>
+       * @return The uuid.
+       */
+      @java.lang.Override
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string uuid = 6;</code>
+       * @return The bytes for uuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
 
       private byte memoizedIsInitialized = -1;
@@ -2220,17 +2334,23 @@ public final class ProtoMsgFactory {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, host_);
+        }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cmd_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cmd_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cmd_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, user_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, user_);
         }
         if (timeout_ != 0L) {
-          output.writeInt64(3, timeout_);
+          output.writeInt64(4, timeout_);
         }
         if (priority_ != 0) {
-          output.writeInt32(4, priority_);
+          output.writeInt32(5, priority_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 6, uuid_);
         }
         unknownFields.writeTo(output);
       }
@@ -2241,19 +2361,25 @@ public final class ProtoMsgFactory {
         if (size != -1) return size;
 
         size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, host_);
+        }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cmd_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cmd_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cmd_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, user_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, user_);
         }
         if (timeout_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(3, timeout_);
+            .computeInt64Size(4, timeout_);
         }
         if (priority_ != 0) {
           size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, priority_);
+            .computeInt32Size(5, priority_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, uuid_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -2265,11 +2391,13 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.CommandExecuteRequest)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.CommandExecuteRequest other = (ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) obj;
 
+        if (!getHost()
+            .equals(other.getHost())) return false;
         if (!getCmd()
             .equals(other.getCmd())) return false;
         if (!getUser()
@@ -2278,6 +2406,8 @@ public final class ProtoMsgFactory {
             != other.getTimeout()) return false;
         if (getPriority()
             != other.getPriority()) return false;
+        if (!getUuid()
+            .equals(other.getUuid())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -2289,6 +2419,8 @@ public final class ProtoMsgFactory {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + HOST_FIELD_NUMBER;
+        hash = (53 * hash) + getHost().hashCode();
         hash = (37 * hash) + CMD_FIELD_NUMBER;
         hash = (53 * hash) + getCmd().hashCode();
         hash = (37 * hash) + USER_FIELD_NUMBER;
@@ -2298,74 +2430,76 @@ public final class ProtoMsgFactory {
             getTimeout());
         hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
         hash = (53 * hash) + getPriority();
+        hash = (37 * hash) + UUID_FIELD_NUMBER;
+        hash = (53 * hash) + getUuid().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -2378,7 +2512,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.CommandExecuteRequest prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -2398,26 +2532,26 @@ public final class ProtoMsgFactory {
        *命令执行请求请求
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.CommandExecuteRequest}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest)
-          ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.CommandExecuteRequest)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.class, ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -2435,6 +2569,8 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          host_ = "";
+
           cmd_ = "";
 
           user_ = "";
@@ -2443,23 +2579,25 @@ public final class ProtoMsgFactory {
 
           priority_ = 0;
 
+          uuid_ = "";
+
           return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest build() {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteRequest result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -2467,12 +2605,14 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest buildPartial() {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteRequest result = new ProtoMsgFactory.ProtoMsg.CommandExecuteRequest(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest(this);
+          result.host_ = host_;
           result.cmd_ = cmd_;
           result.user_ = user_;
           result.timeout_ = timeout_;
           result.priority_ = priority_;
+          result.uuid_ = uuid_;
           onBuilt();
           return result;
         }
@@ -2511,16 +2651,20 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.CommandExecuteRequest)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.CommandExecuteRequest other) {
-          if (other == ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance()) return this;
+          if (!other.getHost().isEmpty()) {
+            host_ = other.host_;
+            onChanged();
+          }
           if (!other.getCmd().isEmpty()) {
             cmd_ = other.cmd_;
             onChanged();
@@ -2534,6 +2678,10 @@ public final class ProtoMsgFactory {
           }
           if (other.getPriority() != 0) {
             setPriority(other.getPriority());
+          }
+          if (!other.getUuid().isEmpty()) {
+            uuid_ = other.uuid_;
+            onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -2550,11 +2698,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -2564,9 +2712,85 @@ public final class ProtoMsgFactory {
           return this;
         }
 
+        private java.lang.Object host_ = "";
+        /**
+         * <code>string host = 1;</code>
+         * @return The host.
+         */
+        public java.lang.String getHost() {
+          java.lang.Object ref = host_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            host_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @return The bytes for host.
+         */
+        public com.google.protobuf.ByteString
+            getHostBytes() {
+          java.lang.Object ref = host_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            host_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @param value The host to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHost(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          host_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearHost() {
+          
+          host_ = getDefaultInstance().getHost();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @param value The bytes for host to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHostBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          host_ = value;
+          onChanged();
+          return this;
+        }
+
         private java.lang.Object cmd_ = "";
         /**
-         * <code>string cmd = 1;</code>
+         * <code>string cmd = 2;</code>
          * @return The cmd.
          */
         public java.lang.String getCmd() {
@@ -2582,7 +2806,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string cmd = 1;</code>
+         * <code>string cmd = 2;</code>
          * @return The bytes for cmd.
          */
         public com.google.protobuf.ByteString
@@ -2599,7 +2823,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string cmd = 1;</code>
+         * <code>string cmd = 2;</code>
          * @param value The cmd to set.
          * @return This builder for chaining.
          */
@@ -2614,7 +2838,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string cmd = 1;</code>
+         * <code>string cmd = 2;</code>
          * @return This builder for chaining.
          */
         public Builder clearCmd() {
@@ -2624,7 +2848,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string cmd = 1;</code>
+         * <code>string cmd = 2;</code>
          * @param value The bytes for cmd to set.
          * @return This builder for chaining.
          */
@@ -2642,7 +2866,7 @@ public final class ProtoMsgFactory {
 
         private java.lang.Object user_ = "";
         /**
-         * <code>string user = 2;</code>
+         * <code>string user = 3;</code>
          * @return The user.
          */
         public java.lang.String getUser() {
@@ -2658,7 +2882,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string user = 2;</code>
+         * <code>string user = 3;</code>
          * @return The bytes for user.
          */
         public com.google.protobuf.ByteString
@@ -2675,7 +2899,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string user = 2;</code>
+         * <code>string user = 3;</code>
          * @param value The user to set.
          * @return This builder for chaining.
          */
@@ -2690,7 +2914,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string user = 2;</code>
+         * <code>string user = 3;</code>
          * @return This builder for chaining.
          */
         public Builder clearUser() {
@@ -2700,7 +2924,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string user = 2;</code>
+         * <code>string user = 3;</code>
          * @param value The bytes for user to set.
          * @return This builder for chaining.
          */
@@ -2718,7 +2942,7 @@ public final class ProtoMsgFactory {
 
         private long timeout_ ;
         /**
-         * <code>int64 timeout = 3;</code>
+         * <code>int64 timeout = 4;</code>
          * @return The timeout.
          */
         @java.lang.Override
@@ -2726,7 +2950,7 @@ public final class ProtoMsgFactory {
           return timeout_;
         }
         /**
-         * <code>int64 timeout = 3;</code>
+         * <code>int64 timeout = 4;</code>
          * @param value The timeout to set.
          * @return This builder for chaining.
          */
@@ -2737,7 +2961,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>int64 timeout = 3;</code>
+         * <code>int64 timeout = 4;</code>
          * @return This builder for chaining.
          */
         public Builder clearTimeout() {
@@ -2749,7 +2973,7 @@ public final class ProtoMsgFactory {
 
         private int priority_ ;
         /**
-         * <code>int32 priority = 4;</code>
+         * <code>int32 priority = 5;</code>
          * @return The priority.
          */
         @java.lang.Override
@@ -2757,7 +2981,7 @@ public final class ProtoMsgFactory {
           return priority_;
         }
         /**
-         * <code>int32 priority = 4;</code>
+         * <code>int32 priority = 5;</code>
          * @param value The priority to set.
          * @return This builder for chaining.
          */
@@ -2768,12 +2992,88 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>int32 priority = 4;</code>
+         * <code>int32 priority = 5;</code>
          * @return This builder for chaining.
          */
         public Builder clearPriority() {
           
           priority_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object uuid_ = "";
+        /**
+         * <code>string uuid = 6;</code>
+         * @return The uuid.
+         */
+        public java.lang.String getUuid() {
+          java.lang.Object ref = uuid_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            uuid_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string uuid = 6;</code>
+         * @return The bytes for uuid.
+         */
+        public com.google.protobuf.ByteString
+            getUuidBytes() {
+          java.lang.Object ref = uuid_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            uuid_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string uuid = 6;</code>
+         * @param value The uuid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUuid(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          uuid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uuid = 6;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUuid() {
+          
+          uuid_ = getDefaultInstance().getUuid();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uuid = 6;</code>
+         * @param value The bytes for uuid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUuidBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          uuid_ = value;
           onChanged();
           return this;
         }
@@ -2790,16 +3090,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.CommandExecuteRequest)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest)
-      private static final ProtoMsgFactory.ProtoMsg.CommandExecuteRequest DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.CommandExecuteRequest)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.CommandExecuteRequest();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -2824,68 +3124,104 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface CommandExecuteResponseOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.CommandExecuteResponse)
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>uint32 code = 1;</code>
+       * <code>string host = 1;</code>
+       * @return The host.
+       */
+      java.lang.String getHost();
+      /**
+       * <code>string host = 1;</code>
+       * @return The bytes for host.
+       */
+      com.google.protobuf.ByteString
+          getHostBytes();
+
+      /**
+       * <code>uint32 code = 2;</code>
        * @return The code.
        */
       int getCode();
 
       /**
-       * <code>string stdout = 2;</code>
+       * <code>string stdout = 3;</code>
        * @return The stdout.
        */
       java.lang.String getStdout();
       /**
-       * <code>string stdout = 2;</code>
+       * <code>string stdout = 3;</code>
        * @return The bytes for stdout.
        */
       com.google.protobuf.ByteString
           getStdoutBytes();
 
       /**
-       * <code>string stderr = 3;</code>
+       * <code>string stderr = 4;</code>
        * @return The stderr.
        */
       java.lang.String getStderr();
       /**
-       * <code>string stderr = 3;</code>
+       * <code>string stderr = 4;</code>
        * @return The bytes for stderr.
        */
       com.google.protobuf.ByteString
           getStderrBytes();
 
       /**
-       * <code>string info = 4;</code>
+       * <code>string info = 5;</code>
        * @return The info.
        */
       java.lang.String getInfo();
       /**
-       * <code>string info = 4;</code>
+       * <code>string info = 5;</code>
        * @return The bytes for info.
        */
       com.google.protobuf.ByteString
           getInfoBytes();
+
+      /**
+       * <code>uint64 start = 6;</code>
+       * @return The start.
+       */
+      long getStart();
+
+      /**
+       * <code>uint64 end = 7;</code>
+       * @return The end.
+       */
+      long getEnd();
+
+      /**
+       * <code>string uuid = 8;</code>
+       * @return The uuid.
+       */
+      java.lang.String getUuid();
+      /**
+       * <code>string uuid = 8;</code>
+       * @return The bytes for uuid.
+       */
+      com.google.protobuf.ByteString
+          getUuidBytes();
     }
     /**
      * <pre>
      *命令执行请求响应
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.CommandExecuteResponse}
      */
     public static final class CommandExecuteResponse extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.CommandExecuteResponse)
         CommandExecuteResponseOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use CommandExecuteResponse.newBuilder() to construct.
@@ -2893,9 +3229,11 @@ public final class ProtoMsgFactory {
         super(builder);
       }
       private CommandExecuteResponse() {
+        host_ = "";
         stdout_ = "";
         stderr_ = "";
         info_ = "";
+        uuid_ = "";
       }
 
       @java.lang.Override
@@ -2928,27 +3266,49 @@ public final class ProtoMsgFactory {
               case 0:
                 done = true;
                 break;
-              case 8: {
-
-                code_ = input.readUInt32();
-                break;
-              }
-              case 18: {
+              case 10: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                stdout_ = s;
+                host_ = s;
+                break;
+              }
+              case 16: {
+
+                code_ = input.readUInt32();
                 break;
               }
               case 26: {
                 java.lang.String s = input.readStringRequireUtf8();
 
-                stderr_ = s;
+                stdout_ = s;
                 break;
               }
               case 34: {
                 java.lang.String s = input.readStringRequireUtf8();
 
+                stderr_ = s;
+                break;
+              }
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+
                 info_ = s;
+                break;
+              }
+              case 48: {
+
+                start_ = input.readUInt64();
+                break;
+              }
+              case 56: {
+
+                end_ = input.readUInt64();
+                break;
+              }
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                uuid_ = s;
                 break;
               }
               default: {
@@ -2974,21 +3334,59 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.class, ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder.class);
       }
 
-      public static final int CODE_FIELD_NUMBER = 1;
+      public static final int HOST_FIELD_NUMBER = 1;
+      private volatile java.lang.Object host_;
+      /**
+       * <code>string host = 1;</code>
+       * @return The host.
+       */
+      @java.lang.Override
+      public java.lang.String getHost() {
+        java.lang.Object ref = host_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          host_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string host = 1;</code>
+       * @return The bytes for host.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getHostBytes() {
+        java.lang.Object ref = host_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          host_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int CODE_FIELD_NUMBER = 2;
       private int code_;
       /**
-       * <code>uint32 code = 1;</code>
+       * <code>uint32 code = 2;</code>
        * @return The code.
        */
       @java.lang.Override
@@ -2996,10 +3394,10 @@ public final class ProtoMsgFactory {
         return code_;
       }
 
-      public static final int STDOUT_FIELD_NUMBER = 2;
+      public static final int STDOUT_FIELD_NUMBER = 3;
       private volatile java.lang.Object stdout_;
       /**
-       * <code>string stdout = 2;</code>
+       * <code>string stdout = 3;</code>
        * @return The stdout.
        */
       @java.lang.Override
@@ -3016,7 +3414,7 @@ public final class ProtoMsgFactory {
         }
       }
       /**
-       * <code>string stdout = 2;</code>
+       * <code>string stdout = 3;</code>
        * @return The bytes for stdout.
        */
       @java.lang.Override
@@ -3034,10 +3432,10 @@ public final class ProtoMsgFactory {
         }
       }
 
-      public static final int STDERR_FIELD_NUMBER = 3;
+      public static final int STDERR_FIELD_NUMBER = 4;
       private volatile java.lang.Object stderr_;
       /**
-       * <code>string stderr = 3;</code>
+       * <code>string stderr = 4;</code>
        * @return The stderr.
        */
       @java.lang.Override
@@ -3054,7 +3452,7 @@ public final class ProtoMsgFactory {
         }
       }
       /**
-       * <code>string stderr = 3;</code>
+       * <code>string stderr = 4;</code>
        * @return The bytes for stderr.
        */
       @java.lang.Override
@@ -3072,10 +3470,10 @@ public final class ProtoMsgFactory {
         }
       }
 
-      public static final int INFO_FIELD_NUMBER = 4;
+      public static final int INFO_FIELD_NUMBER = 5;
       private volatile java.lang.Object info_;
       /**
-       * <code>string info = 4;</code>
+       * <code>string info = 5;</code>
        * @return The info.
        */
       @java.lang.Override
@@ -3092,7 +3490,7 @@ public final class ProtoMsgFactory {
         }
       }
       /**
-       * <code>string info = 4;</code>
+       * <code>string info = 5;</code>
        * @return The bytes for info.
        */
       @java.lang.Override
@@ -3104,6 +3502,66 @@ public final class ProtoMsgFactory {
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           info_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int START_FIELD_NUMBER = 6;
+      private long start_;
+      /**
+       * <code>uint64 start = 6;</code>
+       * @return The start.
+       */
+      @java.lang.Override
+      public long getStart() {
+        return start_;
+      }
+
+      public static final int END_FIELD_NUMBER = 7;
+      private long end_;
+      /**
+       * <code>uint64 end = 7;</code>
+       * @return The end.
+       */
+      @java.lang.Override
+      public long getEnd() {
+        return end_;
+      }
+
+      public static final int UUID_FIELD_NUMBER = 8;
+      private volatile java.lang.Object uuid_;
+      /**
+       * <code>string uuid = 8;</code>
+       * @return The uuid.
+       */
+      @java.lang.Override
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string uuid = 8;</code>
+       * @return The bytes for uuid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -3124,17 +3582,29 @@ public final class ProtoMsgFactory {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, host_);
+        }
         if (code_ != 0) {
-          output.writeUInt32(1, code_);
+          output.writeUInt32(2, code_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stdout_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stdout_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stdout_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stderr_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stderr_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stderr_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 5, info_);
+        }
+        if (start_ != 0L) {
+          output.writeUInt64(6, start_);
+        }
+        if (end_ != 0L) {
+          output.writeUInt64(7, end_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 8, uuid_);
         }
         unknownFields.writeTo(output);
       }
@@ -3145,18 +3615,32 @@ public final class ProtoMsgFactory {
         if (size != -1) return size;
 
         size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(host_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, host_);
+        }
         if (code_ != 0) {
           size += com.google.protobuf.CodedOutputStream
-            .computeUInt32Size(1, code_);
+            .computeUInt32Size(2, code_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stdout_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stdout_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stdout_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stderr_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stderr_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stderr_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, info_);
+        }
+        if (start_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(6, start_);
+        }
+        if (end_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(7, end_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, uuid_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -3168,11 +3652,13 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.CommandExecuteResponse)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.CommandExecuteResponse other = (ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) obj;
 
+        if (!getHost()
+            .equals(other.getHost())) return false;
         if (getCode()
             != other.getCode()) return false;
         if (!getStdout()
@@ -3181,6 +3667,12 @@ public final class ProtoMsgFactory {
             .equals(other.getStderr())) return false;
         if (!getInfo()
             .equals(other.getInfo())) return false;
+        if (getStart()
+            != other.getStart()) return false;
+        if (getEnd()
+            != other.getEnd()) return false;
+        if (!getUuid()
+            .equals(other.getUuid())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -3192,6 +3684,8 @@ public final class ProtoMsgFactory {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + HOST_FIELD_NUMBER;
+        hash = (53 * hash) + getHost().hashCode();
         hash = (37 * hash) + CODE_FIELD_NUMBER;
         hash = (53 * hash) + getCode();
         hash = (37 * hash) + STDOUT_FIELD_NUMBER;
@@ -3200,74 +3694,82 @@ public final class ProtoMsgFactory {
         hash = (53 * hash) + getStderr().hashCode();
         hash = (37 * hash) + INFO_FIELD_NUMBER;
         hash = (53 * hash) + getInfo().hashCode();
+        hash = (37 * hash) + START_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStart());
+        hash = (37 * hash) + END_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getEnd());
+        hash = (37 * hash) + UUID_FIELD_NUMBER;
+        hash = (53 * hash) + getUuid().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -3280,7 +3782,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.CommandExecuteResponse prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -3300,26 +3802,26 @@ public final class ProtoMsgFactory {
        *命令执行请求响应
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.CommandExecuteResponse}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse)
-          ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.CommandExecuteResponse)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.class, ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -3337,6 +3839,8 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          host_ = "";
+
           code_ = 0;
 
           stdout_ = "";
@@ -3345,23 +3849,29 @@ public final class ProtoMsgFactory {
 
           info_ = "";
 
+          start_ = 0L;
+
+          end_ = 0L;
+
+          uuid_ = "";
+
           return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse build() {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteResponse result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -3369,12 +3879,16 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse buildPartial() {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteResponse result = new ProtoMsgFactory.ProtoMsg.CommandExecuteResponse(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse(this);
+          result.host_ = host_;
           result.code_ = code_;
           result.stdout_ = stdout_;
           result.stderr_ = stderr_;
           result.info_ = info_;
+          result.start_ = start_;
+          result.end_ = end_;
+          result.uuid_ = uuid_;
           onBuilt();
           return result;
         }
@@ -3413,16 +3927,20 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.CommandExecuteResponse)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.CommandExecuteResponse other) {
-          if (other == ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance()) return this;
+          if (!other.getHost().isEmpty()) {
+            host_ = other.host_;
+            onChanged();
+          }
           if (other.getCode() != 0) {
             setCode(other.getCode());
           }
@@ -3436,6 +3954,16 @@ public final class ProtoMsgFactory {
           }
           if (!other.getInfo().isEmpty()) {
             info_ = other.info_;
+            onChanged();
+          }
+          if (other.getStart() != 0L) {
+            setStart(other.getStart());
+          }
+          if (other.getEnd() != 0L) {
+            setEnd(other.getEnd());
+          }
+          if (!other.getUuid().isEmpty()) {
+            uuid_ = other.uuid_;
             onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
@@ -3453,11 +3981,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -3467,9 +3995,85 @@ public final class ProtoMsgFactory {
           return this;
         }
 
+        private java.lang.Object host_ = "";
+        /**
+         * <code>string host = 1;</code>
+         * @return The host.
+         */
+        public java.lang.String getHost() {
+          java.lang.Object ref = host_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            host_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @return The bytes for host.
+         */
+        public com.google.protobuf.ByteString
+            getHostBytes() {
+          java.lang.Object ref = host_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            host_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @param value The host to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHost(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          host_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearHost() {
+          
+          host_ = getDefaultInstance().getHost();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string host = 1;</code>
+         * @param value The bytes for host to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHostBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          host_ = value;
+          onChanged();
+          return this;
+        }
+
         private int code_ ;
         /**
-         * <code>uint32 code = 1;</code>
+         * <code>uint32 code = 2;</code>
          * @return The code.
          */
         @java.lang.Override
@@ -3477,7 +4081,7 @@ public final class ProtoMsgFactory {
           return code_;
         }
         /**
-         * <code>uint32 code = 1;</code>
+         * <code>uint32 code = 2;</code>
          * @param value The code to set.
          * @return This builder for chaining.
          */
@@ -3488,7 +4092,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>uint32 code = 1;</code>
+         * <code>uint32 code = 2;</code>
          * @return This builder for chaining.
          */
         public Builder clearCode() {
@@ -3500,7 +4104,7 @@ public final class ProtoMsgFactory {
 
         private java.lang.Object stdout_ = "";
         /**
-         * <code>string stdout = 2;</code>
+         * <code>string stdout = 3;</code>
          * @return The stdout.
          */
         public java.lang.String getStdout() {
@@ -3516,7 +4120,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string stdout = 2;</code>
+         * <code>string stdout = 3;</code>
          * @return The bytes for stdout.
          */
         public com.google.protobuf.ByteString
@@ -3533,7 +4137,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string stdout = 2;</code>
+         * <code>string stdout = 3;</code>
          * @param value The stdout to set.
          * @return This builder for chaining.
          */
@@ -3548,7 +4152,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string stdout = 2;</code>
+         * <code>string stdout = 3;</code>
          * @return This builder for chaining.
          */
         public Builder clearStdout() {
@@ -3558,7 +4162,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string stdout = 2;</code>
+         * <code>string stdout = 3;</code>
          * @param value The bytes for stdout to set.
          * @return This builder for chaining.
          */
@@ -3576,7 +4180,7 @@ public final class ProtoMsgFactory {
 
         private java.lang.Object stderr_ = "";
         /**
-         * <code>string stderr = 3;</code>
+         * <code>string stderr = 4;</code>
          * @return The stderr.
          */
         public java.lang.String getStderr() {
@@ -3592,7 +4196,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string stderr = 3;</code>
+         * <code>string stderr = 4;</code>
          * @return The bytes for stderr.
          */
         public com.google.protobuf.ByteString
@@ -3609,7 +4213,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string stderr = 3;</code>
+         * <code>string stderr = 4;</code>
          * @param value The stderr to set.
          * @return This builder for chaining.
          */
@@ -3624,7 +4228,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string stderr = 3;</code>
+         * <code>string stderr = 4;</code>
          * @return This builder for chaining.
          */
         public Builder clearStderr() {
@@ -3634,7 +4238,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string stderr = 3;</code>
+         * <code>string stderr = 4;</code>
          * @param value The bytes for stderr to set.
          * @return This builder for chaining.
          */
@@ -3652,7 +4256,7 @@ public final class ProtoMsgFactory {
 
         private java.lang.Object info_ = "";
         /**
-         * <code>string info = 4;</code>
+         * <code>string info = 5;</code>
          * @return The info.
          */
         public java.lang.String getInfo() {
@@ -3668,7 +4272,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string info = 4;</code>
+         * <code>string info = 5;</code>
          * @return The bytes for info.
          */
         public com.google.protobuf.ByteString
@@ -3685,7 +4289,7 @@ public final class ProtoMsgFactory {
           }
         }
         /**
-         * <code>string info = 4;</code>
+         * <code>string info = 5;</code>
          * @param value The info to set.
          * @return This builder for chaining.
          */
@@ -3700,7 +4304,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string info = 4;</code>
+         * <code>string info = 5;</code>
          * @return This builder for chaining.
          */
         public Builder clearInfo() {
@@ -3710,7 +4314,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>string info = 4;</code>
+         * <code>string info = 5;</code>
          * @param value The bytes for info to set.
          * @return This builder for chaining.
          */
@@ -3722,6 +4326,144 @@ public final class ProtoMsgFactory {
   checkByteStringIsUtf8(value);
           
           info_ = value;
+          onChanged();
+          return this;
+        }
+
+        private long start_ ;
+        /**
+         * <code>uint64 start = 6;</code>
+         * @return The start.
+         */
+        @java.lang.Override
+        public long getStart() {
+          return start_;
+        }
+        /**
+         * <code>uint64 start = 6;</code>
+         * @param value The start to set.
+         * @return This builder for chaining.
+         */
+        public Builder setStart(long value) {
+          
+          start_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint64 start = 6;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearStart() {
+          
+          start_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long end_ ;
+        /**
+         * <code>uint64 end = 7;</code>
+         * @return The end.
+         */
+        @java.lang.Override
+        public long getEnd() {
+          return end_;
+        }
+        /**
+         * <code>uint64 end = 7;</code>
+         * @param value The end to set.
+         * @return This builder for chaining.
+         */
+        public Builder setEnd(long value) {
+          
+          end_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint64 end = 7;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearEnd() {
+          
+          end_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object uuid_ = "";
+        /**
+         * <code>string uuid = 8;</code>
+         * @return The uuid.
+         */
+        public java.lang.String getUuid() {
+          java.lang.Object ref = uuid_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            uuid_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string uuid = 8;</code>
+         * @return The bytes for uuid.
+         */
+        public com.google.protobuf.ByteString
+            getUuidBytes() {
+          java.lang.Object ref = uuid_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            uuid_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string uuid = 8;</code>
+         * @param value The uuid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUuid(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          uuid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uuid = 8;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUuid() {
+          
+          uuid_ = getDefaultInstance().getUuid();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uuid = 8;</code>
+         * @param value The bytes for uuid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUuidBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          uuid_ = value;
           onChanged();
           return this;
         }
@@ -3738,16 +4480,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.CommandExecuteResponse)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse)
-      private static final ProtoMsgFactory.ProtoMsg.CommandExecuteResponse DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.CommandExecuteResponse)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.CommandExecuteResponse();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -3772,14 +4514,14 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface ClientManagerRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.ClientManagerRequest)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -3805,11 +4547,11 @@ public final class ProtoMsgFactory {
      *客户端管理请求
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.ClientManagerRequest}
      */
     public static final class ClientManagerRequest extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.ClientManagerRequest)
         ClientManagerRequestOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use ClientManagerRequest.newBuilder() to construct.
@@ -3884,15 +4626,15 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.class, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder.class);
       }
 
       public static final int OP_TYPE_FIELD_NUMBER = 1;
@@ -3990,10 +4732,10 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.ClientManagerRequest)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.ClientManagerRequest other = (ProtoMsgFactory.ProtoMsg.ClientManagerRequest) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest) obj;
 
         if (getOpType()
             != other.getOpType()) return false;
@@ -4019,69 +4761,69 @@ public final class ProtoMsgFactory {
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -4094,7 +4836,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.ClientManagerRequest prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -4114,26 +4856,26 @@ public final class ProtoMsgFactory {
        *客户端管理请求
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.ClientManagerRequest}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest)
-          ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.ClientManagerRequest)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.ClientManagerRequest.class, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -4161,17 +4903,17 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest build() {
-          ProtoMsgFactory.ProtoMsg.ClientManagerRequest result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -4179,8 +4921,8 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest buildPartial() {
-          ProtoMsgFactory.ProtoMsg.ClientManagerRequest result = new ProtoMsgFactory.ProtoMsg.ClientManagerRequest(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest(this);
           result.opType_ = opType_;
           result.opInfo_ = opInfo_;
           onBuilt();
@@ -4221,16 +4963,16 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.ClientManagerRequest) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.ClientManagerRequest)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.ClientManagerRequest other) {
-          if (other == ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance()) return this;
           if (other.getOpType() != 0) {
             setOpType(other.getOpType());
           }
@@ -4253,11 +4995,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.ClientManagerRequest parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.ClientManagerRequest) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -4386,16 +5128,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.ClientManagerRequest)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest)
-      private static final ProtoMsgFactory.ProtoMsg.ClientManagerRequest DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.ClientManagerRequest)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.ClientManagerRequest();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -4420,14 +5162,14 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface ClientManagerResponseOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.ClientManagerResponse)
         com.google.protobuf.MessageOrBuilder {
 
       /**
@@ -4453,11 +5195,11 @@ public final class ProtoMsgFactory {
      *客户端管理响应
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.ClientManagerResponse}
      */
     public static final class ClientManagerResponse extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.ClientManagerResponse)
         ClientManagerResponseOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use ClientManagerResponse.newBuilder() to construct.
@@ -4532,15 +5274,15 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.ClientManagerResponse.class, ProtoMsgFactory.ProtoMsg.ClientManagerResponse.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.Builder.class);
       }
 
       public static final int OP_TYPE_FIELD_NUMBER = 1;
@@ -4638,10 +5380,10 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.ClientManagerResponse)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.ClientManagerResponse other = (ProtoMsgFactory.ProtoMsg.ClientManagerResponse) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse) obj;
 
         if (getOpType()
             != other.getOpType()) return false;
@@ -4667,69 +5409,69 @@ public final class ProtoMsgFactory {
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -4742,7 +5484,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.ClientManagerResponse prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -4762,26 +5504,26 @@ public final class ProtoMsgFactory {
        *客户端管理响应
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.ClientManagerResponse}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse)
-          ProtoMsgFactory.ProtoMsg.ClientManagerResponseOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.ClientManagerResponse)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponseOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.ClientManagerResponse.class, ProtoMsgFactory.ProtoMsg.ClientManagerResponse.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.ClientManagerResponse.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -4809,17 +5551,17 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.ClientManagerResponse.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerResponse build() {
-          ProtoMsgFactory.ProtoMsg.ClientManagerResponse result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -4827,8 +5569,8 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.ClientManagerResponse buildPartial() {
-          ProtoMsgFactory.ProtoMsg.ClientManagerResponse result = new ProtoMsgFactory.ProtoMsg.ClientManagerResponse(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse(this);
           result.opType_ = opType_;
           result.info_ = info_;
           onBuilt();
@@ -4869,16 +5611,16 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.ClientManagerResponse) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.ClientManagerResponse)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.ClientManagerResponse other) {
-          if (other == ProtoMsgFactory.ProtoMsg.ClientManagerResponse.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse.getDefaultInstance()) return this;
           if (other.getOpType() != 0) {
             setOpType(other.getOpType());
           }
@@ -4901,11 +5643,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.ClientManagerResponse parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.ClientManagerResponse) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -5034,16 +5776,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.ClientManagerResponse)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.ClientManagerResponse)
-      private static final ProtoMsgFactory.ProtoMsg.ClientManagerResponse DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.ClientManagerResponse)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.ClientManagerResponse();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -5068,26 +5810,26 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerResponse getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
     }
 
     public interface MessageOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:com.openops.common.bean.msg.ProtoMsg.Message)
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.Message)
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
        * @return The enum numeric value on the wire for type.
        */
       int getTypeValue();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
        * @return The type.
        */
-      ProtoMsgFactory.ProtoMsg.HeadType getType();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType getType();
 
       /**
        * <code>uint64 sequence = 2;</code>
@@ -5108,105 +5850,105 @@ public final class ProtoMsgFactory {
           getSessionIdBytes();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        * @return Whether the authRequest field is set.
        */
       boolean hasAuthRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        * @return The authRequest.
        */
-      ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        */
-      ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        * @return Whether the authResponse field is set.
        */
       boolean hasAuthResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        * @return The authResponse.
        */
-      ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        */
-      ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        * @return Whether the commandExecuteRequest field is set.
        */
       boolean hasCommandExecuteRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        * @return The commandExecuteRequest.
        */
-      ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        */
-      ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        * @return Whether the commandExecuteResponse field is set.
        */
       boolean hasCommandExecuteResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        * @return The commandExecuteResponse.
        */
-      ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        */
-      ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        * @return Whether the clientManagerRequest field is set.
        */
       boolean hasClientManagerRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        * @return The clientManagerRequest.
        */
-      ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        */
-      ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder();
 
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        * @return Whether the clientManagerResponse field is set.
        */
       boolean hasClientManagerResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        * @return The clientManagerResponse.
        */
-      ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse();
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        */
-      ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder();
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder();
     }
     /**
      * <pre>
      *消息报文
      * </pre>
      *
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.Message}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.Message}
      */
     public static final class Message extends
         com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:com.openops.common.bean.msg.ProtoMsg.Message)
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.Message)
         MessageOrBuilder {
     private static final long serialVersionUID = 0L;
       // Use Message.newBuilder() to construct.
@@ -5266,11 +6008,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 34: {
-                ProtoMsgFactory.ProtoMsg.AuthRequest.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder subBuilder = null;
                 if (authRequest_ != null) {
                   subBuilder = authRequest_.toBuilder();
                 }
-                authRequest_ = input.readMessage(ProtoMsgFactory.ProtoMsg.AuthRequest.parser(), extensionRegistry);
+                authRequest_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(authRequest_);
                   authRequest_ = subBuilder.buildPartial();
@@ -5279,11 +6021,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 42: {
-                ProtoMsgFactory.ProtoMsg.AuthResponse.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder subBuilder = null;
                 if (authResponse_ != null) {
                   subBuilder = authResponse_.toBuilder();
                 }
-                authResponse_ = input.readMessage(ProtoMsgFactory.ProtoMsg.AuthResponse.parser(), extensionRegistry);
+                authResponse_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(authResponse_);
                   authResponse_ = subBuilder.buildPartial();
@@ -5292,11 +6034,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 50: {
-                ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder subBuilder = null;
                 if (commandExecuteRequest_ != null) {
                   subBuilder = commandExecuteRequest_.toBuilder();
                 }
-                commandExecuteRequest_ = input.readMessage(ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.parser(), extensionRegistry);
+                commandExecuteRequest_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(commandExecuteRequest_);
                   commandExecuteRequest_ = subBuilder.buildPartial();
@@ -5305,11 +6047,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 58: {
-                ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder subBuilder = null;
                 if (commandExecuteResponse_ != null) {
                   subBuilder = commandExecuteResponse_.toBuilder();
                 }
-                commandExecuteResponse_ = input.readMessage(ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.parser(), extensionRegistry);
+                commandExecuteResponse_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(commandExecuteResponse_);
                   commandExecuteResponse_ = subBuilder.buildPartial();
@@ -5318,11 +6060,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 66: {
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder subBuilder = null;
                 if (clientManagerRequest_ != null) {
                   subBuilder = clientManagerRequest_.toBuilder();
                 }
-                clientManagerRequest_ = input.readMessage(ProtoMsgFactory.ProtoMsg.ClientManagerRequest.parser(), extensionRegistry);
+                clientManagerRequest_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(clientManagerRequest_);
                   clientManagerRequest_ = subBuilder.buildPartial();
@@ -5331,11 +6073,11 @@ public final class ProtoMsgFactory {
                 break;
               }
               case 74: {
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder subBuilder = null;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder subBuilder = null;
                 if (clientManagerResponse_ != null) {
                   subBuilder = clientManagerResponse_.toBuilder();
                 }
-                clientManagerResponse_ = input.readMessage(ProtoMsgFactory.ProtoMsg.ClientManagerRequest.parser(), extensionRegistry);
+                clientManagerResponse_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.parser(), extensionRegistry);
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(clientManagerResponse_);
                   clientManagerResponse_ = subBuilder.buildPartial();
@@ -5366,34 +6108,34 @@ public final class ProtoMsgFactory {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_Message_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.Message.class, ProtoMsgFactory.ProtoMsg.Message.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.Builder.class);
       }
 
       public static final int TYPE_FIELD_NUMBER = 1;
       private int type_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
        * @return The enum numeric value on the wire for type.
        */
       @java.lang.Override public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
        * @return The type.
        */
-      @java.lang.Override public ProtoMsgFactory.ProtoMsg.HeadType getType() {
+      @java.lang.Override public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType getType() {
         @SuppressWarnings("deprecation")
-        ProtoMsgFactory.ProtoMsg.HeadType result = ProtoMsgFactory.ProtoMsg.HeadType.valueOf(type_);
-        return result == null ? ProtoMsgFactory.ProtoMsg.HeadType.UNRECOGNIZED : result;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType result = com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.valueOf(type_);
+        return result == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.UNRECOGNIZED : result;
       }
 
       public static final int SEQUENCE_FIELD_NUMBER = 2;
@@ -5446,9 +6188,9 @@ public final class ProtoMsgFactory {
       }
 
       public static final int AUTHREQUEST_FIELD_NUMBER = 4;
-      private ProtoMsgFactory.ProtoMsg.AuthRequest authRequest_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest authRequest_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        * @return Whether the authRequest field is set.
        */
       @java.lang.Override
@@ -5456,25 +6198,25 @@ public final class ProtoMsgFactory {
         return authRequest_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        * @return The authRequest.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest() {
-        return authRequest_ == null ? ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest() {
+        return authRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder() {
         return getAuthRequest();
       }
 
       public static final int AUTHRESPONSE_FIELD_NUMBER = 5;
-      private ProtoMsgFactory.ProtoMsg.AuthResponse authResponse_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse authResponse_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        * @return Whether the authResponse field is set.
        */
       @java.lang.Override
@@ -5482,25 +6224,25 @@ public final class ProtoMsgFactory {
         return authResponse_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        * @return The authResponse.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse() {
-        return authResponse_ == null ? ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse() {
+        return authResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder() {
         return getAuthResponse();
       }
 
       public static final int COMMANDEXECUTEREQUEST_FIELD_NUMBER = 6;
-      private ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        * @return Whether the commandExecuteRequest field is set.
        */
       @java.lang.Override
@@ -5508,25 +6250,25 @@ public final class ProtoMsgFactory {
         return commandExecuteRequest_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        * @return The commandExecuteRequest.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest() {
-        return commandExecuteRequest_ == null ? ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest() {
+        return commandExecuteRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder() {
         return getCommandExecuteRequest();
       }
 
       public static final int COMMANDEXECUTERESPONSE_FIELD_NUMBER = 7;
-      private ProtoMsgFactory.ProtoMsg.CommandExecuteResponse commandExecuteResponse_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse commandExecuteResponse_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        * @return Whether the commandExecuteResponse field is set.
        */
       @java.lang.Override
@@ -5534,25 +6276,25 @@ public final class ProtoMsgFactory {
         return commandExecuteResponse_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        * @return The commandExecuteResponse.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse() {
-        return commandExecuteResponse_ == null ? ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse() {
+        return commandExecuteResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder() {
         return getCommandExecuteResponse();
       }
 
       public static final int CLIENTMANAGERREQUEST_FIELD_NUMBER = 8;
-      private ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerRequest_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerRequest_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        * @return Whether the clientManagerRequest field is set.
        */
       @java.lang.Override
@@ -5560,25 +6302,25 @@ public final class ProtoMsgFactory {
         return clientManagerRequest_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        * @return The clientManagerRequest.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest() {
-        return clientManagerRequest_ == null ? ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest() {
+        return clientManagerRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder() {
         return getClientManagerRequest();
       }
 
       public static final int CLIENTMANAGERRESPONSE_FIELD_NUMBER = 9;
-      private ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerResponse_;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerResponse_;
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        * @return Whether the clientManagerResponse field is set.
        */
       @java.lang.Override
@@ -5586,18 +6328,18 @@ public final class ProtoMsgFactory {
         return clientManagerResponse_ != null;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        * @return The clientManagerResponse.
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse() {
-        return clientManagerResponse_ == null ? ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse() {
+        return clientManagerResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
       }
       /**
-       * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+       * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        */
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder() {
         return getClientManagerResponse();
       }
 
@@ -5615,7 +6357,7 @@ public final class ProtoMsgFactory {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (type_ != ProtoMsgFactory.ProtoMsg.HeadType.AUTH_REQUEST.getNumber()) {
+        if (type_ != com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.AUTH_REQUEST.getNumber()) {
           output.writeEnum(1, type_);
         }
         if (sequence_ != 0L) {
@@ -5651,7 +6393,7 @@ public final class ProtoMsgFactory {
         if (size != -1) return size;
 
         size = 0;
-        if (type_ != ProtoMsgFactory.ProtoMsg.HeadType.AUTH_REQUEST.getNumber()) {
+        if (type_ != com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.AUTH_REQUEST.getNumber()) {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(1, type_);
         }
@@ -5696,10 +6438,10 @@ public final class ProtoMsgFactory {
         if (obj == this) {
          return true;
         }
-        if (!(obj instanceof ProtoMsgFactory.ProtoMsg.Message)) {
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message)) {
           return super.equals(obj);
         }
-        ProtoMsgFactory.ProtoMsg.Message other = (ProtoMsgFactory.ProtoMsg.Message) obj;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message) obj;
 
         if (type_ != other.type_) return false;
         if (getSequence()
@@ -5783,69 +6525,69 @@ public final class ProtoMsgFactory {
         return hash;
       }
 
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           java.nio.ByteBuffer data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           java.nio.ByteBuffer data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(byte[] data)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseDelimitedFrom(java.io.InputStream input)
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseDelimitedFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3
             .parseWithIOException(PARSER, input);
       }
-      public static ProtoMsgFactory.ProtoMsg.Message parseFrom(
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
@@ -5858,7 +6600,7 @@ public final class ProtoMsgFactory {
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
       }
-      public static Builder newBuilder(ProtoMsgFactory.ProtoMsg.Message prototype) {
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
       @java.lang.Override
@@ -5878,26 +6620,26 @@ public final class ProtoMsgFactory {
        *消息报文
        * </pre>
        *
-       * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg.Message}
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.Message}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg.Message)
-          ProtoMsgFactory.ProtoMsg.MessageOrBuilder {
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.Message)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_Message_fieldAccessorTable
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                  ProtoMsgFactory.ProtoMsg.Message.class, ProtoMsgFactory.ProtoMsg.Message.Builder.class);
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.Builder.class);
         }
 
-        // Construct using ProtoMsgFactory.ProtoMsg.Message.newBuilder()
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
@@ -5963,17 +6705,17 @@ public final class ProtoMsgFactory {
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor;
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor;
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.Message getDefaultInstanceForType() {
-          return ProtoMsgFactory.ProtoMsg.Message.getDefaultInstance();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.getDefaultInstance();
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.Message build() {
-          ProtoMsgFactory.ProtoMsg.Message result = buildPartial();
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message result = buildPartial();
           if (!result.isInitialized()) {
             throw newUninitializedMessageException(result);
           }
@@ -5981,8 +6723,8 @@ public final class ProtoMsgFactory {
         }
 
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.Message buildPartial() {
-          ProtoMsgFactory.ProtoMsg.Message result = new ProtoMsgFactory.ProtoMsg.Message(this);
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message(this);
           result.type_ = type_;
           result.sequence_ = sequence_;
           result.sessionId_ = sessionId_;
@@ -6054,16 +6796,16 @@ public final class ProtoMsgFactory {
         }
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof ProtoMsgFactory.ProtoMsg.Message) {
-            return mergeFrom((ProtoMsgFactory.ProtoMsg.Message)other);
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message)other);
           } else {
             super.mergeFrom(other);
             return this;
           }
         }
 
-        public Builder mergeFrom(ProtoMsgFactory.ProtoMsg.Message other) {
-          if (other == ProtoMsgFactory.ProtoMsg.Message.getDefaultInstance()) return this;
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message.getDefaultInstance()) return this;
           if (other.type_ != 0) {
             setTypeValue(other.getTypeValue());
           }
@@ -6107,11 +6849,11 @@ public final class ProtoMsgFactory {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          ProtoMsgFactory.ProtoMsg.Message parsedMessage = null;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message parsedMessage = null;
           try {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (ProtoMsgFactory.ProtoMsg.Message) e.getUnfinishedMessage();
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
@@ -6123,14 +6865,14 @@ public final class ProtoMsgFactory {
 
         private int type_ = 0;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
          * @return The enum numeric value on the wire for type.
          */
         @java.lang.Override public int getTypeValue() {
           return type_;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
          * @param value The enum numeric value on the wire for type to set.
          * @return This builder for chaining.
          */
@@ -6141,21 +6883,21 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
          * @return The type.
          */
         @java.lang.Override
-        public ProtoMsgFactory.ProtoMsg.HeadType getType() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType getType() {
           @SuppressWarnings("deprecation")
-          ProtoMsgFactory.ProtoMsg.HeadType result = ProtoMsgFactory.ProtoMsg.HeadType.valueOf(type_);
-          return result == null ? ProtoMsgFactory.ProtoMsg.HeadType.UNRECOGNIZED : result;
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType result = com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.valueOf(type_);
+          return result == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType.UNRECOGNIZED : result;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
          * @param value The type to set.
          * @return This builder for chaining.
          */
-        public Builder setType(ProtoMsgFactory.ProtoMsg.HeadType value) {
+        public Builder setType(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.HeadType value) {
           if (value == null) {
             throw new NullPointerException();
           }
@@ -6165,7 +6907,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.HeadType type = 1;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.HeadType type = 1;</code>
          * @return This builder for chaining.
          */
         public Builder clearType() {
@@ -6282,31 +7024,31 @@ public final class ProtoMsgFactory {
           return this;
         }
 
-        private ProtoMsgFactory.ProtoMsg.AuthRequest authRequest_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest authRequest_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.AuthRequest, ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder> authRequestBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder> authRequestBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          * @return Whether the authRequest field is set.
          */
         public boolean hasAuthRequest() {
           return authRequestBuilder_ != null || authRequest_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          * @return The authRequest.
          */
-        public ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest getAuthRequest() {
           if (authRequestBuilder_ == null) {
-            return authRequest_ == null ? ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
+            return authRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
           } else {
             return authRequestBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
-        public Builder setAuthRequest(ProtoMsgFactory.ProtoMsg.AuthRequest value) {
+        public Builder setAuthRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest value) {
           if (authRequestBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6320,10 +7062,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
         public Builder setAuthRequest(
-            ProtoMsgFactory.ProtoMsg.AuthRequest.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder builderForValue) {
           if (authRequestBuilder_ == null) {
             authRequest_ = builderForValue.build();
             onChanged();
@@ -6334,13 +7076,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
-        public Builder mergeAuthRequest(ProtoMsgFactory.ProtoMsg.AuthRequest value) {
+        public Builder mergeAuthRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest value) {
           if (authRequestBuilder_ == null) {
             if (authRequest_ != null) {
               authRequest_ =
-                ProtoMsgFactory.ProtoMsg.AuthRequest.newBuilder(authRequest_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.newBuilder(authRequest_).mergeFrom(value).buildPartial();
             } else {
               authRequest_ = value;
             }
@@ -6352,7 +7094,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
         public Builder clearAuthRequest() {
           if (authRequestBuilder_ == null) {
@@ -6366,33 +7108,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.AuthRequest.Builder getAuthRequestBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder getAuthRequestBuilder() {
           
           onChanged();
           return getAuthRequestFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder getAuthRequestOrBuilder() {
           if (authRequestBuilder_ != null) {
             return authRequestBuilder_.getMessageOrBuilder();
           } else {
             return authRequest_ == null ?
-                ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.getDefaultInstance() : authRequest_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthRequest authRequest = 4;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.AuthRequest, ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder> 
             getAuthRequestFieldBuilder() {
           if (authRequestBuilder_ == null) {
             authRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.AuthRequest, ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthRequestOrBuilder>(
                     getAuthRequest(),
                     getParentForChildren(),
                     isClean());
@@ -6401,31 +7143,31 @@ public final class ProtoMsgFactory {
           return authRequestBuilder_;
         }
 
-        private ProtoMsgFactory.ProtoMsg.AuthResponse authResponse_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse authResponse_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.AuthResponse, ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder> authResponseBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder> authResponseBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          * @return Whether the authResponse field is set.
          */
         public boolean hasAuthResponse() {
           return authResponseBuilder_ != null || authResponse_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          * @return The authResponse.
          */
-        public ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse getAuthResponse() {
           if (authResponseBuilder_ == null) {
-            return authResponse_ == null ? ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
+            return authResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
           } else {
             return authResponseBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
-        public Builder setAuthResponse(ProtoMsgFactory.ProtoMsg.AuthResponse value) {
+        public Builder setAuthResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse value) {
           if (authResponseBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6439,10 +7181,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
         public Builder setAuthResponse(
-            ProtoMsgFactory.ProtoMsg.AuthResponse.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder builderForValue) {
           if (authResponseBuilder_ == null) {
             authResponse_ = builderForValue.build();
             onChanged();
@@ -6453,13 +7195,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
-        public Builder mergeAuthResponse(ProtoMsgFactory.ProtoMsg.AuthResponse value) {
+        public Builder mergeAuthResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse value) {
           if (authResponseBuilder_ == null) {
             if (authResponse_ != null) {
               authResponse_ =
-                ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder(authResponse_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder(authResponse_).mergeFrom(value).buildPartial();
             } else {
               authResponse_ = value;
             }
@@ -6471,7 +7213,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
         public Builder clearAuthResponse() {
           if (authResponseBuilder_ == null) {
@@ -6485,33 +7227,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.AuthResponse.Builder getAuthResponseBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder getAuthResponseBuilder() {
           
           onChanged();
           return getAuthResponseFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder getAuthResponseOrBuilder() {
           if (authResponseBuilder_ != null) {
             return authResponseBuilder_.getMessageOrBuilder();
           } else {
             return authResponse_ == null ?
-                ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.getDefaultInstance() : authResponse_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.AuthResponse authResponse = 5;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.AuthResponse, ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder> 
             getAuthResponseFieldBuilder() {
           if (authResponseBuilder_ == null) {
             authResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.AuthResponse, ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.AuthResponseOrBuilder>(
                     getAuthResponse(),
                     getParentForChildren(),
                     isClean());
@@ -6520,31 +7262,31 @@ public final class ProtoMsgFactory {
           return authResponseBuilder_;
         }
 
-        private ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder> commandExecuteRequestBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder> commandExecuteRequestBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          * @return Whether the commandExecuteRequest field is set.
          */
         public boolean hasCommandExecuteRequest() {
           return commandExecuteRequestBuilder_ != null || commandExecuteRequest_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          * @return The commandExecuteRequest.
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest getCommandExecuteRequest() {
           if (commandExecuteRequestBuilder_ == null) {
-            return commandExecuteRequest_ == null ? ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
+            return commandExecuteRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
           } else {
             return commandExecuteRequestBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
-        public Builder setCommandExecuteRequest(ProtoMsgFactory.ProtoMsg.CommandExecuteRequest value) {
+        public Builder setCommandExecuteRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest value) {
           if (commandExecuteRequestBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6558,10 +7300,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
         public Builder setCommandExecuteRequest(
-            ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder builderForValue) {
           if (commandExecuteRequestBuilder_ == null) {
             commandExecuteRequest_ = builderForValue.build();
             onChanged();
@@ -6572,13 +7314,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
-        public Builder mergeCommandExecuteRequest(ProtoMsgFactory.ProtoMsg.CommandExecuteRequest value) {
+        public Builder mergeCommandExecuteRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest value) {
           if (commandExecuteRequestBuilder_ == null) {
             if (commandExecuteRequest_ != null) {
               commandExecuteRequest_ =
-                ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.newBuilder(commandExecuteRequest_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.newBuilder(commandExecuteRequest_).mergeFrom(value).buildPartial();
             } else {
               commandExecuteRequest_ = value;
             }
@@ -6590,7 +7332,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
         public Builder clearCommandExecuteRequest() {
           if (commandExecuteRequestBuilder_ == null) {
@@ -6604,33 +7346,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder getCommandExecuteRequestBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder getCommandExecuteRequestBuilder() {
           
           onChanged();
           return getCommandExecuteRequestFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder getCommandExecuteRequestOrBuilder() {
           if (commandExecuteRequestBuilder_ != null) {
             return commandExecuteRequestBuilder_.getMessageOrBuilder();
           } else {
             return commandExecuteRequest_ == null ?
-                ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.getDefaultInstance() : commandExecuteRequest_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteRequest commandExecuteRequest = 6;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder> 
             getCommandExecuteRequestFieldBuilder() {
           if (commandExecuteRequestBuilder_ == null) {
             commandExecuteRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteRequestOrBuilder>(
                     getCommandExecuteRequest(),
                     getParentForChildren(),
                     isClean());
@@ -6639,31 +7381,31 @@ public final class ProtoMsgFactory {
           return commandExecuteRequestBuilder_;
         }
 
-        private ProtoMsgFactory.ProtoMsg.CommandExecuteResponse commandExecuteResponse_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse commandExecuteResponse_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder> commandExecuteResponseBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder> commandExecuteResponseBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          * @return Whether the commandExecuteResponse field is set.
          */
         public boolean hasCommandExecuteResponse() {
           return commandExecuteResponseBuilder_ != null || commandExecuteResponse_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          * @return The commandExecuteResponse.
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse getCommandExecuteResponse() {
           if (commandExecuteResponseBuilder_ == null) {
-            return commandExecuteResponse_ == null ? ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
+            return commandExecuteResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
           } else {
             return commandExecuteResponseBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
-        public Builder setCommandExecuteResponse(ProtoMsgFactory.ProtoMsg.CommandExecuteResponse value) {
+        public Builder setCommandExecuteResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse value) {
           if (commandExecuteResponseBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6677,10 +7419,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
         public Builder setCommandExecuteResponse(
-            ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder builderForValue) {
           if (commandExecuteResponseBuilder_ == null) {
             commandExecuteResponse_ = builderForValue.build();
             onChanged();
@@ -6691,13 +7433,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
-        public Builder mergeCommandExecuteResponse(ProtoMsgFactory.ProtoMsg.CommandExecuteResponse value) {
+        public Builder mergeCommandExecuteResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse value) {
           if (commandExecuteResponseBuilder_ == null) {
             if (commandExecuteResponse_ != null) {
               commandExecuteResponse_ =
-                ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.newBuilder(commandExecuteResponse_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.newBuilder(commandExecuteResponse_).mergeFrom(value).buildPartial();
             } else {
               commandExecuteResponse_ = value;
             }
@@ -6709,7 +7451,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
         public Builder clearCommandExecuteResponse() {
           if (commandExecuteResponseBuilder_ == null) {
@@ -6723,33 +7465,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder getCommandExecuteResponseBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder getCommandExecuteResponseBuilder() {
           
           onChanged();
           return getCommandExecuteResponseFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder getCommandExecuteResponseOrBuilder() {
           if (commandExecuteResponseBuilder_ != null) {
             return commandExecuteResponseBuilder_.getMessageOrBuilder();
           } else {
             return commandExecuteResponse_ == null ?
-                ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.getDefaultInstance() : commandExecuteResponse_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.CommandExecuteResponse commandExecuteResponse = 7;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder> 
             getCommandExecuteResponseFieldBuilder() {
           if (commandExecuteResponseBuilder_ == null) {
             commandExecuteResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponse.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.CommandExecuteResponseOrBuilder>(
                     getCommandExecuteResponse(),
                     getParentForChildren(),
                     isClean());
@@ -6758,31 +7500,31 @@ public final class ProtoMsgFactory {
           return commandExecuteResponseBuilder_;
         }
 
-        private ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerRequest_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerRequest_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> clientManagerRequestBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> clientManagerRequestBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          * @return Whether the clientManagerRequest field is set.
          */
         public boolean hasClientManagerRequest() {
           return clientManagerRequestBuilder_ != null || clientManagerRequest_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          * @return The clientManagerRequest.
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerRequest() {
           if (clientManagerRequestBuilder_ == null) {
-            return clientManagerRequest_ == null ? ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
+            return clientManagerRequest_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
           } else {
             return clientManagerRequestBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
-        public Builder setClientManagerRequest(ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
+        public Builder setClientManagerRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
           if (clientManagerRequestBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6796,10 +7538,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
         public Builder setClientManagerRequest(
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder builderForValue) {
           if (clientManagerRequestBuilder_ == null) {
             clientManagerRequest_ = builderForValue.build();
             onChanged();
@@ -6810,13 +7552,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
-        public Builder mergeClientManagerRequest(ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
+        public Builder mergeClientManagerRequest(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
           if (clientManagerRequestBuilder_ == null) {
             if (clientManagerRequest_ != null) {
               clientManagerRequest_ =
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder(clientManagerRequest_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder(clientManagerRequest_).mergeFrom(value).buildPartial();
             } else {
               clientManagerRequest_ = value;
             }
@@ -6828,7 +7570,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
         public Builder clearClientManagerRequest() {
           if (clientManagerRequestBuilder_ == null) {
@@ -6842,33 +7584,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder getClientManagerRequestBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder getClientManagerRequestBuilder() {
           
           onChanged();
           return getClientManagerRequestFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerRequestOrBuilder() {
           if (clientManagerRequestBuilder_ != null) {
             return clientManagerRequestBuilder_.getMessageOrBuilder();
           } else {
             return clientManagerRequest_ == null ?
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerRequest_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerRequest = 8;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> 
             getClientManagerRequestFieldBuilder() {
           if (clientManagerRequestBuilder_ == null) {
             clientManagerRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>(
                     getClientManagerRequest(),
                     getParentForChildren(),
                     isClean());
@@ -6877,31 +7619,31 @@ public final class ProtoMsgFactory {
           return clientManagerRequestBuilder_;
         }
 
-        private ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerResponse_;
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest clientManagerResponse_;
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> clientManagerResponseBuilder_;
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> clientManagerResponseBuilder_;
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          * @return Whether the clientManagerResponse field is set.
          */
         public boolean hasClientManagerResponse() {
           return clientManagerResponseBuilder_ != null || clientManagerResponse_ != null;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          * @return The clientManagerResponse.
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest getClientManagerResponse() {
           if (clientManagerResponseBuilder_ == null) {
-            return clientManagerResponse_ == null ? ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
+            return clientManagerResponse_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
           } else {
             return clientManagerResponseBuilder_.getMessage();
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
-        public Builder setClientManagerResponse(ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
+        public Builder setClientManagerResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
           if (clientManagerResponseBuilder_ == null) {
             if (value == null) {
               throw new NullPointerException();
@@ -6915,10 +7657,10 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
         public Builder setClientManagerResponse(
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder builderForValue) {
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder builderForValue) {
           if (clientManagerResponseBuilder_ == null) {
             clientManagerResponse_ = builderForValue.build();
             onChanged();
@@ -6929,13 +7671,13 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
-        public Builder mergeClientManagerResponse(ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
+        public Builder mergeClientManagerResponse(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest value) {
           if (clientManagerResponseBuilder_ == null) {
             if (clientManagerResponse_ != null) {
               clientManagerResponse_ =
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder(clientManagerResponse_).mergeFrom(value).buildPartial();
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.newBuilder(clientManagerResponse_).mergeFrom(value).buildPartial();
             } else {
               clientManagerResponse_ = value;
             }
@@ -6947,7 +7689,7 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
         public Builder clearClientManagerResponse() {
           if (clientManagerResponseBuilder_ == null) {
@@ -6961,33 +7703,33 @@ public final class ProtoMsgFactory {
           return this;
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder getClientManagerResponseBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder getClientManagerResponseBuilder() {
           
           onChanged();
           return getClientManagerResponseFieldBuilder().getBuilder();
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
-        public ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder() {
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder() {
           if (clientManagerResponseBuilder_ != null) {
             return clientManagerResponseBuilder_.getMessageOrBuilder();
           } else {
             return clientManagerResponse_ == null ?
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.getDefaultInstance() : clientManagerResponse_;
           }
         }
         /**
-         * <code>.com.openops.common.bean.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
+         * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
-            ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder> 
             getClientManagerResponseFieldBuilder() {
           if (clientManagerResponseBuilder_ == null) {
             clientManagerResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                ProtoMsgFactory.ProtoMsg.ClientManagerRequest, ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequest.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder>(
                     getClientManagerResponse(),
                     getParentForChildren(),
                     isClean());
@@ -7008,16 +7750,16 @@ public final class ProtoMsgFactory {
         }
 
 
-        // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg.Message)
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.Message)
       }
 
-      // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg.Message)
-      private static final ProtoMsgFactory.ProtoMsg.Message DEFAULT_INSTANCE;
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.Message)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message DEFAULT_INSTANCE;
       static {
-        DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg.Message();
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message();
       }
 
-      public static ProtoMsgFactory.ProtoMsg.Message getDefaultInstance() {
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message getDefaultInstance() {
         return DEFAULT_INSTANCE;
       }
 
@@ -7042,7 +7784,7 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg.Message getDefaultInstanceForType() {
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Message getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
 
@@ -7081,10 +7823,10 @@ public final class ProtoMsgFactory {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ProtoMsgFactory.ProtoMsg)) {
+      if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg)) {
         return super.equals(obj);
       }
-      ProtoMsgFactory.ProtoMsg other = (ProtoMsgFactory.ProtoMsg) obj;
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg) obj;
 
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -7102,69 +7844,69 @@ public final class ProtoMsgFactory {
       return hash;
     }
 
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(byte[] data)
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(java.io.InputStream input)
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoMsgFactory.ProtoMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ProtoMsgFactory.ProtoMsg parseDelimitedFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoMsgFactory.ProtoMsg parseFrom(
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7177,7 +7919,7 @@ public final class ProtoMsgFactory {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ProtoMsgFactory.ProtoMsg prototype) {
+    public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -7193,26 +7935,26 @@ public final class ProtoMsgFactory {
       return builder;
     }
     /**
-     * Protobuf type {@code com.openops.common.bean.msg.ProtoMsg}
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.openops.common.bean.msg.ProtoMsg)
-        ProtoMsgFactory.ProtoMsgOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg)
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_fieldAccessorTable
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoMsgFactory.ProtoMsg.class, ProtoMsgFactory.ProtoMsg.Builder.class);
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.Builder.class);
       }
 
-      // Construct using ProtoMsgFactory.ProtoMsg.newBuilder()
+      // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7236,17 +7978,17 @@ public final class ProtoMsgFactory {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ProtoMsgFactory.internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor;
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_descriptor;
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg getDefaultInstanceForType() {
-        return ProtoMsgFactory.ProtoMsg.getDefaultInstance();
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg getDefaultInstanceForType() {
+        return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.getDefaultInstance();
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg build() {
-        ProtoMsgFactory.ProtoMsg result = buildPartial();
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg build() {
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -7254,8 +7996,8 @@ public final class ProtoMsgFactory {
       }
 
       @java.lang.Override
-      public ProtoMsgFactory.ProtoMsg buildPartial() {
-        ProtoMsgFactory.ProtoMsg result = new ProtoMsgFactory.ProtoMsg(this);
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg buildPartial() {
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg(this);
         onBuilt();
         return result;
       }
@@ -7294,16 +8036,16 @@ public final class ProtoMsgFactory {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ProtoMsgFactory.ProtoMsg) {
-          return mergeFrom((ProtoMsgFactory.ProtoMsg)other);
+        if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg) {
+          return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ProtoMsgFactory.ProtoMsg other) {
-        if (other == ProtoMsgFactory.ProtoMsg.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg other) {
+        if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7319,11 +8061,11 @@ public final class ProtoMsgFactory {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ProtoMsgFactory.ProtoMsg parsedMessage = null;
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ProtoMsgFactory.ProtoMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7345,16 +8087,16 @@ public final class ProtoMsgFactory {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.openops.common.bean.msg.ProtoMsg)
+      // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg)
     }
 
-    // @@protoc_insertion_point(class_scope:com.openops.common.bean.msg.ProtoMsg)
-    private static final ProtoMsgFactory.ProtoMsg DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg)
+    private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ProtoMsgFactory.ProtoMsg();
+      DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg();
     }
 
-    public static ProtoMsgFactory.ProtoMsg getDefaultInstance() {
+    public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7379,52 +8121,52 @@ public final class ProtoMsgFactory {
     }
 
     @java.lang.Override
-    public ProtoMsgFactory.ProtoMsg getDefaultInstanceForType() {
+    public com.openops.common.msg.ProtoMsgFactory.ProtoMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor;
+    internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_openops_common_bean_msg_ProtoMsg_Message_fieldAccessorTable;
+      internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7434,93 +8176,97 @@ public final class ProtoMsgFactory {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016ProtoMsg.proto\022\033com.openops.common.bea" +
-      "n.msg\"\342\t\n\010ProtoMsg\032E\n\013AuthRequest\022\r\n\005tok" +
-      "en\030\001 \001(\t\022\020\n\010platform\030\002 \001(\t\022\025\n\rclientVers" +
-      "ion\030\003 \001(\t\032*\n\014AuthResponse\022\014\n\004code\030\001 \001(\r\022" +
-      "\014\n\004info\030\002 \001(\t\032U\n\025CommandExecuteRequest\022\013" +
-      "\n\003cmd\030\001 \001(\t\022\014\n\004user\030\002 \001(\t\022\017\n\007timeout\030\003 \001" +
-      "(\003\022\020\n\010priority\030\004 \001(\005\032T\n\026CommandExecuteRe" +
-      "sponse\022\014\n\004code\030\001 \001(\r\022\016\n\006stdout\030\002 \001(\t\022\016\n\006" +
-      "stderr\030\003 \001(\t\022\014\n\004info\030\004 \001(\t\0328\n\024ClientMana" +
-      "gerRequest\022\017\n\007op_type\030\001 \001(\r\022\017\n\007op_info\030\002" +
-      " \001(\t\0326\n\025ClientManagerResponse\022\017\n\007op_type" +
-      "\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\032\356\004\n\007Message\022<\n\004type" +
-      "\030\001 \001(\0162..com.openops.common.bean.msg.Pro" +
-      "toMsg.HeadType\022\020\n\010sequence\030\002 \001(\004\022\022\n\nsess" +
-      "ion_id\030\003 \001(\t\022F\n\013authRequest\030\004 \001(\01321.com." +
-      "openops.common.bean.msg.ProtoMsg.AuthReq" +
-      "uest\022H\n\014authResponse\030\005 \001(\01322.com.openops" +
-      ".common.bean.msg.ProtoMsg.AuthResponse\022Z" +
-      "\n\025commandExecuteRequest\030\006 \001(\0132;.com.open" +
-      "ops.common.bean.msg.ProtoMsg.CommandExec" +
-      "uteRequest\022\\\n\026commandExecuteResponse\030\007 \001" +
-      "(\0132<.com.openops.common.bean.msg.ProtoMs" +
-      "g.CommandExecuteResponse\022X\n\024clientManage" +
-      "rRequest\030\010 \001(\0132:.com.openops.common.bean" +
-      ".msg.ProtoMsg.ClientManagerRequest\022Y\n\025cl" +
-      "ientManagerResponse\030\t \001(\0132:.com.openops." +
-      "common.bean.msg.ProtoMsg.ClientManagerRe" +
-      "quest\"\322\001\n\010HeadType\022\020\n\014AUTH_REQUEST\020\000\022\021\n\r" +
-      "AUTH_RESPONSE\020\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026" +
-      "\n\022HEARTBEAT_RESPONSE\020\003\022\033\n\027COMMAND_EXECUT" +
-      "E_REQUEST\020\004\022\034\n\030COMMAND_EXECUTE_RESPONSE\020" +
-      "\005\022\032\n\026CLIENT_MANAGER_REQUEST\020\006\022\033\n\027CLIENT_" +
-      "MANAGER_RESPONSE\020\007B\021B\017ProtoMsgFactoryb\006p" +
+      "\n\016ProtoMsg.proto\022\026com.openops.common.msg" +
+      "\032\037google/protobuf/timestamp.proto\"\224\n\n\010Pr" +
+      "otoMsg\032E\n\013AuthRequest\022\r\n\005token\030\001 \001(\t\022\020\n\010" +
+      "platform\030\002 \001(\t\022\025\n\rclientVersion\030\003 \001(\t\032*\n" +
+      "\014AuthResponse\022\014\n\004code\030\001 \001(\r\022\014\n\004info\030\002 \001(" +
+      "\t\032q\n\025CommandExecuteRequest\022\014\n\004host\030\001 \001(\t" +
+      "\022\013\n\003cmd\030\002 \001(\t\022\014\n\004user\030\003 \001(\t\022\017\n\007timeout\030\004" +
+      " \001(\003\022\020\n\010priority\030\005 \001(\005\022\014\n\004uuid\030\006 \001(\t\032\214\001\n" +
+      "\026CommandExecuteResponse\022\014\n\004host\030\001 \001(\t\022\014\n" +
+      "\004code\030\002 \001(\r\022\016\n\006stdout\030\003 \001(\t\022\016\n\006stderr\030\004 " +
+      "\001(\t\022\014\n\004info\030\005 \001(\t\022\r\n\005start\030\006 \001(\004\022\013\n\003end\030" +
+      "\007 \001(\004\022\014\n\004uuid\030\010 \001(\t\0328\n\024ClientManagerRequ" +
+      "est\022\017\n\007op_type\030\001 \001(\r\022\017\n\007op_info\030\002 \001(\t\0326\n" +
+      "\025ClientManagerResponse\022\017\n\007op_type\030\001 \001(\r\022" +
+      "\014\n\004info\030\002 \001(\t\032\313\004\n\007Message\0227\n\004type\030\001 \001(\0162" +
+      ").com.openops.common.msg.ProtoMsg.HeadTy" +
+      "pe\022\020\n\010sequence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t" +
+      "\022A\n\013authRequest\030\004 \001(\0132,.com.openops.comm" +
+      "on.msg.ProtoMsg.AuthRequest\022C\n\014authRespo" +
+      "nse\030\005 \001(\0132-.com.openops.common.msg.Proto" +
+      "Msg.AuthResponse\022U\n\025commandExecuteReques" +
+      "t\030\006 \001(\01326.com.openops.common.msg.ProtoMs" +
+      "g.CommandExecuteRequest\022W\n\026commandExecut" +
+      "eResponse\030\007 \001(\01327.com.openops.common.msg" +
+      ".ProtoMsg.CommandExecuteResponse\022S\n\024clie" +
+      "ntManagerRequest\030\010 \001(\01325.com.openops.com" +
+      "mon.msg.ProtoMsg.ClientManagerRequest\022T\n" +
+      "\025clientManagerResponse\030\t \001(\01325.com.openo" +
+      "ps.common.msg.ProtoMsg.ClientManagerRequ" +
+      "est\"\322\001\n\010HeadType\022\020\n\014AUTH_REQUEST\020\000\022\021\n\rAU" +
+      "TH_RESPONSE\020\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026\n\022" +
+      "HEARTBEAT_RESPONSE\020\003\022\033\n\027COMMAND_EXECUTE_" +
+      "REQUEST\020\004\022\034\n\030COMMAND_EXECUTE_RESPONSE\020\005\022" +
+      "\032\n\026CLIENT_MANAGER_REQUEST\020\006\022\033\n\027CLIENT_MA" +
+      "NAGER_RESPONSE\020\007B\021B\017ProtoMsgFactoryP\000b\006p" +
       "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor =
+    internal_static_com_openops_common_msg_ProtoMsg_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_descriptor,
         new java.lang.String[] { });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(0);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(0);
+    internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_AuthRequest_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor,
         new java.lang.String[] { "Token", "Platform", "ClientVersion", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(1);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(1);
+    internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_AuthResponse_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor,
         new java.lang.String[] { "Code", "Info", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(2);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(2);
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteRequest_descriptor,
-        new java.lang.String[] { "Cmd", "User", "Timeout", "Priority", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(3);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable = new
+        internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteRequest_descriptor,
+        new java.lang.String[] { "Host", "Cmd", "User", "Timeout", "Priority", "Uuid", });
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(3);
+    internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_CommandExecuteResponse_descriptor,
-        new java.lang.String[] { "Code", "Stdout", "Stderr", "Info", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(4);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable = new
+        internal_static_com_openops_common_msg_ProtoMsg_CommandExecuteResponse_descriptor,
+        new java.lang.String[] { "Host", "Code", "Stdout", "Stderr", "Info", "Start", "End", "Uuid", });
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(4);
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerRequest_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_ClientManagerRequest_descriptor,
         new java.lang.String[] { "OpType", "OpInfo", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(5);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(5);
+    internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_ClientManagerResponse_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor,
         new java.lang.String[] { "OpType", "Info", });
-    internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor =
-      internal_static_com_openops_common_bean_msg_ProtoMsg_descriptor.getNestedTypes().get(6);
-    internal_static_com_openops_common_bean_msg_ProtoMsg_Message_fieldAccessorTable = new
+    internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(6);
+    internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_openops_common_bean_msg_ProtoMsg_Message_descriptor,
+        internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor,
         new java.lang.String[] { "Type", "Sequence", "SessionId", "AuthRequest", "AuthResponse", "CommandExecuteRequest", "CommandExecuteResponse", "ClientManagerRequest", "ClientManagerResponse", });
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,6 +1,10 @@
 syntax = "proto3";
+
 package com.openops.common.msg;
+
 option java_outer_classname = "ProtoMsgFactory";
+
+import public "google/protobuf/timestamp.proto";
 
 message ProtoMsg {
     /*消息类型*/
@@ -30,18 +34,24 @@ message ProtoMsg {
 
     /*命令执行请求请求*/
     message CommandExecuteRequest {
-        string cmd = 1;
-        string user = 2;
-        int64 timeout = 3;
-        int32 priority = 4;
+        string host = 1;
+        string cmd = 2;
+        string user = 3;
+        int64 timeout = 4;
+        int32 priority = 5;
+        string uuid = 6;
     }
 
     /*命令执行请求响应*/
     message CommandExecuteResponse {
-        uint32 code = 1;
-        string stdout = 2;
-        string stderr = 3;
-        string info = 4;
+        string host = 1;
+        uint32 code = 2;
+        string stdout = 3;
+        string stderr = 4;
+        string info = 5;
+        uint64 start = 6;
+        uint64 end = 7;
+        string uuid = 8;
     }
 
     // TODO: ClientManagerRequest待定字段
