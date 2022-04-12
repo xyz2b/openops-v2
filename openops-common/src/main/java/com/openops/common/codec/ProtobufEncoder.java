@@ -21,6 +21,6 @@ public class ProtobufEncoder extends MessageToByteEncoder<ProtoMsg.Message> {
         out.writeInt(length);
 
         // 消息体中包含我们要发送的数据
-        out.writeBytes(msg.toByteArray());
+        out.writeBytes(msgBytes);
     }
 }
