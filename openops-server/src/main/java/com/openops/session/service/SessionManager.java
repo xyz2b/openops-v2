@@ -1,14 +1,17 @@
 package com.openops.session.service;
 
 import com.openops.common.Client;
+import com.openops.common.msg.Notification;
 import com.openops.distributed.Node;
 import com.openops.distributed.Worker;
+import com.openops.distributed.WorkerRouter;
 import com.openops.session.RemoteSession;
 import com.openops.session.ServerSession;
 import com.openops.session.dao.ClientCacheDAO;
 import com.openops.session.dao.SessionCacheDAO;
 import com.openops.session.entity.ClientCache;
 import com.openops.session.entity.SessionCache;
+import com.openops.util.JsonUtil;
 import io.netty.channel.ChannelHandlerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +66,8 @@ public class SessionManager {
     }
 
     private void notifyOtherNodeOnLine(ServerSession session) {
+        Notification<Notification.ContentWrapper> notification = Notification.wrapContent(Notification.SESSION_ON ,session.sessionId());
+        WorkerRouter.getInst().sendNotification(notification);
     }
 
     public ServerSession getSession(String sessionId) {
@@ -108,6 +113,8 @@ public class SessionManager {
         // 删除本地的会话和远程会话
         removeSession(session.sessionId());
 
+        Worker.getWorker().decrBalance();
+
         /**
          * 通知其他节点 ，用户下线
          */
@@ -115,6 +122,13 @@ public class SessionManager {
     }
 
     private void notifyOtherNodeOffLine(ServerSession session) {
+        if (null == session || session.isValid()) {
+            log.error("session is null or isValid");
+            return;
+        }
+
+        Notification<Notification.ContentWrapper> notification = Notification.wrapContent(Notification.SESSION_OFF ,session.sessionId());
+        WorkerRouter.getInst().sendNotification(notification);
     }
 
     public void removeSession(String sessionId) {
