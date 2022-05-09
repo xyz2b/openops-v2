@@ -16,7 +16,7 @@ public class AuthResponseMsgBuilder extends ProtoBufMsgBuilder {
     @Override
     protected Object assembleMsgInner() {
         return ProtoMsgFactory.ProtoMsg.AuthResponse.newBuilder()
-                .setCode(authResponse.getCode())
+                .setCode(authResponse.getCode().ordinal())
                 .setInfo(authResponse.getInfo());
     }
 }

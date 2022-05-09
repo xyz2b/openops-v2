@@ -14,8 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 public class ClientSession extends AbstractSession {
     public static final AttributeKey<ClientSession> SESSION_KEY = AttributeKey.valueOf("SESSION_KEY");
 
-    public ClientSession(Channel channel, Client client) {
-        super(channel, client);
+    public ClientSession(Channel channel) {
+        super(channel);
         channel.attr(ClientSession.SESSION_KEY).set(this);
         sender = new ProtoMsgSender(this);
     }

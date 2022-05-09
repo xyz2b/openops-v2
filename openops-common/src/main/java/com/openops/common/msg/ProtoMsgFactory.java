@@ -248,7 +248,7 @@ public final class ProtoMsgFactory {
       }
 
       /**
-       * @param value The numeric wire value of the corresponding enum entry.
+       * @param value The numeric wire value of the corresponding enum entity.
        * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
@@ -258,7 +258,7 @@ public final class ProtoMsgFactory {
       }
 
       /**
-       * @param value The numeric wire value of the corresponding enum entry.
+       * @param value The numeric wire value of the corresponding enum entity.
        * @return The enum associated with the given numeric wire value.
        */
       public static HeadType forNumber(int value) {
@@ -390,6 +390,18 @@ public final class ProtoMsgFactory {
        */
       com.google.protobuf.ByteString
           getClientVersionBytes();
+
+      /**
+       * <code>string clientId = 4;</code>
+       * @return The clientId.
+       */
+      java.lang.String getClientId();
+      /**
+       * <code>string clientId = 4;</code>
+       * @return The bytes for clientId.
+       */
+      com.google.protobuf.ByteString
+          getClientIdBytes();
     }
     /**
      * <pre>
@@ -411,6 +423,7 @@ public final class ProtoMsgFactory {
         token_ = "";
         platform_ = "";
         clientVersion_ = "";
+        clientId_ = "";
       }
 
       @java.lang.Override
@@ -459,6 +472,12 @@ public final class ProtoMsgFactory {
                 java.lang.String s = input.readStringRequireUtf8();
 
                 clientVersion_ = s;
+                break;
+              }
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                clientId_ = s;
                 break;
               }
               default: {
@@ -633,6 +652,44 @@ public final class ProtoMsgFactory {
         }
       }
 
+      public static final int CLIENTID_FIELD_NUMBER = 4;
+      private volatile java.lang.Object clientId_;
+      /**
+       * <code>string clientId = 4;</code>
+       * @return The clientId.
+       */
+      @java.lang.Override
+      public java.lang.String getClientId() {
+        java.lang.Object ref = clientId_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          clientId_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string clientId = 4;</code>
+       * @return The bytes for clientId.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getClientIdBytes() {
+        java.lang.Object ref = clientId_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          clientId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -656,6 +713,9 @@ public final class ProtoMsgFactory {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientVersion_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 3, clientVersion_);
         }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, clientId_);
+        }
         unknownFields.writeTo(output);
       }
 
@@ -673,6 +733,9 @@ public final class ProtoMsgFactory {
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientVersion_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, clientVersion_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, clientId_);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -695,6 +758,8 @@ public final class ProtoMsgFactory {
             .equals(other.getPlatform())) return false;
         if (!getClientVersion()
             .equals(other.getClientVersion())) return false;
+        if (!getClientId()
+            .equals(other.getClientId())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -712,6 +777,8 @@ public final class ProtoMsgFactory {
         hash = (53 * hash) + getPlatform().hashCode();
         hash = (37 * hash) + CLIENTVERSION_FIELD_NUMBER;
         hash = (53 * hash) + getClientVersion().hashCode();
+        hash = (37 * hash) + CLIENTID_FIELD_NUMBER;
+        hash = (53 * hash) + getClientId().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -855,6 +922,8 @@ public final class ProtoMsgFactory {
 
           clientVersion_ = "";
 
+          clientId_ = "";
+
           return this;
         }
 
@@ -884,6 +953,7 @@ public final class ProtoMsgFactory {
           result.token_ = token_;
           result.platform_ = platform_;
           result.clientVersion_ = clientVersion_;
+          result.clientId_ = clientId_;
           onBuilt();
           return result;
         }
@@ -942,6 +1012,10 @@ public final class ProtoMsgFactory {
           }
           if (!other.getClientVersion().isEmpty()) {
             clientVersion_ = other.clientVersion_;
+            onChanged();
+          }
+          if (!other.getClientId().isEmpty()) {
+            clientId_ = other.clientId_;
             onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
@@ -1257,6 +1331,82 @@ public final class ProtoMsgFactory {
   checkByteStringIsUtf8(value);
           
           clientVersion_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object clientId_ = "";
+        /**
+         * <code>string clientId = 4;</code>
+         * @return The clientId.
+         */
+        public java.lang.String getClientId() {
+          java.lang.Object ref = clientId_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            clientId_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string clientId = 4;</code>
+         * @return The bytes for clientId.
+         */
+        public com.google.protobuf.ByteString
+            getClientIdBytes() {
+          java.lang.Object ref = clientId_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            clientId_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string clientId = 4;</code>
+         * @param value The clientId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setClientId(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          clientId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string clientId = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearClientId() {
+          
+          clientId_ = getDefaultInstance().getClientId();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string clientId = 4;</code>
+         * @param value The bytes for clientId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setClientIdBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          clientId_ = value;
           onChanged();
           return this;
         }
@@ -8177,41 +8327,41 @@ public final class ProtoMsgFactory {
   static {
     java.lang.String[] descriptorData = {
       "\n\016ProtoMsg.proto\022\026com.openops.common.msg" +
-      "\032\037google/protobuf/timestamp.proto\"\224\n\n\010Pr" +
-      "otoMsg\032E\n\013AuthRequest\022\r\n\005token\030\001 \001(\t\022\020\n\010" +
-      "platform\030\002 \001(\t\022\025\n\rclientVersion\030\003 \001(\t\032*\n" +
-      "\014AuthResponse\022\014\n\004code\030\001 \001(\r\022\014\n\004info\030\002 \001(" +
-      "\t\032q\n\025CommandExecuteRequest\022\014\n\004host\030\001 \001(\t" +
-      "\022\013\n\003cmd\030\002 \001(\t\022\014\n\004user\030\003 \001(\t\022\017\n\007timeout\030\004" +
-      " \001(\003\022\020\n\010priority\030\005 \001(\005\022\014\n\004uuid\030\006 \001(\t\032\214\001\n" +
-      "\026CommandExecuteResponse\022\014\n\004host\030\001 \001(\t\022\014\n" +
-      "\004code\030\002 \001(\r\022\016\n\006stdout\030\003 \001(\t\022\016\n\006stderr\030\004 " +
-      "\001(\t\022\014\n\004info\030\005 \001(\t\022\r\n\005start\030\006 \001(\004\022\013\n\003end\030" +
-      "\007 \001(\004\022\014\n\004uuid\030\010 \001(\t\0328\n\024ClientManagerRequ" +
-      "est\022\017\n\007op_type\030\001 \001(\r\022\017\n\007op_info\030\002 \001(\t\0326\n" +
-      "\025ClientManagerResponse\022\017\n\007op_type\030\001 \001(\r\022" +
-      "\014\n\004info\030\002 \001(\t\032\313\004\n\007Message\0227\n\004type\030\001 \001(\0162" +
-      ").com.openops.common.msg.ProtoMsg.HeadTy" +
-      "pe\022\020\n\010sequence\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t" +
-      "\022A\n\013authRequest\030\004 \001(\0132,.com.openops.comm" +
-      "on.msg.ProtoMsg.AuthRequest\022C\n\014authRespo" +
-      "nse\030\005 \001(\0132-.com.openops.common.msg.Proto" +
-      "Msg.AuthResponse\022U\n\025commandExecuteReques" +
-      "t\030\006 \001(\01326.com.openops.common.msg.ProtoMs" +
-      "g.CommandExecuteRequest\022W\n\026commandExecut" +
-      "eResponse\030\007 \001(\01327.com.openops.common.msg" +
-      ".ProtoMsg.CommandExecuteResponse\022S\n\024clie" +
-      "ntManagerRequest\030\010 \001(\01325.com.openops.com" +
-      "mon.msg.ProtoMsg.ClientManagerRequest\022T\n" +
-      "\025clientManagerResponse\030\t \001(\01325.com.openo" +
-      "ps.common.msg.ProtoMsg.ClientManagerRequ" +
-      "est\"\322\001\n\010HeadType\022\020\n\014AUTH_REQUEST\020\000\022\021\n\rAU" +
-      "TH_RESPONSE\020\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026\n\022" +
-      "HEARTBEAT_RESPONSE\020\003\022\033\n\027COMMAND_EXECUTE_" +
-      "REQUEST\020\004\022\034\n\030COMMAND_EXECUTE_RESPONSE\020\005\022" +
-      "\032\n\026CLIENT_MANAGER_REQUEST\020\006\022\033\n\027CLIENT_MA" +
-      "NAGER_RESPONSE\020\007B\021B\017ProtoMsgFactoryP\000b\006p" +
-      "roto3"
+      "\032\037google/protobuf/timestamp.proto\"\246\n\n\010Pr" +
+      "otoMsg\032W\n\013AuthRequest\022\r\n\005token\030\001 \001(\t\022\020\n\010" +
+      "platform\030\002 \001(\t\022\025\n\rclientVersion\030\003 \001(\t\022\020\n" +
+      "\010clientId\030\004 \001(\t\032*\n\014AuthResponse\022\014\n\004code\030" +
+      "\001 \001(\r\022\014\n\004info\030\002 \001(\t\032q\n\025CommandExecuteReq" +
+      "uest\022\014\n\004host\030\001 \001(\t\022\013\n\003cmd\030\002 \001(\t\022\014\n\004user\030" +
+      "\003 \001(\t\022\017\n\007timeout\030\004 \001(\003\022\020\n\010priority\030\005 \001(\005" +
+      "\022\014\n\004uuid\030\006 \001(\t\032\214\001\n\026CommandExecuteRespons" +
+      "e\022\014\n\004host\030\001 \001(\t\022\014\n\004code\030\002 \001(\r\022\016\n\006stdout\030" +
+      "\003 \001(\t\022\016\n\006stderr\030\004 \001(\t\022\014\n\004info\030\005 \001(\t\022\r\n\005s" +
+      "tart\030\006 \001(\004\022\013\n\003end\030\007 \001(\004\022\014\n\004uuid\030\010 \001(\t\0328\n" +
+      "\024ClientManagerRequest\022\017\n\007op_type\030\001 \001(\r\022\017" +
+      "\n\007op_info\030\002 \001(\t\0326\n\025ClientManagerResponse" +
+      "\022\017\n\007op_type\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\032\313\004\n\007Mess" +
+      "age\0227\n\004type\030\001 \001(\0162).com.openops.common.m" +
+      "sg.ProtoMsg.HeadType\022\020\n\010sequence\030\002 \001(\004\022\022" +
+      "\n\nsession_id\030\003 \001(\t\022A\n\013authRequest\030\004 \001(\0132" +
+      ",.com.openops.common.msg.ProtoMsg.AuthRe" +
+      "quest\022C\n\014authResponse\030\005 \001(\0132-.com.openop" +
+      "s.common.msg.ProtoMsg.AuthResponse\022U\n\025co" +
+      "mmandExecuteRequest\030\006 \001(\01326.com.openops." +
+      "common.msg.ProtoMsg.CommandExecuteReques" +
+      "t\022W\n\026commandExecuteResponse\030\007 \001(\01327.com." +
+      "openops.common.msg.ProtoMsg.CommandExecu" +
+      "teResponse\022S\n\024clientManagerRequest\030\010 \001(\013" +
+      "25.com.openops.common.msg.ProtoMsg.Clien" +
+      "tManagerRequest\022T\n\025clientManagerResponse" +
+      "\030\t \001(\01325.com.openops.common.msg.ProtoMsg" +
+      ".ClientManagerRequest\"\322\001\n\010HeadType\022\020\n\014AU" +
+      "TH_REQUEST\020\000\022\021\n\rAUTH_RESPONSE\020\001\022\025\n\021HEART" +
+      "BEAT_REQUEST\020\002\022\026\n\022HEARTBEAT_RESPONSE\020\003\022\033" +
+      "\n\027COMMAND_EXECUTE_REQUEST\020\004\022\034\n\030COMMAND_E" +
+      "XECUTE_RESPONSE\020\005\022\032\n\026CLIENT_MANAGER_REQU" +
+      "EST\020\006\022\033\n\027CLIENT_MANAGER_RESPONSE\020\007B\021B\017Pr" +
+      "otoMsgFactoryP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8229,7 +8379,7 @@ public final class ProtoMsgFactory {
     internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_openops_common_msg_ProtoMsg_AuthRequest_descriptor,
-        new java.lang.String[] { "Token", "Platform", "ClientVersion", });
+        new java.lang.String[] { "Token", "Platform", "ClientVersion", "ClientId", });
     internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_descriptor =
       internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(1);
     internal_static_com_openops_common_msg_ProtoMsg_AuthResponse_fieldAccessorTable = new

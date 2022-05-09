@@ -13,10 +13,4 @@ public class HeartBeatResponseMsgBuilder extends ProtoBufMsgBuilder {
     protected Object assembleMsgInner() {
         return null;
     }
-
-    public static void main(String[] args) {
-        HeartBeatResponseMsgBuilder builder = new HeartBeatResponseMsgBuilder(new Client("111", "222", "333", "4444"));
-        ProtoMsg.Message message = (ProtoMsg.Message) builder.build();
-        System.out.println(message.getType());
-    }
 }

@@ -3,6 +3,8 @@ package com.openops.session;
 import com.openops.common.Client;
 import com.openops.common.sender.ProtoMsgSender;
 import com.openops.common.session.AbstractSession;
+import com.openops.util.JsonUtil;
+import com.openops.util.NanoIdUtils;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -13,11 +15,16 @@ import lombok.extern.slf4j.Slf4j;
 public class ServerSession extends AbstractSession {
     public static final AttributeKey<ServerSession> SESSION_KEY =
             AttributeKey.valueOf("SESSION_KEY");
+    public static final AttributeKey<String> CHANNEL_NAME =
+            AttributeKey.valueOf("CHANNEL_NAME");
 
-    public ServerSession(Channel channel, Client client) {
-        super(channel, client);
-        channel.attr(ServerSession.SESSION_KEY).set(this);
-        sender = new ProtoMsgSender(this);
+    public ServerSession(Channel channel) {
+        super(channel);
+        if (channel != null) {
+            super.setSessionId(NanoIdUtils.randomNanoId());
+            channel.attr(ServerSession.SESSION_KEY).set(this);
+            sender = new ProtoMsgSender(this);
+        }
     }
 
     @Override

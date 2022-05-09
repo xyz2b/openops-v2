@@ -2,14 +2,16 @@ package com.openops.common.session;
 
 import com.openops.common.Client;
 import com.openops.common.sender.Sender;
+import com.openops.util.NanoIdUtils;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class AbstractSession implements Session {
+    // 通过session找到channel
     private final Channel channel;
-    private final Client client;
+    private Client client;
     private String sessionId;
 
     private boolean connected;
@@ -17,9 +19,8 @@ public abstract class AbstractSession implements Session {
 
     protected Sender sender;
 
-    public AbstractSession(Channel channel, Client client) {
+    public AbstractSession(Channel channel) {
         this.channel = channel;
-        this.client = client;
         connected = true;
         logged = false;
     }
@@ -30,6 +31,9 @@ public abstract class AbstractSession implements Session {
 
     public Client client() {
         return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Session session() {
@@ -80,5 +84,9 @@ public abstract class AbstractSession implements Session {
 
     protected Channel channel() {
         return channel;
+    }
+
+    private static String buildNewSessionId() {
+        return NanoIdUtils.randomNanoId();
     }
 }

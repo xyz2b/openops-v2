@@ -24,6 +24,7 @@ message ProtoMsg {
         string token = 1;    // 用户token
         string platform = 2; // 客户端操作系统版本
         string clientVersion = 3;  // 客户端版本
+        string clientId = 4;
     }
 
     /*登陆验证响应*/

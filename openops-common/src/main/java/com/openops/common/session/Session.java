@@ -13,4 +13,6 @@ public interface Session {
     boolean isValid();
     boolean isConnected();
     boolean isLogin();
+
+    String sessionId();
 }

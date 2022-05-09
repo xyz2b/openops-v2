@@ -12,4 +12,12 @@ public class Client {
     private String clientVersion;
     private String token;
     private String platform;
+    private String sessionId;
+
+    public void filling(String clientId, String clientVersion, String token, String platform) {
+        this.clientId = clientId;
+        this.clientVersion = clientVersion;
+        this.token = token;
+        this.platform = platform;
+    }
 }
