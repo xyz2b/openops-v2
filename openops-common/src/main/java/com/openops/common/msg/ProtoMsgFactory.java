@@ -6961,6 +6961,21 @@ public final class ProtoMsgFactory {
        * <code>.com.openops.common.msg.ProtoMsg.ClientManagerRequest clientManagerResponse = 9;</code>
        */
       com.openops.common.msg.ProtoMsgFactory.ProtoMsg.ClientManagerRequestOrBuilder getClientManagerResponseOrBuilder();
+
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       * @return Whether the messageNotification field is set.
+       */
+      boolean hasMessageNotification();
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       * @return The messageNotification.
+       */
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getMessageNotification();
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       */
+      com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder getMessageNotificationOrBuilder();
     }
     /**
      * <pre>
@@ -7104,6 +7119,19 @@ public final class ProtoMsgFactory {
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(clientManagerResponse_);
                   clientManagerResponse_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 82: {
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder subBuilder = null;
+                if (messageNotification_ != null) {
+                  subBuilder = messageNotification_.toBuilder();
+                }
+                messageNotification_ = input.readMessage(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(messageNotification_);
+                  messageNotification_ = subBuilder.buildPartial();
                 }
 
                 break;
@@ -7366,6 +7394,32 @@ public final class ProtoMsgFactory {
         return getClientManagerResponse();
       }
 
+      public static final int MESSAGENOTIFICATION_FIELD_NUMBER = 10;
+      private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification messageNotification_;
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       * @return Whether the messageNotification field is set.
+       */
+      @java.lang.Override
+      public boolean hasMessageNotification() {
+        return messageNotification_ != null;
+      }
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       * @return The messageNotification.
+       */
+      @java.lang.Override
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getMessageNotification() {
+        return messageNotification_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.getDefaultInstance() : messageNotification_;
+      }
+      /**
+       * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+       */
+      @java.lang.Override
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder getMessageNotificationOrBuilder() {
+        return getMessageNotification();
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -7406,6 +7460,9 @@ public final class ProtoMsgFactory {
         }
         if (clientManagerResponse_ != null) {
           output.writeMessage(9, getClientManagerResponse());
+        }
+        if (messageNotification_ != null) {
+          output.writeMessage(10, getMessageNotification());
         }
         unknownFields.writeTo(output);
       }
@@ -7450,6 +7507,10 @@ public final class ProtoMsgFactory {
         if (clientManagerResponse_ != null) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(9, getClientManagerResponse());
+        }
+        if (messageNotification_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(10, getMessageNotification());
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -7501,6 +7562,11 @@ public final class ProtoMsgFactory {
           if (!getClientManagerResponse()
               .equals(other.getClientManagerResponse())) return false;
         }
+        if (hasMessageNotification() != other.hasMessageNotification()) return false;
+        if (hasMessageNotification()) {
+          if (!getMessageNotification()
+              .equals(other.getMessageNotification())) return false;
+        }
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -7542,6 +7608,10 @@ public final class ProtoMsgFactory {
         if (hasClientManagerResponse()) {
           hash = (37 * hash) + CLIENTMANAGERRESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getClientManagerResponse().hashCode();
+        }
+        if (hasMessageNotification()) {
+          hash = (37 * hash) + MESSAGENOTIFICATION_FIELD_NUMBER;
+          hash = (53 * hash) + getMessageNotification().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -7722,6 +7792,12 @@ public final class ProtoMsgFactory {
             clientManagerResponse_ = null;
             clientManagerResponseBuilder_ = null;
           }
+          if (messageNotificationBuilder_ == null) {
+            messageNotification_ = null;
+          } else {
+            messageNotification_ = null;
+            messageNotificationBuilder_ = null;
+          }
           return this;
         }
 
@@ -7780,6 +7856,11 @@ public final class ProtoMsgFactory {
             result.clientManagerResponse_ = clientManagerResponse_;
           } else {
             result.clientManagerResponse_ = clientManagerResponseBuilder_.build();
+          }
+          if (messageNotificationBuilder_ == null) {
+            result.messageNotification_ = messageNotification_;
+          } else {
+            result.messageNotification_ = messageNotificationBuilder_.build();
           }
           onBuilt();
           return result;
@@ -7856,6 +7937,9 @@ public final class ProtoMsgFactory {
           }
           if (other.hasClientManagerResponse()) {
             mergeClientManagerResponse(other.getClientManagerResponse());
+          }
+          if (other.hasMessageNotification()) {
+            mergeMessageNotification(other.getMessageNotification());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -8760,6 +8844,125 @@ public final class ProtoMsgFactory {
           }
           return clientManagerResponseBuilder_;
         }
+
+        private com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification messageNotification_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder> messageNotificationBuilder_;
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         * @return Whether the messageNotification field is set.
+         */
+        public boolean hasMessageNotification() {
+          return messageNotificationBuilder_ != null || messageNotification_ != null;
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         * @return The messageNotification.
+         */
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getMessageNotification() {
+          if (messageNotificationBuilder_ == null) {
+            return messageNotification_ == null ? com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.getDefaultInstance() : messageNotification_;
+          } else {
+            return messageNotificationBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public Builder setMessageNotification(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification value) {
+          if (messageNotificationBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            messageNotification_ = value;
+            onChanged();
+          } else {
+            messageNotificationBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public Builder setMessageNotification(
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder builderForValue) {
+          if (messageNotificationBuilder_ == null) {
+            messageNotification_ = builderForValue.build();
+            onChanged();
+          } else {
+            messageNotificationBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public Builder mergeMessageNotification(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification value) {
+          if (messageNotificationBuilder_ == null) {
+            if (messageNotification_ != null) {
+              messageNotification_ =
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.newBuilder(messageNotification_).mergeFrom(value).buildPartial();
+            } else {
+              messageNotification_ = value;
+            }
+            onChanged();
+          } else {
+            messageNotificationBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public Builder clearMessageNotification() {
+          if (messageNotificationBuilder_ == null) {
+            messageNotification_ = null;
+            onChanged();
+          } else {
+            messageNotification_ = null;
+            messageNotificationBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder getMessageNotificationBuilder() {
+          
+          onChanged();
+          return getMessageNotificationFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder getMessageNotificationOrBuilder() {
+          if (messageNotificationBuilder_ != null) {
+            return messageNotificationBuilder_.getMessageOrBuilder();
+          } else {
+            return messageNotification_ == null ?
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.getDefaultInstance() : messageNotification_;
+          }
+        }
+        /**
+         * <code>.com.openops.common.msg.ProtoMsg.MessageNotification messageNotification = 10;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder> 
+            getMessageNotificationFieldBuilder() {
+          if (messageNotificationBuilder_ == null) {
+            messageNotificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder>(
+                    getMessageNotification(),
+                    getParentForChildren(),
+                    isClean());
+            messageNotification_ = null;
+          }
+          return messageNotificationBuilder_;
+        }
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9205,7 +9408,7 @@ public final class ProtoMsgFactory {
   static {
     java.lang.String[] descriptorData = {
       "\n\016ProtoMsg.proto\022\026com.openops.common.msg" +
-      "\032\037google/protobuf/timestamp.proto\"\232\013\n\010Pr" +
+      "\032\037google/protobuf/timestamp.proto\"\355\013\n\010Pr" +
       "otoMsg\032W\n\013AuthRequest\022\r\n\005token\030\001 \001(\t\022\020\n\010" +
       "platform\030\002 \001(\t\022\025\n\rclientVersion\030\003 \001(\t\022\020\n" +
       "\010clientId\030\004 \001(\t\032*\n\014AuthResponse\022\014\n\004code\030" +
@@ -9221,7 +9424,7 @@ public final class ProtoMsgFactory {
       "\022\017\n\007op_type\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\032X\n\023Messa" +
       "geNotification\022\020\n\010msg_type\030\001 \001(\r\022\016\n\006send" +
       "er\030\002 \001(\014\022\014\n\004json\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(" +
-      "\t\032\313\004\n\007Message\0227\n\004type\030\001 \001(\0162).com.openop" +
+      "\t\032\236\005\n\007Message\0227\n\004type\030\001 \001(\0162).com.openop" +
       "s.common.msg.ProtoMsg.HeadType\022\020\n\010sequen" +
       "ce\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\022A\n\013authRequ" +
       "est\030\004 \001(\0132,.com.openops.common.msg.Proto" +
@@ -9235,14 +9438,16 @@ public final class ProtoMsgFactory {
       "uest\030\010 \001(\01325.com.openops.common.msg.Prot" +
       "oMsg.ClientManagerRequest\022T\n\025clientManag" +
       "erResponse\030\t \001(\01325.com.openops.common.ms" +
-      "g.ProtoMsg.ClientManagerRequest\"\354\001\n\010Head" +
-      "Type\022\020\n\014AUTH_REQUEST\020\000\022\021\n\rAUTH_RESPONSE\020" +
-      "\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026\n\022HEARTBEAT_RE" +
-      "SPONSE\020\003\022\033\n\027COMMAND_EXECUTE_REQUEST\020\004\022\034\n" +
-      "\030COMMAND_EXECUTE_RESPONSE\020\005\022\032\n\026CLIENT_MA" +
-      "NAGER_REQUEST\020\006\022\033\n\027CLIENT_MANAGER_RESPON" +
-      "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\021B\017ProtoM" +
-      "sgFactoryP\000b\006proto3"
+      "g.ProtoMsg.ClientManagerRequest\022Q\n\023messa" +
+      "geNotification\030\n \001(\01324.com.openops.commo" +
+      "n.msg.ProtoMsg.MessageNotification\"\354\001\n\010H" +
+      "eadType\022\020\n\014AUTH_REQUEST\020\000\022\021\n\rAUTH_RESPON" +
+      "SE\020\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026\n\022HEARTBEAT" +
+      "_RESPONSE\020\003\022\033\n\027COMMAND_EXECUTE_REQUEST\020\004" +
+      "\022\034\n\030COMMAND_EXECUTE_RESPONSE\020\005\022\032\n\026CLIENT" +
+      "_MANAGER_REQUEST\020\006\022\033\n\027CLIENT_MANAGER_RES" +
+      "PONSE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\021B\017Pro" +
+      "toMsgFactoryP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9302,7 +9507,7 @@ public final class ProtoMsgFactory {
     internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor,
-        new java.lang.String[] { "Type", "Sequence", "SessionId", "AuthRequest", "AuthResponse", "CommandExecuteRequest", "CommandExecuteResponse", "ClientManagerRequest", "ClientManagerResponse", });
+        new java.lang.String[] { "Type", "Sequence", "SessionId", "AuthRequest", "AuthResponse", "CommandExecuteRequest", "CommandExecuteResponse", "ClientManagerRequest", "ClientManagerResponse", "MessageNotification", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

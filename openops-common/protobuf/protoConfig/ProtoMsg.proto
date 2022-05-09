@@ -89,6 +89,7 @@ message ProtoMsg {
         CommandExecuteResponse commandExecuteResponse = 7;
         ClientManagerRequest clientManagerRequest = 8;
         ClientManagerRequest clientManagerResponse = 9;
+        MessageNotification messageNotification = 10;
     }
 
 }

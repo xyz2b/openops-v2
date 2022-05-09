@@ -59,12 +59,12 @@ public class SessionManager {
 
         Worker.getWorker().incBalance();
 
-        notifyOtherNodeOnLine(session);
+        notifyOtherNodeOnLine(sessionCache);
 
     }
 
-    private void notifyOtherNodeOnLine(ServerSession session) {
-        Notification<Notification.ContentWrapper> notification = Notification.wrapContent(Notification.SESSION_ON ,session.sessionId());
+    private void notifyOtherNodeOnLine(SessionCache session) {
+        Notification<SessionCache> notification = new Notification<SessionCache>(Notification.SESSION_ON , session);
         WorkerRouter.getInst().sendNotification(notification);
     }
 

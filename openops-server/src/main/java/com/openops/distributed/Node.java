@@ -32,7 +32,7 @@ public class Node implements Comparable<Node>, Serializable {
 
     @Override
     public String toString() {
-        return "ImNode{" +
+        return "Node{" +
                 "id='" + id + '\'' +
                 "host='" + host + '\'' +
                 ", port='" + port + '\'' +
