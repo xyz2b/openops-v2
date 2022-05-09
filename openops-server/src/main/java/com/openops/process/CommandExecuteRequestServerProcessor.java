@@ -26,15 +26,22 @@ public class CommandExecuteRequestServerProcessor extends AbstractProcessor {
             String to = commandExecuteRequest.getHost();
 
             Session toSession = SessionManager.getSessionManger().getSessionByClientId(to);
-
-            if (null != toSession && toSession.isLogin()) {
+            if (null != fromSession && fromSession.isLogin()) {
+                // LocalSession
+                if (null != toSession && toSession.isLogin()) {
+                    toSession.writeAndFlush(msg);
+                    return true;
+                } else {
+                    // 接收方离线
+                    log.error("[" + to + "] 不在线!");
+                    return false;
+                }
+            } else {
+                // remoteSession
                 toSession.writeAndFlush(msg);
                 return true;
-            } else {
-                // 接收方离线
-                log.error("[" + to + "] 不在线!");
-                return false;
             }
+
         }
         return false;
     }
