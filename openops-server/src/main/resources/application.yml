@@ -1,0 +1,14 @@
+spring:
+  main:
+    web-application-type: none
+  profiles:
+    include: redis
+
+
+zookeeper:
+  connect:
+    url: localhost:2111,localhost:2222,localhost:2333
+    SessionTimeout: 600000
+
+logging:
+  config: classpath:logback-spring.xml

@@ -26,10 +26,4 @@ public class CommandExecResponseMsgBuilder extends ProtoBufMsgBuilder {
                 .setEnd(output.getEnd())
                 .setHost(output.getHost());
     }
-
-    public static void main(String[] args) {
-        CommandExecResponseMsgBuilder builder = new CommandExecResponseMsgBuilder(new Client("111", "222", "333", "4444"), new TerminalOutput("127.0.0.1", 0, "success", "", "", 100, 1000, "dsds-dsdsd"));
-        ProtoMsg.Message message = (ProtoMsg.Message) builder.build();
-        System.out.println(message.getCommandExecuteResponse().getStdout());
-    }
 }

@@ -1,7 +1,9 @@
 package com.openops.distributed;
 
+import com.openops.builder.NotificationMsgBuilder;
 import com.openops.cocurrent.ThreadPoolFactory;
 import com.openops.common.ServerConstants;
+import com.openops.common.msg.Notification;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.util.JsonUtil;
 import com.openops.util.ObjectUtil;
@@ -198,18 +200,17 @@ public class WorkerRouter {
     }
 
 
-    public void sendNotification(String json) {
+    public void sendNotification(Notification notification) {
         workerMap.keySet().stream().forEach(
                 key ->
                 {
                     if (!key.equals(getLocalNode().getId())) {
                         PeerSender peerSender = workerMap.get(key);
-                        ProtoMsg.Message pkg = NotificationMsgBuilder.buildNotification(json);
+                        Object pkg = new NotificationMsgBuilder(node.getHost() + ":" + node.getPort(), notification).build();
                         peerSender.writeAndFlush(pkg);
                     }
                 }
         );
-
     }
 
 

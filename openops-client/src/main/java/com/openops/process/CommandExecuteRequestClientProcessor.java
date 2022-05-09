@@ -1,11 +1,12 @@
 package com.openops.process;
 
+import com.openops.common.ProtoInstant;
 import com.openops.common.process.AbstractProcessor;
 import com.openops.common.session.Session;
 
 public class CommandExecuteRequestClientProcessor extends AbstractProcessor {
-    public CommandExecuteRequestClientProcessor(int type) {
-        super(type);
+    public CommandExecuteRequestClientProcessor() {
+        super(ProtoInstant.ProcessorType.COMMAND_EXECUTE_REQUEST);
     }
 
     @Override

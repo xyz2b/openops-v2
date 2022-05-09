@@ -170,6 +170,10 @@ public final class ProtoMsgFactory {
        * <code>CLIENT_MANAGER_RESPONSE = 7;</code>
        */
       CLIENT_MANAGER_RESPONSE(7),
+      /**
+       * <code>MESSAGE_NOTIFICATION = 8;</code>
+       */
+      MESSAGE_NOTIFICATION(8),
       UNRECOGNIZED(-1),
       ;
 
@@ -237,6 +241,10 @@ public final class ProtoMsgFactory {
        * <code>CLIENT_MANAGER_RESPONSE = 7;</code>
        */
       public static final int CLIENT_MANAGER_RESPONSE_VALUE = 7;
+      /**
+       * <code>MESSAGE_NOTIFICATION = 8;</code>
+       */
+      public static final int MESSAGE_NOTIFICATION_VALUE = 8;
 
 
       public final int getNumber() {
@@ -248,7 +256,7 @@ public final class ProtoMsgFactory {
       }
 
       /**
-       * @param value The numeric wire value of the corresponding enum entity.
+       * @param value The numeric wire value of the corresponding enum entry.
        * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
@@ -258,7 +266,7 @@ public final class ProtoMsgFactory {
       }
 
       /**
-       * @param value The numeric wire value of the corresponding enum entity.
+       * @param value The numeric wire value of the corresponding enum entry.
        * @return The enum associated with the given numeric wire value.
        */
       public static HeadType forNumber(int value) {
@@ -271,6 +279,7 @@ public final class ProtoMsgFactory {
           case 5: return COMMAND_EXECUTE_RESPONSE;
           case 6: return CLIENT_MANAGER_REQUEST;
           case 7: return CLIENT_MANAGER_RESPONSE;
+          case 8: return MESSAGE_NOTIFICATION;
           default: return null;
         }
       }
@@ -5966,6 +5975,870 @@ public final class ProtoMsgFactory {
 
     }
 
+    public interface MessageNotificationOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.MessageNotification)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>uint32 msg_type = 1;</code>
+       * @return The msgType.
+       */
+      int getMsgType();
+
+      /**
+       * <code>bytes sender = 2;</code>
+       * @return The sender.
+       */
+      com.google.protobuf.ByteString getSender();
+
+      /**
+       * <code>string json = 3;</code>
+       * @return The json.
+       */
+      java.lang.String getJson();
+      /**
+       * <code>string json = 3;</code>
+       * @return The bytes for json.
+       */
+      com.google.protobuf.ByteString
+          getJsonBytes();
+
+      /**
+       * <code>string timestamp = 4;</code>
+       * @return The timestamp.
+       */
+      java.lang.String getTimestamp();
+      /**
+       * <code>string timestamp = 4;</code>
+       * @return The bytes for timestamp.
+       */
+      com.google.protobuf.ByteString
+          getTimestampBytes();
+    }
+    /**
+     * Protobuf type {@code com.openops.common.msg.ProtoMsg.MessageNotification}
+     */
+    public static final class MessageNotification extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:com.openops.common.msg.ProtoMsg.MessageNotification)
+        MessageNotificationOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use MessageNotification.newBuilder() to construct.
+      private MessageNotification(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private MessageNotification() {
+        sender_ = com.google.protobuf.ByteString.EMPTY;
+        json_ = "";
+        timestamp_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new MessageNotification();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private MessageNotification(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+
+                msgType_ = input.readUInt32();
+                break;
+              }
+              case 18: {
+
+                sender_ = input.readBytes();
+                break;
+              }
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                json_ = s;
+                break;
+              }
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                timestamp_ = s;
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder.class);
+      }
+
+      public static final int MSG_TYPE_FIELD_NUMBER = 1;
+      private int msgType_;
+      /**
+       * <code>uint32 msg_type = 1;</code>
+       * @return The msgType.
+       */
+      @java.lang.Override
+      public int getMsgType() {
+        return msgType_;
+      }
+
+      public static final int SENDER_FIELD_NUMBER = 2;
+      private com.google.protobuf.ByteString sender_;
+      /**
+       * <code>bytes sender = 2;</code>
+       * @return The sender.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSender() {
+        return sender_;
+      }
+
+      public static final int JSON_FIELD_NUMBER = 3;
+      private volatile java.lang.Object json_;
+      /**
+       * <code>string json = 3;</code>
+       * @return The json.
+       */
+      @java.lang.Override
+      public java.lang.String getJson() {
+        java.lang.Object ref = json_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          json_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @return The bytes for json.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getJsonBytes() {
+        java.lang.Object ref = json_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          json_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int TIMESTAMP_FIELD_NUMBER = 4;
+      private volatile java.lang.Object timestamp_;
+      /**
+       * <code>string timestamp = 4;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string timestamp = 4;</code>
+       * @return The bytes for timestamp.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (msgType_ != 0) {
+          output.writeUInt32(1, msgType_);
+        }
+        if (!sender_.isEmpty()) {
+          output.writeBytes(2, sender_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, json_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timestamp_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (msgType_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(1, msgType_);
+        }
+        if (!sender_.isEmpty()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(2, sender_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, json_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timestamp_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification)) {
+          return super.equals(obj);
+        }
+        com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification other = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification) obj;
+
+        if (getMsgType()
+            != other.getMsgType()) return false;
+        if (!getSender()
+            .equals(other.getSender())) return false;
+        if (!getJson()
+            .equals(other.getJson())) return false;
+        if (!getTimestamp()
+            .equals(other.getTimestamp())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgType();
+        hash = (37 * hash) + SENDER_FIELD_NUMBER;
+        hash = (53 * hash) + getSender().hashCode();
+        hash = (37 * hash) + JSON_FIELD_NUMBER;
+        hash = (53 * hash) + getJson().hashCode();
+        hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+        hash = (53 * hash) + getTimestamp().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code com.openops.common.msg.ProtoMsg.MessageNotification}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:com.openops.common.msg.ProtoMsg.MessageNotification)
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotificationOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.class, com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.Builder.class);
+        }
+
+        // Construct using com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          msgType_ = 0;
+
+          sender_ = com.google.protobuf.ByteString.EMPTY;
+
+          json_ = "";
+
+          timestamp_ = "";
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.openops.common.msg.ProtoMsgFactory.internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor;
+        }
+
+        @java.lang.Override
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getDefaultInstanceForType() {
+          return com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification build() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification buildPartial() {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification result = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification(this);
+          result.msgType_ = msgType_;
+          result.sender_ = sender_;
+          result.json_ = json_;
+          result.timestamp_ = timestamp_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification) {
+            return mergeFrom((com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification other) {
+          if (other == com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification.getDefaultInstance()) return this;
+          if (other.getMsgType() != 0) {
+            setMsgType(other.getMsgType());
+          }
+          if (other.getSender() != com.google.protobuf.ByteString.EMPTY) {
+            setSender(other.getSender());
+          }
+          if (!other.getJson().isEmpty()) {
+            json_ = other.json_;
+            onChanged();
+          }
+          if (!other.getTimestamp().isEmpty()) {
+            timestamp_ = other.timestamp_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int msgType_ ;
+        /**
+         * <code>uint32 msg_type = 1;</code>
+         * @return The msgType.
+         */
+        @java.lang.Override
+        public int getMsgType() {
+          return msgType_;
+        }
+        /**
+         * <code>uint32 msg_type = 1;</code>
+         * @param value The msgType to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMsgType(int value) {
+          
+          msgType_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint32 msg_type = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearMsgType() {
+          
+          msgType_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.ByteString sender_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>bytes sender = 2;</code>
+         * @return The sender.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString getSender() {
+          return sender_;
+        }
+        /**
+         * <code>bytes sender = 2;</code>
+         * @param value The sender to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSender(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          sender_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>bytes sender = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearSender() {
+          
+          sender_ = getDefaultInstance().getSender();
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object json_ = "";
+        /**
+         * <code>string json = 3;</code>
+         * @return The json.
+         */
+        public java.lang.String getJson() {
+          java.lang.Object ref = json_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            json_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @return The bytes for json.
+         */
+        public com.google.protobuf.ByteString
+            getJsonBytes() {
+          java.lang.Object ref = json_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            json_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @param value The json to set.
+         * @return This builder for chaining.
+         */
+        public Builder setJson(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          json_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearJson() {
+          
+          json_ = getDefaultInstance().getJson();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @param value The bytes for json to set.
+         * @return This builder for chaining.
+         */
+        public Builder setJsonBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          json_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object timestamp_ = "";
+        /**
+         * <code>string timestamp = 4;</code>
+         * @return The timestamp.
+         */
+        public java.lang.String getTimestamp() {
+          java.lang.Object ref = timestamp_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            timestamp_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string timestamp = 4;</code>
+         * @return The bytes for timestamp.
+         */
+        public com.google.protobuf.ByteString
+            getTimestampBytes() {
+          java.lang.Object ref = timestamp_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            timestamp_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string timestamp = 4;</code>
+         * @param value The timestamp to set.
+         * @return This builder for chaining.
+         */
+        public Builder setTimestamp(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          timestamp_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string timestamp = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearTimestamp() {
+          
+          timestamp_ = getDefaultInstance().getTimestamp();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string timestamp = 4;</code>
+         * @param value The bytes for timestamp to set.
+         * @return This builder for chaining.
+         */
+        public Builder setTimestampBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          timestamp_ = value;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:com.openops.common.msg.ProtoMsg.MessageNotification)
+      }
+
+      // @@protoc_insertion_point(class_scope:com.openops.common.msg.ProtoMsg.MessageNotification)
+      private static final com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification();
+      }
+
+      public static com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<MessageNotification>
+          PARSER = new com.google.protobuf.AbstractParser<MessageNotification>() {
+        @java.lang.Override
+        public MessageNotification parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MessageNotification(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<MessageNotification> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<MessageNotification> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.openops.common.msg.ProtoMsgFactory.ProtoMsg.MessageNotification getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
     public interface MessageOrBuilder extends
         // @@protoc_insertion_point(interface_extends:com.openops.common.msg.ProtoMsg.Message)
         com.google.protobuf.MessageOrBuilder {
@@ -8313,6 +9186,11 @@ public final class ProtoMsgFactory {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -8327,7 +9205,7 @@ public final class ProtoMsgFactory {
   static {
     java.lang.String[] descriptorData = {
       "\n\016ProtoMsg.proto\022\026com.openops.common.msg" +
-      "\032\037google/protobuf/timestamp.proto\"\246\n\n\010Pr" +
+      "\032\037google/protobuf/timestamp.proto\"\232\013\n\010Pr" +
       "otoMsg\032W\n\013AuthRequest\022\r\n\005token\030\001 \001(\t\022\020\n\010" +
       "platform\030\002 \001(\t\022\025\n\rclientVersion\030\003 \001(\t\022\020\n" +
       "\010clientId\030\004 \001(\t\032*\n\014AuthResponse\022\014\n\004code\030" +
@@ -8340,28 +9218,31 @@ public final class ProtoMsgFactory {
       "tart\030\006 \001(\004\022\013\n\003end\030\007 \001(\004\022\014\n\004uuid\030\010 \001(\t\0328\n" +
       "\024ClientManagerRequest\022\017\n\007op_type\030\001 \001(\r\022\017" +
       "\n\007op_info\030\002 \001(\t\0326\n\025ClientManagerResponse" +
-      "\022\017\n\007op_type\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\032\313\004\n\007Mess" +
-      "age\0227\n\004type\030\001 \001(\0162).com.openops.common.m" +
-      "sg.ProtoMsg.HeadType\022\020\n\010sequence\030\002 \001(\004\022\022" +
-      "\n\nsession_id\030\003 \001(\t\022A\n\013authRequest\030\004 \001(\0132" +
-      ",.com.openops.common.msg.ProtoMsg.AuthRe" +
-      "quest\022C\n\014authResponse\030\005 \001(\0132-.com.openop" +
-      "s.common.msg.ProtoMsg.AuthResponse\022U\n\025co" +
-      "mmandExecuteRequest\030\006 \001(\01326.com.openops." +
-      "common.msg.ProtoMsg.CommandExecuteReques" +
-      "t\022W\n\026commandExecuteResponse\030\007 \001(\01327.com." +
-      "openops.common.msg.ProtoMsg.CommandExecu" +
-      "teResponse\022S\n\024clientManagerRequest\030\010 \001(\013" +
-      "25.com.openops.common.msg.ProtoMsg.Clien" +
-      "tManagerRequest\022T\n\025clientManagerResponse" +
-      "\030\t \001(\01325.com.openops.common.msg.ProtoMsg" +
-      ".ClientManagerRequest\"\322\001\n\010HeadType\022\020\n\014AU" +
-      "TH_REQUEST\020\000\022\021\n\rAUTH_RESPONSE\020\001\022\025\n\021HEART" +
-      "BEAT_REQUEST\020\002\022\026\n\022HEARTBEAT_RESPONSE\020\003\022\033" +
-      "\n\027COMMAND_EXECUTE_REQUEST\020\004\022\034\n\030COMMAND_E" +
-      "XECUTE_RESPONSE\020\005\022\032\n\026CLIENT_MANAGER_REQU" +
-      "EST\020\006\022\033\n\027CLIENT_MANAGER_RESPONSE\020\007B\021B\017Pr" +
-      "otoMsgFactoryP\000b\006proto3"
+      "\022\017\n\007op_type\030\001 \001(\r\022\014\n\004info\030\002 \001(\t\032X\n\023Messa" +
+      "geNotification\022\020\n\010msg_type\030\001 \001(\r\022\016\n\006send" +
+      "er\030\002 \001(\014\022\014\n\004json\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(" +
+      "\t\032\313\004\n\007Message\0227\n\004type\030\001 \001(\0162).com.openop" +
+      "s.common.msg.ProtoMsg.HeadType\022\020\n\010sequen" +
+      "ce\030\002 \001(\004\022\022\n\nsession_id\030\003 \001(\t\022A\n\013authRequ" +
+      "est\030\004 \001(\0132,.com.openops.common.msg.Proto" +
+      "Msg.AuthRequest\022C\n\014authResponse\030\005 \001(\0132-." +
+      "com.openops.common.msg.ProtoMsg.AuthResp" +
+      "onse\022U\n\025commandExecuteRequest\030\006 \001(\01326.co" +
+      "m.openops.common.msg.ProtoMsg.CommandExe" +
+      "cuteRequest\022W\n\026commandExecuteResponse\030\007 " +
+      "\001(\01327.com.openops.common.msg.ProtoMsg.Co" +
+      "mmandExecuteResponse\022S\n\024clientManagerReq" +
+      "uest\030\010 \001(\01325.com.openops.common.msg.Prot" +
+      "oMsg.ClientManagerRequest\022T\n\025clientManag" +
+      "erResponse\030\t \001(\01325.com.openops.common.ms" +
+      "g.ProtoMsg.ClientManagerRequest\"\354\001\n\010Head" +
+      "Type\022\020\n\014AUTH_REQUEST\020\000\022\021\n\rAUTH_RESPONSE\020" +
+      "\001\022\025\n\021HEARTBEAT_REQUEST\020\002\022\026\n\022HEARTBEAT_RE" +
+      "SPONSE\020\003\022\033\n\027COMMAND_EXECUTE_REQUEST\020\004\022\034\n" +
+      "\030COMMAND_EXECUTE_RESPONSE\020\005\022\032\n\026CLIENT_MA" +
+      "NAGER_REQUEST\020\006\022\033\n\027CLIENT_MANAGER_RESPON" +
+      "SE\020\007\022\030\n\024MESSAGE_NOTIFICATION\020\010B\021B\017ProtoM" +
+      "sgFactoryP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8410,8 +9291,14 @@ public final class ProtoMsgFactory {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_openops_common_msg_ProtoMsg_ClientManagerResponse_descriptor,
         new java.lang.String[] { "OpType", "Info", });
-    internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor =
+    internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor =
       internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(6);
+    internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_openops_common_msg_ProtoMsg_MessageNotification_descriptor,
+        new java.lang.String[] { "MsgType", "Sender", "Json", "Timestamp", });
+    internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor =
+      internal_static_com_openops_common_msg_ProtoMsg_descriptor.getNestedTypes().get(7);
     internal_static_com_openops_common_msg_ProtoMsg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_openops_common_msg_ProtoMsg_Message_descriptor,

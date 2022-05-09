@@ -17,6 +17,7 @@ message ProtoMsg {
         COMMAND_EXECUTE_RESPONSE = 5;  // 命令执行响应
         CLIENT_MANAGER_REQUEST = 6;  // 客户端管理请求
         CLIENT_MANAGER_RESPONSE = 7;  // 客户端管理响应
+        MESSAGE_NOTIFICATION = 8;
     }
 
     /*登陆验证请求*/
@@ -67,6 +68,14 @@ message ProtoMsg {
     message ClientManagerResponse {
         uint32 op_type = 1;
         string info = 2;
+    }
+
+    message MessageNotification
+    {
+        uint32 msg_type = 1;
+        bytes  sender = 2;
+        string json = 3;
+        string timestamp = 4;
     }
 
     /*消息报文*/
