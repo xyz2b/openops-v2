@@ -3,6 +3,9 @@ package com.openops.handler;
 import com.google.gson.reflect.TypeToken;
 import com.openops.common.msg.Notification;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
+import com.openops.distributed.Node;
+import com.openops.session.LocalSession;
+import com.openops.session.entity.SessionCache;
 import com.openops.session.service.SessionManager;
 import com.openops.util.JsonUtil;
 import io.netty.channel.ChannelHandler;
@@ -51,8 +54,8 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
         }
         //上线的通知
         if (notification.getType() == Notification.SESSION_ON) {
-            String sid = notification.getWrapperContent();
-            log.info("收到用户上线通知, sid={}", sid);
+            SessionCache sessionCache = JsonUtil.jsonToPojo((String) notification.getData(), SessionCache.class);
+            log.info("收到用户上线通知, cid={}", sessionCache.getClientId());
 
             //待开发
 //            SessionManger.inst().addRemoteSession(remoteSession);
@@ -63,8 +66,8 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
         if (notification.getType() == Notification.CONNECT_FINISHED)
         {
 
-            Notification<ImNode> nodInfo =
-                    JsonUtil.jsonToPojo(json, new TypeToken<Notification<ImNode>>()
+            Notification<Node> nodInfo =
+                    JsonUtil.jsonToPojo(json, new TypeToken<Notification<Node>>()
                     {
                     }.getType());
 
