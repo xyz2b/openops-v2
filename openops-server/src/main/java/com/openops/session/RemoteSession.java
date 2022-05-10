@@ -17,6 +17,13 @@ public class RemoteSession extends ServerSession implements Serializable {
 
     public RemoteSession(SessionCache cache) {
         super(null);
+
+        this.cache = cache;
+
+        Node node = cache.getNode();
+        long nodeId = node.getId();
+        //获取转发的sender
+        this.sender = WorkerRouter.getInst().route(nodeId);
     }
 
     @Override
@@ -26,13 +33,11 @@ public class RemoteSession extends ServerSession implements Serializable {
     }
 
     @Override
-    public boolean isValid()
-    {
+    public boolean isValid() {
         return valid;
     }
 
-    public void setValid(boolean valid)
-    {
+    public void setValid(boolean valid) {
         this.valid = valid;
     }
 
@@ -46,15 +51,8 @@ public class RemoteSession extends ServerSession implements Serializable {
      */
     @Override
     public ChannelFuture writeAndFlush(Object msg) {
-        Node node = cache.getNode();
-        long nodeId = node.getId();
-
-        //获取转发的sender
-        PeerSender sender =
-                WorkerRouter.getInst().route(nodeId);
-
         if(null != sender) {
-            sender.writeAndFlush(msg);
+            sender.send(msg);
         }
 
         return null;

@@ -4,7 +4,6 @@ import com.openops.builder.NotificationMsgBuilder;
 import com.openops.cocurrent.ThreadPoolFactory;
 import com.openops.common.ServerConstants;
 import com.openops.common.msg.Notification;
-import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.util.JsonUtil;
 import com.openops.util.ObjectUtil;
 import com.openops.zk.CuratorZKClient;

@@ -1,9 +1,11 @@
 package com.openops.session.service;
 
 import com.openops.common.msg.Notification;
+import com.openops.common.session.Session;
 import com.openops.distributed.Node;
 import com.openops.distributed.Worker;
 import com.openops.distributed.WorkerRouter;
+import com.openops.session.LocalSession;
 import com.openops.session.RemoteSession;
 import com.openops.session.ServerSession;
 import com.openops.session.dao.ClientCacheDAO;
@@ -43,7 +45,7 @@ public class SessionManager {
         sessionMap = new ConcurrentHashMap<String, ServerSession>();
     }
 
-    public void addSession(ServerSession session) {
+    public void addLocalSession(ServerSession session) {
         // 保存本地session到本地会话缓存
         String sessionId = session.sessionId();
         sessionMap.put(sessionId, session);
@@ -68,7 +70,7 @@ public class SessionManager {
         WorkerRouter.getInst().sendNotification(notification);
     }
 
-    public ServerSession getSession(String sessionId) {
+    public ServerSession getLocalSession(String sessionId) {
         ServerSession serverSession = sessionMap.get(sessionId);
         if (null == serverSession) {
             log.info("client：{} 下线了? 没有任何会话 ", sessionId);
@@ -97,10 +99,9 @@ public class SessionManager {
         return session;
     }
 
-    public void closeSession(ChannelHandlerContext ctx) {
+    public void closeLocalSession(ChannelHandlerContext ctx) {
 
-        ServerSession session =
-                ctx.channel().attr(ServerSession.SESSION_KEY).get();
+        ServerSession session = ctx.channel().attr(LocalSession.SESSION_KEY).get();
 
         if (null == session || !session.isValid()) {
             log.error("session is null or isValid");
@@ -109,7 +110,7 @@ public class SessionManager {
 
         session.close();
         // 删除本地的会话和远程会话
-        removeSession(session.sessionId());
+        removeLocalSession(session.sessionId());
 
         Worker.getWorker().decrBalance();
 
@@ -129,7 +130,7 @@ public class SessionManager {
         WorkerRouter.getInst().sendNotification(notification);
     }
 
-    public void removeSession(String sessionId) {
+    public void removeLocalSession(String sessionId) {
         if (!sessionMap.containsKey(sessionId)) return;
 
         ServerSession session = sessionMap.get(sessionId);
@@ -145,5 +146,20 @@ public class SessionManager {
 
         //本地：从会话集合中，删除会话
         sessionMap.remove(sessionId);
+    }
+
+    public void removeRemoteSession(String sessionId) {
+        if (!sessionMap.containsKey(sessionId)) {
+            return;
+        }
+        sessionMap.remove(sessionId);
+    }
+
+    public void addRemoteSession(SessionCache sessionCache) {
+        String sessionId = sessionCache.getSessionId();
+        if (!sessionMap.containsKey(sessionId)) {
+            ServerSession session = new RemoteSession(sessionCache);
+            sessionMap.put(sessionId, session);
+        }
     }
 }

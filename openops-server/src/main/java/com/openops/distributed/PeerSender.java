@@ -5,6 +5,7 @@ import com.openops.common.Client;
 import com.openops.common.codec.ProtobufDecoder;
 import com.openops.common.codec.ProtobufEncoder;
 import com.openops.common.msg.Notification;
+import com.openops.common.sender.Sender;
 import com.openops.handler.NodeExceptionHandler;
 import com.openops.handler.NodeHeartBeatClientHandler;
 import io.netty.bootstrap.Bootstrap;
@@ -23,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Data
-public class PeerSender {
+public class PeerSender implements Sender {
     private  int reConnectCount=0;
     private Channel channel;
 
@@ -145,4 +146,8 @@ public class PeerSender {
         channel.writeAndFlush(pkg);
     }
 
+    @Override
+    public void send(Object message) {
+        writeAndFlush(message);
+    }
 }

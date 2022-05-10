@@ -9,7 +9,6 @@ import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.common.process.AbstractProcessor;
 import com.openops.common.session.Session;
 import com.openops.session.LocalSession;
-import com.openops.session.ServerSession;
 import com.openops.session.service.SessionManager;
 
 public class AuthProcessor extends AbstractProcessor {
@@ -48,7 +47,7 @@ public class AuthProcessor extends AbstractProcessor {
 
             localSession.bind();
 
-            SessionManager.getSessionManger().addSession(localSession);
+            SessionManager.getSessionManger().addLocalSession(localSession);
 
             ProtoInstant.AuthResultCode resultCode = ProtoInstant.AuthResultCode.SUCCESS;
             Object response = new AuthResponseMsgBuilder(client, new AuthResponse(resultCode, "")).build();

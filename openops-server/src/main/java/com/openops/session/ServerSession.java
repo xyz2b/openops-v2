@@ -13,16 +13,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ServerSession extends AbstractSession {
-    public static final AttributeKey<ServerSession> SESSION_KEY =
-            AttributeKey.valueOf("SESSION_KEY");
-    public static final AttributeKey<String> CHANNEL_NAME =
-            AttributeKey.valueOf("CHANNEL_NAME");
-
     public ServerSession(Channel channel) {
         super(channel);
         if (channel != null) {
             super.setSessionId(NanoIdUtils.randomNanoId());
-            channel.attr(ServerSession.SESSION_KEY).set(this);
             sender = new ProtoMsgSender(this);
         }
     }

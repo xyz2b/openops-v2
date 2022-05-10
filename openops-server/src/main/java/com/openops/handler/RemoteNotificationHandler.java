@@ -1,6 +1,7 @@
 package com.openops.handler;
 
 import com.google.gson.reflect.TypeToken;
+import com.openops.common.ServerConstants;
 import com.openops.common.msg.Notification;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.distributed.Node;
@@ -32,8 +33,7 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
         //取得请求类型,如果不是通知消息，直接跳过
         ProtoMsg.HeadType headType = pkg.getType();
 
-        if (!headType.equals(ProtoMsg.HeadType.MESSAGE_NOTIFICATION))
-        {
+        if (!headType.equals(ProtoMsg.HeadType.MESSAGE_NOTIFICATION)) {
             ctx.fireChannelRead(msg);
             return;
         }
@@ -57,20 +57,14 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
             SessionCache sessionCache = JsonUtil.jsonToPojo((String) notification.getData(), SessionCache.class);
             log.info("收到用户上线通知, cid={}", sessionCache.getClientId());
 
-            //待开发
-//            SessionManger.inst().addRemoteSession(remoteSession);
+            SessionManager.getSessionManger().addRemoteSession(sessionCache);
         }
 
 
         //节点的链接成功
-        if (notification.getType() == Notification.CONNECT_FINISHED)
-        {
+        if (notification.getType() == Notification.CONNECT_FINISHED) {
 
-            Notification<Node> nodInfo =
-                    JsonUtil.jsonToPojo(json, new TypeToken<Notification<Node>>()
-                    {
-                    }.getType());
-
+            Notification<Node> nodInfo = JsonUtil.jsonToPojo(json, new TypeToken<Notification<Node>>() {}.getType());
 
             log.info("收到分布式节点连接成功通知, node={}", json);
 
@@ -78,24 +72,14 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
             ctx.pipeline().remove("login");
             ctx.channel().attr(ServerConstants.CHANNEL_NAME).set(JsonUtil.pojoToJson(nodInfo));
         }
-
-
-
-
     }
 
-
     @Override
-    public void channelInactive(ChannelHandlerContext ctx)
-            throws Exception
-    {
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         LocalSession session = LocalSession.getSession(ctx);
 
-        if (null != session)
-        {
-
+        if (null != session) {
             session.unbind();
-
         }
     }
 }
