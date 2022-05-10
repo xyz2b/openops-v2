@@ -24,7 +24,7 @@ public class LocalSession extends ServerSession {
         // 通过channel找到session
         channel.attr(LocalSession.SESSION_KEY).set(this);
         channel.attr(LocalSession.CHANNEL_NAME).set(JsonUtil.pojoToJson(client()));
-        logged(true);
+        setLogin(true);
         return this;
     }
 
@@ -34,7 +34,7 @@ public class LocalSession extends ServerSession {
     }
 
     public LocalSession unbind() {
-        logged(false);
+        setLogin(false);
         SessionManager.getSessionManger().removeLocalSession(sessionId());
         this.close();
         return this;

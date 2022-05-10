@@ -1,10 +1,12 @@
 package com.openops.distributed;
 
 import lombok.Data;
-
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * 当前节点的信息
+ * */
 @Data
 public class Node implements Comparable<Node>, Serializable {
     private static final long serialVersionUID = -499010884211304846L;
@@ -21,14 +23,10 @@ public class Node implements Comparable<Node>, Serializable {
     // Netty server node 端口
     private Integer port;
 
-    public Node() {
-    }
-
-    public Node(String host, Integer port) {
+    public Node(String host, int port) {
         this.host = host;
         this.port = port;
     }
-
 
     @Override
     public String toString() {

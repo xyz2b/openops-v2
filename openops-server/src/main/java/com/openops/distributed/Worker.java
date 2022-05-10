@@ -1,35 +1,49 @@
 package com.openops.distributed;
 
 import com.openops.common.ServerConstants;
+import com.openops.config.NodeConfig;
 import com.openops.util.JsonUtil;
 import com.openops.zk.CuratorZKClient;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * 工作节点
+ * 当前节点上线之后，保存当前节点的信息，同时将自己注册到ZK中
+ * */
 @Slf4j
+@Component
 public class Worker {
+    @Autowired
+    NodeConfig nodeConfig;
+
     // Zk curator 客户端
-    private CuratorFramework client = null;
+    private CuratorFramework client;
 
-    // 保存当前Znode节点的路径，创建后返回
-    private String pathRegistered = null;
+    // 保存当前Znode节点的路径，在zk中创建后返回
+    private String pathRegistered;
 
-    private Node localNode = null;
+    // 当前节点的信息，如节点的地址和端口等
+    private Node localNode;
 
-    private static Worker singleInstance = null;
+    // 单例模式
+    private static Worker singleInstance;
+
+    // 是否初始化过，在节点上线时，会像zk注册本节点，将本节点的信息写入zk对应Znode路径处
     private boolean init = false;
 
-    //取得单例
+    // 获取单例
     public static Worker getWorker() {
         if (null == singleInstance) {
             synchronized (Worker.class) {
                 if (null == singleInstance) {
                     singleInstance = new Worker();
-                    singleInstance.localNode = new Node();
                 }
             }
         }
@@ -48,14 +62,16 @@ public class Worker {
             this.client = CuratorZKClient.instance.getClient();
         }
         if (null == localNode) {
-            localNode = new Node();
+            localNode = new Node(nodeConfig.getIp(), nodeConfig.getPort());
         }
 
+        // 如果 zk 注册路径 中没有节点，就删除该路径
         deleteWhenHasNoChildren(ServerConstants.MANAGE_PATH);
 
+        // 如果当前 zk 中没有注册路径，就创建
         createParentIfNeeded(ServerConstants.MANAGE_PATH);
 
-        // 创建一个 ZNode 节点, 节点的 payload 为当前Node信息
+        // 创建一个 临时顺序 ZNode 节点, 节点的 payload 为当前Node信息
         try {
             byte[] payload = JsonUtil.object2JsonBytes(localNode);
 
@@ -64,7 +80,7 @@ public class Worker {
                     .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
                     .forPath(ServerConstants.PATH_PREFIX, payload);
 
-            // 为node 设置id
+            // 从zk自动生成的顺序节点名中获取ID信息，同时为 node 设置id
             localNode.setId(getId());
             log.info("本地节点, path={}, id={}", pathRegistered, localNode.getId());
         } catch (Exception e) {
@@ -158,7 +174,7 @@ public class Worker {
     }
 
     /**
-     * 增加负载，表示有用户登录成功
+     * 增加负载，表示有客户端登录成功
      *
      * @return 成功状态
      */
@@ -181,7 +197,7 @@ public class Worker {
     }
 
     /**
-     * 减少负载，表示有用户下线，写回zookeeper
+     * 减少负载，表示有客户端下线，写回zookeeper
      *
      * @return 成功状态
      */

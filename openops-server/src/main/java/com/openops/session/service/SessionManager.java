@@ -1,7 +1,6 @@
 package com.openops.session.service;
 
 import com.openops.common.msg.Notification;
-import com.openops.common.session.Session;
 import com.openops.distributed.Node;
 import com.openops.distributed.Worker;
 import com.openops.distributed.WorkerRouter;
@@ -67,7 +66,7 @@ public class SessionManager {
 
     private void notifyOtherNodeOnLine(SessionCache session) {
         Notification<SessionCache> notification = new Notification<SessionCache>(Notification.SESSION_ON , session);
-        WorkerRouter.getInst().sendNotification(notification);
+        WorkerRouter.getWorkerRouter().sendNotification(notification);
     }
 
     public ServerSession getLocalSession(String sessionId) {
@@ -127,7 +126,7 @@ public class SessionManager {
         }
 
         Notification<Notification.ContentWrapper> notification = Notification.wrapContent(Notification.SESSION_OFF ,session.sessionId());
-        WorkerRouter.getInst().sendNotification(notification);
+        WorkerRouter.getWorkerRouter().sendNotification(notification);
     }
 
     public void removeLocalSession(String sessionId) {

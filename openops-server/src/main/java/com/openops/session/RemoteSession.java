@@ -1,7 +1,6 @@
 package com.openops.session;
 
 import com.openops.distributed.Node;
-import com.openops.distributed.PeerSender;
 import com.openops.distributed.WorkerRouter;
 import com.openops.session.entity.SessionCache;
 import io.netty.channel.ChannelFuture;
@@ -23,7 +22,7 @@ public class RemoteSession extends ServerSession implements Serializable {
         Node node = cache.getNode();
         long nodeId = node.getId();
         //获取转发的sender
-        this.sender = WorkerRouter.getInst().route(nodeId);
+        this.sender = WorkerRouter.getWorkerRouter().route(nodeId);
     }
 
     @Override

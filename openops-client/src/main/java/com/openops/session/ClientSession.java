@@ -18,6 +18,7 @@ public class ClientSession extends AbstractSession {
         super(channel);
         channel.attr(ClientSession.SESSION_KEY).set(this);
         sender = new ProtoMsgSender(this);
+        setSessionId(String.valueOf(-1));
     }
 
     @Override

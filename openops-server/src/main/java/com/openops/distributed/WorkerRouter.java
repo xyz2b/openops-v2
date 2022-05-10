@@ -18,29 +18,32 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+/**
+ * 工作节点管理
+ * 通过监听ZK中节点信息的增删，从而管理与其他节点的连接，用于消息转发
+ * */
 @Slf4j
 public class WorkerRouter {
     //Zk客户端
-    private CuratorFramework client = null;
+    private CuratorFramework client;
 
-    private String pathRegistered = null;
-    private Node node = null;
+    // 单例
+    private static WorkerRouter singleInstance;
 
-    private static WorkerRouter singleInstance = null;
-    private static final String path = ServerConstants.MANAGE_PATH;
-
+    // 管理本节点与其他所有节点的连接
     private ConcurrentHashMap<Long, PeerSender> workerMap;
 
+    // 新增节点的回调处理函数
     private BiConsumer<Node, PeerSender> runAfterAdd = (node, relaySender) -> {
         doAfterAdd(node, relaySender);
     };
 
+    // 删除节点的回调处理函数
     private Consumer<Node> runAfterRemove = (node) -> {
         doAfterRemove(node);
     };
 
-
-    public synchronized static WorkerRouter getInst() {
+    public synchronized static WorkerRouter getWorkerRouter() {
         if (null == singleInstance) {
             synchronized (WorkerRouter.class) {
                 if (null == singleInstance) {
@@ -72,8 +75,8 @@ public class WorkerRouter {
 
             }
 
-            //订阅节点的增加和删除事件
-            PathChildrenCache childrenCache = new PathChildrenCache(client, path, true);
+            // 订阅节点的增加和删除事件
+            PathChildrenCache childrenCache = new PathChildrenCache(client, ServerConstants.MANAGE_PATH, true);
             PathChildrenCacheListener childrenCacheListener = new PathChildrenCacheListener() {
                 @Override
                 public void childEvent(CuratorFramework client,
@@ -161,7 +164,7 @@ public class WorkerRouter {
 
         PeerSender relaySender = workerMap.get(node.getId());
 
-        //重复收到注册的事件
+        // 重复收到注册的事件
         if (null != relaySender && relaySender.getRmNode().equals(node)) {
 
             log.info("[TreeCache]节点重复增加, path={}, data={}",
@@ -178,12 +181,12 @@ public class WorkerRouter {
 
     private void doAfterAdd(Node n, PeerSender relaySender) {
         if (null != relaySender) {
-            //关闭老的连接
+            // 关闭老的连接
             relaySender.stopConnecting();
         }
-        //创建一个消息转发器
+        // 创建一个消息转发器
         relaySender = new PeerSender(n);
-        //建立转发的连接
+        // 建立转发的连接
         relaySender.doConnect();
 
         workerMap.put(n.getId(), relaySender);
@@ -198,12 +201,13 @@ public class WorkerRouter {
         return null;
     }
 
-
+    // 给其他节点发送通知
     public void sendNotification(Notification notification) {
         workerMap.keySet().stream().forEach(
                 key ->
                 {
                     if (!key.equals(getLocalNode().getId())) {
+                        Node node = Worker.getWorker().getLocalNodeInfo();
                         PeerSender peerSender = workerMap.get(key);
                         Object pkg = new NotificationMsgBuilder(node.getHost() + ":" + node.getPort(), notification).build();
                         peerSender.writeAndFlush(pkg);

@@ -1,12 +1,11 @@
-package com.openops.distributed;
+package com.openops.openopsclient;
 
-import com.openops.builder.NotificationMsgBuilder;
 import com.openops.common.codec.ProtobufDecoder;
 import com.openops.common.codec.ProtobufEncoder;
 import com.openops.common.msg.Notification;
-import com.openops.common.sender.Sender;
-import com.openops.handler.NodeAuthRequestHandler;
-import com.openops.handler.NodeExceptionHandler;
+import com.openops.config.ClientConfig;
+import com.openops.handler.AuthRequestHandler;
+import com.openops.handler.ExceptionHandler;
 import com.openops.session.ClientSession;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -15,37 +14,23 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.GenericFutureListener;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-/**
- * 与其他节点的连接
- * */
 @Slf4j
-@Data
-public class PeerSender implements Sender {
+public class NettyClient {
+    @Autowired
+    ClientConfig clientConfig;
+
     // 重连次数
     private  int reConnectCount = 0;
 
-    // 与其他节点的额连接
-    private Channel channel;
-
-    // 所连接的远端节点信息
-    private Node rmNode;
-
     private ClientSession clientSession;
 
-    /**
-     * 唯一标记
-     */
-    private boolean connectFlag = false;
-
     GenericFutureListener<ChannelFuture> closeListener = (ChannelFuture f) -> {
-        log.info("分布式连接已经断开……{}", rmNode.toString());
-        channel = null;
-        connectFlag = false;
         clientSession = null;
     };
 
@@ -53,26 +38,13 @@ public class PeerSender implements Sender {
         final EventLoop eventLoop = f.channel().eventLoop();
         if (!f.isSuccess() && ++reConnectCount < 3) {
             log.info("连接失败! 在10s之后准备尝试第{}次重连!",reConnectCount);
-            eventLoop.schedule(() -> PeerSender.this.doConnect(), 10, TimeUnit.SECONDS);
-
-            connectFlag = false;
+            eventLoop.schedule(() -> NettyClient.this.doConnect(), 10, TimeUnit.SECONDS);
         } else {
-            connectFlag = true;
+            log.info(new Date() + "节点连接成功:{}", clientConfig.getServerIp() + ":" + clientConfig.getServerPort());
 
-            log.info(new Date() + "分布式节点连接成功:{}", rmNode.toString());
-
-            channel = f.channel();
-            // 本节点连接其他节点，本节点是作为客户端的
+            Channel channel = f.channel();
             clientSession = new ClientSession(channel);
             channel.closeFuture().addListener(closeListener);
-
-            // 向所连接的节点发送连接成功的通知
-            Node localNode = Worker.getWorker().getLocalNodeInfo();
-            Notification<Node> notification = new Notification<Node>(Notification.CONNECT_FINISHED, Worker.getWorker().getLocalNodeInfo());
-            // 节点和节点之间进行通信的报文，clientId为发送节点的IP和端口
-            // 客户端和节点之间进行通信的报文，clientId为客户端的IP
-            Object pkg = new NotificationMsgBuilder(localNode.getHost() + ":" + localNode.getPort(), notification).build();
-            writeAndFlush(pkg);
         }
     };
 
@@ -80,9 +52,7 @@ public class PeerSender implements Sender {
     private Bootstrap b;
     private EventLoopGroup g;
 
-    public PeerSender(Node n) {
-        this.rmNode = n;
-
+    public NettyClient() {
         /**
          * 客户端的是Bootstrap，服务端的则是 ServerBootstrap。
          * 都是AbstractBootstrap的子类。
@@ -102,9 +72,9 @@ public class PeerSender implements Sender {
     public void doConnect() {
 
         // 其他节点的ip
-        String host = rmNode.getHost();
+        String host = clientConfig.getServerIp();
         // 其他节点的端口
-        int port = rmNode.getPort();
+        int port = clientConfig.getServerPort();
 
         try {
             if (b != null && b.group() == null) {
@@ -122,18 +92,17 @@ public class PeerSender implements Sender {
                             {
                                 ch.pipeline().addLast("decoder", new ProtobufDecoder());
                                 ch.pipeline().addLast("encoder", new ProtobufEncoder());
-                                ch.pipeline().addLast("nodeLogin", new NodeAuthRequestHandler());
-                                ch.pipeline().addLast("exceptionHandler", new NodeExceptionHandler());
+                                ch.pipeline().addLast("login", new AuthRequestHandler());
+                                ch.pipeline().addLast("exceptionHandler", new ExceptionHandler());
                             }
                         }
                 );
-                log.info(new Date() + "开始连接分布式节点:{}", rmNode.toString());
 
                 ChannelFuture f = b.connect();
                 f.addListener(connectedListener);
 
             } else if (b.group() != null) {
-                log.info(new Date() + "再一次开始连接分布式节点", rmNode.toString());
+                log.info(new Date() + "再一次开始连接节点{}", clientConfig.getServerIp() + ":" + clientConfig.getServerPort());
                 ChannelFuture f = b.connect();
                 f.addListener(connectedListener);
             }
@@ -141,23 +110,5 @@ public class PeerSender implements Sender {
             log.info("客户端连接失败!" + e.getMessage());
         }
 
-    }
-
-    public void stopConnecting() {
-        g.shutdownGracefully();
-        connectFlag = false;
-    }
-
-    public void writeAndFlush(Object pkg) {
-        if (connectFlag == false) {
-            log.error("分布式节点未连接:", rmNode.toString());
-            return;
-        }
-        channel.writeAndFlush(pkg);
-    }
-
-    @Override
-    public void send(Object message) {
-        writeAndFlush(message);
     }
 }

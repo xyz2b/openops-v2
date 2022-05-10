@@ -15,14 +15,14 @@ public abstract class AbstractSession implements Session {
     private String sessionId;
 
     private boolean connected;
-    private boolean logged;
+    private boolean isLogin;
 
     protected Sender sender;
 
     public AbstractSession(Channel channel) {
         this.channel = channel;
         connected = true;
-        logged = false;
+        isLogin = false;
     }
 
     public void send(Object msg) {
@@ -40,7 +40,7 @@ public abstract class AbstractSession implements Session {
         return this;
     }
 
-    protected void setSessionId(String sessionId) {
+    public void setSessionId(String sessionId) {
         this.sessionId = sessionId;
     }
 
@@ -58,7 +58,7 @@ public abstract class AbstractSession implements Session {
 
     public ChannelFuture close() {
         connected = false;
-        logged = false;
+        isLogin = false;
         return channel.close();
     }
 
@@ -71,15 +71,15 @@ public abstract class AbstractSession implements Session {
     }
 
     public boolean isLogin() {
-        return logged;
+        return isLogin;
     }
 
-    protected void logged(boolean logged) {
-        this.logged = logged;
+    public void setLogin(boolean logged) {
+        this.isLogin = logged;
     }
 
     public boolean isValid() {
-        return connected && logged;
+        return connected && isLogin;
     }
 
     protected Channel channel() {
