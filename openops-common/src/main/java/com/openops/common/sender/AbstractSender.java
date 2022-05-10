@@ -15,6 +15,13 @@ public abstract class AbstractSender implements Sender {
         this.session = session;
     }
 
+    public boolean isValid() {
+        return session.isValid();
+    }
+    public boolean isConnected() {
+        return session.isConnected();
+    }
+
     @Override
     public void send(Object message) {
         FutureTaskScheduler.add(() -> {
@@ -45,7 +52,7 @@ public abstract class AbstractSender implements Sender {
                     }
                 });
 
-            return null;
+            return f;
         });
     }
 

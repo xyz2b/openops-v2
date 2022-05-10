@@ -29,23 +29,14 @@ public class PeerSender implements Sender {
     // 重连次数
     private  int reConnectCount = 0;
 
-    // 与其他节点的额连接
-    private Channel channel;
-
     // 所连接的远端节点信息
     private Node rmNode;
 
+    // 本节点作为客户端与其他节点的连接信息
     private ClientSession clientSession;
-
-    /**
-     * 唯一标记
-     */
-    private boolean connectFlag = false;
 
     GenericFutureListener<ChannelFuture> closeListener = (ChannelFuture f) -> {
         log.info("分布式连接已经断开……{}", rmNode.toString());
-        channel = null;
-        connectFlag = false;
         clientSession = null;
     };
 
@@ -54,14 +45,10 @@ public class PeerSender implements Sender {
         if (!f.isSuccess() && ++reConnectCount < 3) {
             log.info("连接失败! 在10s之后准备尝试第{}次重连!",reConnectCount);
             eventLoop.schedule(() -> PeerSender.this.doConnect(), 10, TimeUnit.SECONDS);
-
-            connectFlag = false;
         } else {
-            connectFlag = true;
-
             log.info(new Date() + "分布式节点连接成功:{}", rmNode.toString());
 
-            channel = f.channel();
+            Channel channel = f.channel();
             // 本节点连接其他节点，本节点是作为客户端的
             clientSession = new ClientSession(channel);
             channel.closeFuture().addListener(closeListener);
@@ -145,19 +132,27 @@ public class PeerSender implements Sender {
 
     public void stopConnecting() {
         g.shutdownGracefully();
-        connectFlag = false;
     }
 
     public void writeAndFlush(Object pkg) {
-        if (connectFlag == false) {
+        if (clientSession == null || !clientSession.isValid()) {
             log.error("分布式节点未连接:", rmNode.toString());
             return;
         }
-        channel.writeAndFlush(pkg);
+        clientSession.writeAndFlush(pkg);
     }
 
     @Override
     public void send(Object message) {
         writeAndFlush(message);
+    }
+
+    @Override
+    public boolean isValid() {
+        return (null != clientSession) && clientSession.isValid();
+    }
+
+    public boolean isConnected() {
+        return (null != clientSession) && clientSession.isConnected();
     }
 }

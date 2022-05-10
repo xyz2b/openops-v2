@@ -15,6 +15,7 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCacheEvent;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -120,15 +121,12 @@ public class WorkerRouter {
      * */
     private void processNodeRemoved(ChildData data) {
         byte[] payload = data.getData();
-        Node node = ObjectUtil.JsonBytes2Object(payload, Node.class);
+        Node remoteNode = ObjectUtil.JsonBytes2Object(payload, Node.class);
 
-        long id = Worker.getWorker().getIdByPath(data.getPath());
-        log.info("[TreeCache]节点删除, path={}, data={}",
-                data.getPath(), JsonUtil.pojoToJson(node));
-
+        log.info("[TreeCache]节点删除, path={}, data={}", data.getPath(), JsonUtil.pojoToJson(remoteNode));
 
         if (runAfterRemove != null) {
-            runAfterRemove.accept(node);
+            runAfterRemove.accept(remoteNode);
         }
     }
 
@@ -148,57 +146,53 @@ public class WorkerRouter {
      */
     private void processNodeAdded(ChildData data) {
         byte[] payload = data.getData();
-        Node node = ObjectUtil.JsonBytes2Object(payload, Node.class);
+        Node remoteNode = ObjectUtil.JsonBytes2Object(payload, Node.class);
 
         long id = Worker.getWorker().getIdByPath(data.getPath());
-        node.setId(id);
+        remoteNode.setId(id);
 
         log.info("[TreeCache]节点更新端口, path={}, data={}",
-                data.getPath(), JsonUtil.pojoToJson(node));
+                data.getPath(), JsonUtil.pojoToJson(remoteNode));
 
-        if (node.equals(getLocalNode())) {
+        if (remoteNode.equals(getLocalNode())) {
             log.info("[TreeCache]本地节点, path={}, data={}",
-                    data.getPath(), JsonUtil.pojoToJson(node));
+                    data.getPath(), JsonUtil.pojoToJson(remoteNode));
             return;
         }
 
-        PeerSender relaySender = workerMap.get(node.getId());
+        PeerSender relaySender = workerMap.get(remoteNode.getId());
 
         // 重复收到注册的事件
-        if (null != relaySender && relaySender.getRmNode().equals(node)) {
+        if (null != relaySender && relaySender.getRmNode().equals(remoteNode)) {
 
             log.info("[TreeCache]节点重复增加, path={}, data={}",
-                    data.getPath(), JsonUtil.pojoToJson(node));
+                    data.getPath(), JsonUtil.pojoToJson(remoteNode));
             return;
         }
 
         // 建立本节点到新节点的连接
         if (runAfterAdd != null) {
-            runAfterAdd.accept(node, relaySender);
+            runAfterAdd.accept(remoteNode, relaySender);
         }
     }
 
 
-    private void doAfterAdd(Node n, PeerSender relaySender) {
+    private void doAfterAdd(Node remoteNode, PeerSender relaySender) {
         if (null != relaySender) {
             // 关闭老的连接
             relaySender.stopConnecting();
         }
+
         // 创建一个消息转发器
-        relaySender = new PeerSender(n);
+        relaySender = new PeerSender(remoteNode);
         // 建立转发的连接
         relaySender.doConnect();
 
-        workerMap.put(n.getId(), relaySender);
+        workerMap.put(remoteNode.getId(), relaySender);
     }
 
-
-    public PeerSender route(long nodeId) {
-        PeerSender peerSender = workerMap.get(nodeId);
-        if (null != peerSender) {
-            return peerSender;
-        }
-        return null;
+    public PeerSender route(Node node) {
+        return workerMap.get(node.getId());
     }
 
     // 给其他节点发送通知

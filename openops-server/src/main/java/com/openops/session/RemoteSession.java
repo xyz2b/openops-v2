@@ -1,43 +1,45 @@
 package com.openops.session;
 
+import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.distributed.Node;
 import com.openops.distributed.WorkerRouter;
 import com.openops.session.entity.SessionCache;
 import io.netty.channel.ChannelFuture;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 
+@Slf4j
 public class RemoteSession extends ServerSession implements Serializable {
     private static final long serialVersionUID = -400010884211394846L;
 
     private SessionCache cache;
 
-    private boolean valid = true;
-
     public RemoteSession(SessionCache cache) {
+        // RemoteSession在本地没有channel，需要通过其他节点转发
         super(null);
 
         this.cache = cache;
 
         Node node = cache.getNode();
-        long nodeId = node.getId();
-        //获取转发的sender
-        this.sender = WorkerRouter.getWorkerRouter().route(nodeId);
+        // 可能为null，执行RemoteSession实例方式时都会先去WorkerRouter去获取一下sender，作为延后补偿，
+        //      如果执行writeAndFlush补偿完之后还获取不到sender，就代表转发连接建立有问题，此时就直接记录错误日志，消息丢失
+        // 获取转发的sender
+        this.sender = WorkerRouter.getWorkerRouter().route(node);
     }
 
     @Override
     public String sessionId() {
+        //
+        sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
         //委托
         return cache.getSessionId();
     }
 
     @Override
     public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
+        sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
+        return sender != null && sender.isValid();
     }
 
     public String getUserId() {
@@ -50,9 +52,20 @@ public class RemoteSession extends ServerSession implements Serializable {
      */
     @Override
     public ChannelFuture writeAndFlush(Object msg) {
-        if(null != sender) {
+        if (null == sender || !sender.isValid()) {
+            sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
+        }
+
+        if (sender != null && sender.isValid()) {
             sender.send(msg);
         }
+
+        ProtoMsg.Message message = null;
+        if (msg instanceof ProtoMsg.Message) {
+            message = (ProtoMsg.Message) msg;
+        }
+        // TODO: 如果此时转发的连接并未建立好，消息会丢失，不过这种情况很少发生，除非远端节点连不上
+        log.error("not ready for remote node sender, sender is not valid, the message is lost {}", message != null ? message.toString() : msg.toString());
 
         return null;
     }
