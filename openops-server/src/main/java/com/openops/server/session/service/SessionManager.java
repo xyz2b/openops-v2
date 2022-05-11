@@ -74,6 +74,10 @@ public class SessionManager {
     }
 
     public ServerSession getSessionByClientId(String clientId) {
+        // 只有LocalSession才会缓存到redis中
+        // redis中缓存了所有节点的LocalSession
+        // redis中缓存了，Client、Node、Session的关系，通过ClientId就能查到该Client的连接属于哪个Node，以及该Client连接所对应的SessionID
+        // LocalSession: 本节点所管理的Client的Session信息
         ClientCache clientCache = clientCacheDAO.get(clientId);
         if (clientCache == null) {
             log.info("用户：{} 下线了? 没有在缓存中找到记录 ", clientId);
@@ -86,6 +90,12 @@ public class SessionManager {
         ServerSession session = sessionMap.get(sessionId);
         // 本地没有，创建远程的session，加入会话集合
         if (session == null) {
+            // RemoteSession不会写入redis，只在节点本地存着
+            // key为该ClientID对应的Client所属节点的Session的ID(ClientId对应的Client所连接的节点生成的Session的ID)
+            // value为RemoteSession，RemoteSession中存储这该ClientID对应的Client所属节点的Session信息(ClientId对应的Client所连接的节点生成的Session)
+            // 先通过ClientId从redis中查到该Client所连接的节点的SessionID，然后再在本节点的缓存中通过SessionID就能查到该Client属于哪个Node(sessionCache: Session、Client和Node的关系)，从而进行消息转发
+            // 每个节点为其所管理的每个Client生成的SessionId全局唯一，当Client连接的不是本节点时，它的Session信息是它所连接的节点生成的，所以需要通过RemoteSession来标识不在本节点所管理的Client的Session信息
+            // RemoteSession: 不在本节点所管理的Client的Session信息
             session = new RemoteSession(sessionCache);
             sessionMap.put(sessionId, session);
         }

@@ -8,6 +8,9 @@ import io.netty.channel.ChannelFuture;
 import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
 
+/**
+ * 不在本节点所管理的Client的Session信息
+ * */
 @Slf4j
 public class RemoteSession extends ServerSession implements Serializable {
     private static final long serialVersionUID = -400010884211394846L;

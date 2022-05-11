@@ -7,6 +7,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 本节点所管理的Client的Session信息
+ * */
 @Slf4j
 public class LocalSession extends ServerSession {
     public static final AttributeKey<ServerSession> SESSION_KEY =
