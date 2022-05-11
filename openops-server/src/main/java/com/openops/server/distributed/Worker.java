@@ -43,7 +43,9 @@ public class Worker {
         return singleInstance;
     }
 
-    private Worker() {}
+    private Worker() {
+        localNode = new Node();
+    }
 
     // 在zookeeper中创建临时节点，服务注册
     public synchronized void init() {

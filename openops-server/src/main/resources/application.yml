@@ -7,7 +7,7 @@ spring:
 
 zookeeper:
   connect:
-    url: localhost:2111,localhost:2222,localhost:2333
+    url: localhost:2111
     SessionTimeout: 600000
 
 logging:
