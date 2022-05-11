@@ -12,10 +12,11 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Slf4j
 @ChannelHandler.Sharable
-@Component
+@Service("NodeAuthRequestHandler")
 public class NodeAuthRequestHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     NodeConfig nodeConfig;
@@ -46,8 +47,7 @@ public class NodeAuthRequestHandler extends ChannelInboundHandlerAdapter {
             } else {
                 log.info("Login ok");
 
-                ClientSession session =
-                        ctx.channel().attr(ClientSession.SESSION_KEY).get();
+                ClientSession session = ctx.channel().attr(ClientSession.SESSION_KEY).get();
                 session.setSessionId(message.getSessionId());
                 session.setLogin(true);
 

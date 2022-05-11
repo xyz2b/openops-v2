@@ -7,6 +7,7 @@ import com.openops.common.session.AbstractSession;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,5 +41,10 @@ public class ClientSession extends AbstractSession {
     @Override
     public ChannelFuture writeAndFlush(Object pkg) {
         return super.writeAndFlush(pkg);
+    }
+
+    public static ClientSession getSession(ChannelHandlerContext ctx) {
+        Channel channel = ctx.channel();
+        return (ClientSession) channel.attr(ClientSession.SESSION_KEY).get();
     }
 }

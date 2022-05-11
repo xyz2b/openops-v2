@@ -161,4 +161,9 @@ public class SessionManager {
             sessionMap.put(sessionId, session);
         }
     }
+
+    public void closeSession(ChannelHandlerContext ctx) {
+        LocalSession localSession = LocalSession.getSession(ctx);
+        localSession.close();
+    }
 }

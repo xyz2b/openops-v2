@@ -30,19 +30,19 @@ public class RemoteSession extends ServerSession implements Serializable {
 
     @Override
     public String sessionId() {
-        //
-        sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
+        tryGetSender();
         //委托
         return cache.getSessionId();
     }
 
     @Override
     public boolean isValid() {
-        sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
+        tryGetSender();
         return sender != null && sender.isValid();
     }
 
     public String getUserId() {
+        tryGetSender();
         //委托
         return cache.getClientId();
     }
@@ -52,9 +52,7 @@ public class RemoteSession extends ServerSession implements Serializable {
      */
     @Override
     public ChannelFuture writeAndFlush(Object msg) {
-        if (null == sender || !sender.isValid()) {
-            sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
-        }
+        tryGetSender();
 
         if (sender != null && sender.isValid()) {
             sender.send(msg);
@@ -68,5 +66,11 @@ public class RemoteSession extends ServerSession implements Serializable {
         log.error("not ready for remote node sender, sender is not valid, the message is lost {}", message != null ? message.toString() : msg.toString());
 
         return null;
+    }
+
+    private void tryGetSender() {
+        if (null == sender || !sender.isValid()) {
+            sender = WorkerRouter.getWorkerRouter().route(cache.getNode());
+        }
     }
 }
