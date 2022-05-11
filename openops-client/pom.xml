@@ -54,7 +54,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- main方法的地址-->
-                    <mainClass>com.openops.openopsclient.OpenopsClientApplication</mainClass>
+                    <mainClass>com.openops.client.openopsclient.OpenopsClientApplication</mainClass>
                     <executable>true</executable>
                     <layout>JAR</layout>
                 </configuration>

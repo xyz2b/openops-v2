@@ -2,8 +2,6 @@ package com.openops.cocurrent;
 
 import org.apache.tomcat.jni.Time;
 
-import javax.xml.crypto.Data;
-import java.util.Date;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 

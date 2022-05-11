@@ -17,3 +17,4 @@ spring:
     timeBetweenEvictionRunsMillis: 30000  # 释放链接的扫描间隔（毫秒）
     connTimeout: 6000  # 链接超时 ms
     readTimeout: 6000  # 链接超时 ms
+    minIdle: 10

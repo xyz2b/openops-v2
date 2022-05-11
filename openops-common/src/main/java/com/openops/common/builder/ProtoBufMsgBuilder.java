@@ -9,18 +9,18 @@ import java.util.concurrent.atomic.AtomicLong;
 public abstract class ProtoBufMsgBuilder extends AbstractMsgBuilder {
     protected final ProtoMsg.HeadType type;
     private final AtomicLong sequence = new AtomicLong(0);
-    protected final String clientId;
+    protected final String sessionId;
 
-    protected ProtoBufMsgBuilder(ProtoMsg.HeadType type, String clientId) {
+    protected ProtoBufMsgBuilder(ProtoMsg.HeadType type, String sessionId) {
         this.type = type;
-        this.clientId = clientId;
+        this.sessionId = sessionId;
     }
 
     protected ProtoMsg.Message.Builder assembleMsgOuter() {
         return ProtoMsg.Message
                 .newBuilder()
                 .setType(type)
-                .setSessionId(clientId)
+                .setSessionId(sessionId)
                 .setSequence(sequence.getAndIncrement());
     }
 

@@ -15,4 +15,6 @@ public interface Session {
     boolean isLogin();
 
     String sessionId();
+
+    void send(Object message);
 }

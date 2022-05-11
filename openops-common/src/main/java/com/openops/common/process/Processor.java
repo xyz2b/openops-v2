@@ -1,8 +1,6 @@
 package com.openops.common.process;
 
 import com.openops.common.ProtoInstant;
-import com.openops.common.exception.InvalidMsgTypeException;
-import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import com.openops.common.session.Session;
 
 /**
