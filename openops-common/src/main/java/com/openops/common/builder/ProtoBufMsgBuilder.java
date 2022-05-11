@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public abstract class ProtoBufMsgBuilder extends AbstractMsgBuilder {
     protected final ProtoMsg.HeadType type;
-    private final AtomicLong sequence = new AtomicLong(0);
+    private final static AtomicLong sequence = new AtomicLong(0);
     protected final String sessionId;
 
     protected ProtoBufMsgBuilder(ProtoMsg.HeadType type, String sessionId) {

@@ -77,6 +77,9 @@ public class Worker {
 
             // 从zk自动生成的顺序节点名中获取ID信息，同时为 node 设置id
             localNode.setId(getId());
+            payload = JsonUtil.object2JsonBytes(localNode);
+            client.setData().forPath(pathRegistered, payload);
+
             log.info("本地节点, path={}, id={}", pathRegistered, localNode.getId());
         } catch (Exception e) {
             e.printStackTrace();

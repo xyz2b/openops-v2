@@ -6,6 +6,7 @@ import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import lombok.extern.slf4j.Slf4j;
 
 public class ProtobufDecoder extends LengthFieldBasedFrameDecoder {
     public ProtobufDecoder() {
@@ -20,17 +21,17 @@ public class ProtobufDecoder extends LengthFieldBasedFrameDecoder {
         }
 
         //读取魔数
-        int magic = in.readInt();
+        int magic = frame.readInt();
         if (magic != ProtoInstant.MAGIC_CODE) {
             String error = "客户端口令不对:" + ctx.channel().remoteAddress();
             throw new InvalidFrameException(error);
         }
 
         //读取版本
-        int version = in.readInt();
+        int version = frame.readInt();
 
         // 读取传送过来的消息的长度。
-        int length = in.readInt();
+        int length = frame.readInt();
 
         // 长度如果小于0
         if (length < 0) {
@@ -39,23 +40,23 @@ public class ProtobufDecoder extends LengthFieldBasedFrameDecoder {
         }
 
         byte[] buffer;
-        if (in.hasArray()) {
+        if (frame.hasArray()) {
             // 堆内存缓冲
-            ByteBuf slice = in.slice(in.readerIndex(), length);
+            ByteBuf slice = frame.slice(frame.readerIndex(), length);
             buffer = slice.array();
-            in.retain();
+            frame.retain();
 
         } else {
             // 直接内存缓冲
             buffer = new byte[length];
-            in.readBytes(buffer, 0, length);
+            frame.readBytes(buffer, 0, length);
         }
 
         // 字节转成对象
         ProtoMsg.Message msg =
                 ProtoMsg.Message.parseFrom(buffer);
-        if (in.hasArray()) {
-            in.release();
+        if (frame.hasArray()) {
+            frame.release();
         }
 
         return msg;

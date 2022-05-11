@@ -1,3 +1,7 @@
+spring:
+  main:
+    web-application-type: none
+
 client:
   ip: 127.0.0.1
 

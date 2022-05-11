@@ -49,7 +49,7 @@
                     <temporaryProtoFileDirectory>${project.build.directory}/protobuf/protoTemp</temporaryProtoFileDirectory>
                     <!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
 
-                    <protocExecutable>${project.basedir}/protobuf/protoBin/protoc.exe</protocExecutable>
+                    <protocExecutable>${project.basedir}/protobuf/protoBin/protoc</protocExecutable>
                 </configuration>
                 <executions>
                     <execution>

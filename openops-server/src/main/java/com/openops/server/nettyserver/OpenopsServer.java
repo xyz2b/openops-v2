@@ -1,6 +1,5 @@
 package com.openops.server.nettyserver;
 
-import com.openops.server.handler.CommandExecuteRequestClientHandler;
 import com.openops.common.codec.ProtobufDecoder;
 import com.openops.common.codec.ProtobufEncoder;
 import com.openops.server.distributed.Worker;
@@ -13,8 +12,10 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
+import io.netty.channel.epoll.EpollChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioChannelOption;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +50,7 @@ public class OpenopsServer {
     private RemoteNotificationHandler remoteNotificationHandler;
 
     @Autowired
-    private CommandExecuteRequestClientHandler commandExecuteRequestHandler;
+    private CommandExecuteRequestServerHandler commandExecuteRequestHandler;
 
     @Autowired
     private CommandExecuteResponseServerHandler commandExecuteResponseHandler;
@@ -66,8 +67,16 @@ public class OpenopsServer {
         //3 设置监听端口
         b.localAddress(new InetSocketAddress(ip, port));
         //4 设置通道选项
-        b.option(ChannelOption.SO_KEEPALIVE, true);
-        b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+        b.option(ChannelOption.SO_BACKLOG, 128)
+                .childOption(ChannelOption.TCP_NODELAY, true)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
+                .childOption(NioChannelOption.SO_KEEPALIVE, true)
+                .childOption(ChannelOption.SO_REUSEADDR, true)
+                .childOption(ChannelOption.SO_RCVBUF, 32 * 1024)
+                .childOption(ChannelOption.SO_SNDBUF, 32 * 1024)
+                .childOption(EpollChannelOption.SO_REUSEPORT, true)
+                .childOption(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 
         //5 装配流水线
         b.childHandler(new ChannelInitializer<SocketChannel>() {

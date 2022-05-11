@@ -45,4 +45,17 @@ public class ClientSession extends AbstractSession {
         Channel channel = ctx.channel();
         return (ClientSession) channel.attr(ClientSession.SESSION_KEY).get();
     }
+
+    public ClientSession bind() {
+        Channel channel = channel();
+        log.info(" ClientSession 绑定会话 " + channel.remoteAddress());
+        // 通过channel找到session
+        channel.attr(ClientSession.SESSION_KEY).set(this);
+        return this;
+    }
+
+    public void unbind() {
+        setLogin(false);
+        this.close();
+    }
 }

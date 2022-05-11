@@ -2,6 +2,8 @@ package com.openops.server.session;
 
 import com.openops.common.sender.ProtoMsgSender;
 import com.openops.common.session.AbstractSession;
+import com.openops.server.session.service.SessionManager;
+import com.openops.util.JsonUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -44,5 +46,18 @@ public class ClientSession extends AbstractSession {
     public static ClientSession getSession(ChannelHandlerContext ctx) {
         Channel channel = ctx.channel();
         return (ClientSession) channel.attr(ClientSession.SESSION_KEY).get();
+    }
+
+    public ClientSession bind() {
+        Channel channel = channel();
+        log.info(" ClientSession 绑定会话 " + channel.remoteAddress());
+        // 通过channel找到session
+        channel.attr(ClientSession.SESSION_KEY).set(this);
+        return this;
+    }
+
+    public void unbind() {
+        setLogin(false);
+        this.close();
     }
 }

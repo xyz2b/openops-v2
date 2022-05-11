@@ -1,5 +1,8 @@
-package com.openops.client.openopsclient;
+package com.openops.client.nettyclient;
 
+import com.openops.client.handler.CommandExecuteRequestClientHandler;
+import com.openops.client.handler.HeartBeatClientHandler;
+import com.openops.common.Client;
 import com.openops.common.codec.ProtobufDecoder;
 import com.openops.common.codec.ProtobufEncoder;
 import com.openops.client.config.ClientConfig;
@@ -15,14 +18,25 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.GenericFutureListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-public class NettyClient {
+@Service("OpenopsClient")
+public class OpenopsClient {
     @Autowired
     ClientConfig clientConfig;
+
+    @Autowired
+    private AuthResponseClientHandler authResponseClientHandler;
+
+    @Autowired
+    private ClientExceptionHandler clientExceptionHandler;
+
+    @Autowired
+    private CommandExecuteRequestClientHandler commandExecuteRequestClientHandler;
 
     // 重连次数
     private  int reConnectCount = 0;
@@ -30,19 +44,30 @@ public class NettyClient {
     private ClientSession clientSession;
 
     GenericFutureListener<ChannelFuture> closeListener = (ChannelFuture f) -> {
+        final EventLoop eventLoop = f.channel().eventLoop();
+        if (f.isSuccess()) {
+            reConnectCount++;
+            log.error("netty client [" + f.channel().localAddress().toString() + "] 连接 netty server [" + clientConfig.getServerIp() + ":" + clientConfig.getServerPort() + "] 失败，等待10秒钟进行第{}次重连", reConnectCount);
+            eventLoop.schedule(() -> OpenopsClient.this.doConnect(), 10, TimeUnit.SECONDS);
+        } else {
+            log.error("netty client channel 关闭失败" + "，退出程序");
+            System.exit(-1);
+        }
         clientSession = null;
     };
 
     private GenericFutureListener<ChannelFuture> connectedListener = (ChannelFuture f) -> {
         final EventLoop eventLoop = f.channel().eventLoop();
-        if (!f.isSuccess() && ++reConnectCount < 3) {
-            log.info("连接失败! 在10s之后准备尝试第{}次重连!",reConnectCount);
-            eventLoop.schedule(() -> NettyClient.this.doConnect(), 10, TimeUnit.SECONDS);
+        if (!f.isSuccess()) {
+            reConnectCount++;
+            log.info("连接失败! 在10s之后准备尝试第{}次重连!", reConnectCount);
+            eventLoop.schedule(() -> OpenopsClient.this.doConnect(), 10, TimeUnit.SECONDS);
         } else {
             log.info(new Date() + "节点连接成功:{}", clientConfig.getServerIp() + ":" + clientConfig.getServerPort());
 
             Channel channel = f.channel();
             clientSession = new ClientSession(channel);
+            clientSession.bind();
             channel.closeFuture().addListener(closeListener);
         }
     };
@@ -51,7 +76,7 @@ public class NettyClient {
     private Bootstrap b;
     private EventLoopGroup g;
 
-    public NettyClient() {
+    public OpenopsClient() {
         /**
          * 客户端的是Bootstrap，服务端的则是 ServerBootstrap。
          * 都是AbstractBootstrap的子类。
@@ -65,23 +90,24 @@ public class NettyClient {
         g = new NioEventLoopGroup();
     }
 
-    /**
-     * 重连
-     */
     public void doConnect() {
+        String serverIp = clientConfig.getServerIp();
+        int serverPort = clientConfig.getServerPort();
 
-        // 其他节点的ip
-        String host = clientConfig.getServerIp();
-        // 其他节点的端口
-        int port = clientConfig.getServerPort();
+        String localIp = clientConfig.getClientIp();
 
         try {
             if (b != null && b.group() == null) {
                 b.group(g);
                 b.channel(NioSocketChannel.class);
-                b.option(ChannelOption.SO_KEEPALIVE, true);
-                b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
-                b.remoteAddress(host, port);
+                b.option(ChannelOption.TCP_NODELAY, true)
+                    .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                    .option(ChannelOption.SO_REUSEADDR, true)
+                    .option(ChannelOption.SO_KEEPALIVE, true)
+                    .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+
+                b.remoteAddress(serverIp, serverPort);
+                b.localAddress(localIp, 0);
 
                 // 设置通道初始化
                 b.handler(
@@ -91,8 +117,9 @@ public class NettyClient {
                             {
                                 ch.pipeline().addLast("decoder", new ProtobufDecoder());
                                 ch.pipeline().addLast("encoder", new ProtobufEncoder());
-                                ch.pipeline().addLast("login", new AuthResponseClientHandler());
-                                ch.pipeline().addLast("exceptionHandler", new ClientExceptionHandler());
+                                ch.pipeline().addLast("login", authResponseClientHandler);
+                                ch.pipeline().addLast("CommandExecuteRequestClientHandler", commandExecuteRequestClientHandler);
+                                ch.pipeline().addLast("exceptionHandler", clientExceptionHandler);
                             }
                         }
                 );

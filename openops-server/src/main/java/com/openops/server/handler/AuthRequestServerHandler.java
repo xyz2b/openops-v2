@@ -25,7 +25,7 @@ public class AuthRequestServerHandler extends ChannelInboundHandlerAdapter {
      */
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (null == msg || !(msg instanceof ProtoMsgFactory.ProtoMsg.Message)) {
-            super.channelRead(ctx, msg);
+            ctx.fireChannelRead(msg);
             return;
         }
 
@@ -35,7 +35,7 @@ public class AuthRequestServerHandler extends ChannelInboundHandlerAdapter {
         ProtoMsgFactory.ProtoMsg.HeadType headType = pkg.getType();
 
         if (!headType.equals(ProtoMsgFactory.ProtoMsg.HeadType.AUTH_REQUEST)) {
-            super.channelRead(ctx, msg);
+            ctx.fireChannelRead(msg);
             return;
         }
 
@@ -50,7 +50,7 @@ public class AuthRequestServerHandler extends ChannelInboundHandlerAdapter {
                 if (r) {
                     log.info("认证成功:" + ctx.channel().remoteAddress().toString());
 
-                    ctx.pipeline().addAfter("login", "heartBeat",new HeartBeatServerHandler());
+                    ctx.pipeline().addAfter("login", "heartBeat", new HeartBeatServerHandler());
                     ctx.pipeline().remove("login");
                 } else {
                     SessionManager.getSessionManger().closeSession(ctx);

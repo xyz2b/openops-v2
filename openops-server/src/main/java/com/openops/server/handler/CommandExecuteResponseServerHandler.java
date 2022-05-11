@@ -27,12 +27,11 @@ public class CommandExecuteResponseServerHandler extends ChannelInboundHandlerAd
     /**
      * 收到消息
      */
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception
     {
         //判断消息实例
         if (null == msg || !(msg instanceof ProtoMsgFactory.ProtoMsg.Message)) {
-            super.channelRead(ctx, msg);
+            ctx.fireChannelRead(msg);
             return;
         }
 

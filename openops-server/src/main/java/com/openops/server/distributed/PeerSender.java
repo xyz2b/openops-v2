@@ -51,6 +51,7 @@ public class PeerSender implements Sender {
             Channel channel = f.channel();
             // 本节点连接其他节点，本节点是作为客户端的
             clientSession = new ClientSession(channel);
+            clientSession.bind();
             channel.closeFuture().addListener(closeListener);
 
             // 向所连接的节点发送连接成功的通知

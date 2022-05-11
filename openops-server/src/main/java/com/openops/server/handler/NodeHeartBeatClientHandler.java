@@ -19,27 +19,23 @@ public class NodeHeartBeatClientHandler extends ChannelInboundHandlerAdapter {
     //心跳的时间间隔，单位为s
     private static final int HEARTBEAT_INTERVAL = 30;
 
-    //在Handler被加入到Pipeline时，开始发送心跳
     @Override
-    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //发送心跳
-        heartBeat(ctx);
-    }
-
-    private void heartBeat(ChannelHandlerContext ctx) {
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ClientSession session = ClientSession.getSession(ctx);
         Client client = session.client();
         Object message = new HeartBeatRequestMsgBuilder(client).build();
 
-        ctx.executor().schedule(() -> {
-            if (ctx.channel().isActive()) {
-                log.info(" 发送 Node HEART_BEAT  消息 other");
-                ctx.writeAndFlush(message);
+        //发送心跳
+        heartBeat(ctx, message);
+    }
 
-                //递归调用，发送下一次的心跳
-                heartBeat(ctx);
+    private void heartBeat(ChannelHandlerContext ctx, Object message) {
+        ctx.executor().scheduleAtFixedRate(() -> {
+            if (ctx.channel().isActive()) {
+                ctx.writeAndFlush(message);
+                log.info(" 发送 HEART_BEAT to {}", ctx.channel().remoteAddress().toString());
             }
-        }, HEARTBEAT_INTERVAL, TimeUnit.SECONDS);
+        }, 0, HEARTBEAT_INTERVAL, TimeUnit.SECONDS);
     }
 
     /**
@@ -49,7 +45,7 @@ public class NodeHeartBeatClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         //判断消息实例
         if (null == msg || !(msg instanceof ProtoMsg.Message)) {
-            super.channelRead(ctx, msg);
+            ctx.fireChannelRead(msg);
             return;
         }
 

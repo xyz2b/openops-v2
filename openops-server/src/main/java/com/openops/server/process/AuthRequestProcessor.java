@@ -10,8 +10,10 @@ import com.openops.common.exception.InvalidMsgTypeException;
 import com.openops.server.builder.AuthResponseMsgBuilder;
 import com.openops.server.session.LocalSession;
 import com.openops.server.session.service.SessionManager;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service("AuthRequestProcessor")
 public class AuthRequestProcessor extends AbstractProcessor {
     public AuthRequestProcessor() {
@@ -31,14 +33,12 @@ public class AuthRequestProcessor extends AbstractProcessor {
             Client client = new Client(info.getClientId(), info.getClientVersion(), info.getToken(), info.getPlatform(), session.sessionId());
 
             long seqNo = msg.getSequence();
-
-            if (checkToken(info.getToken())) {
+            if (!checkToken(info.getToken())) {
                 ProtoInstant.AuthResultCode resultCode =
                         ProtoInstant.AuthResultCode.NO_TOKEN;
                 Object response = new AuthResponseMsgBuilder(client, new AuthResponse(resultCode, "token验证失败")).build();
                 //发送之后，断开连接
                 session.send(response);
-                session.close();
                 return false;
             }
 
