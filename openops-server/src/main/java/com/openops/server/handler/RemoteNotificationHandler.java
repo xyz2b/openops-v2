@@ -47,14 +47,18 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
 
         // 别的节点所管理的Client下线的通知
         if (notification.getType() == Notification.SESSION_OFF) {
-            SessionCache sessionCache = JsonUtil.jsonToPojo((String) notification.getData(), SessionCache.class);
+            Notification<SessionCache> sessionCacheInfo = JsonUtil.jsonToPojo(json, new TypeToken<Notification<SessionCache>>() {}.getType());
+
+            SessionCache sessionCache = sessionCacheInfo.getData();
 
             log.info("收到客户端下线通知, cid={}", sessionCache.getClientId());
             SessionManager.getSessionManger().removeRemoteSession(sessionCache.getSessionId());
         }
         // 别的节点所管理的Client上线的通知
         if (notification.getType() == Notification.SESSION_ON) {
-            SessionCache sessionCache = JsonUtil.jsonToPojo((String) notification.getData(), SessionCache.class);
+            Notification<SessionCache> sessionCacheInfo = JsonUtil.jsonToPojo(json, new TypeToken<Notification<SessionCache>>() {}.getType());
+
+            SessionCache sessionCache = sessionCacheInfo.getData();
             log.info("收到客户端上线通知, cid={}", sessionCache.getClientId());
 
             SessionManager.getSessionManger().addRemoteSession(sessionCache);
@@ -64,12 +68,13 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
         if (notification.getType() == Notification.CONNECT_FINISHED) {
             // 获取对端的节点信息
             Notification<Node> nodInfo = JsonUtil.jsonToPojo(json, new TypeToken<Notification<Node>>() {}.getType());
+            Node node = nodInfo.getData();
 
             log.info("收到分布式节点连接成功通知, node={}", json);
 
-            ctx.pipeline().remove("login");
+//            ctx.pipeline().remove("login");
             // 用对端的节点信息来表示这条连接
-            ctx.channel().attr(ServerConstants.CHANNEL_NAME).set(JsonUtil.pojoToJson(nodInfo));
+            ctx.channel().attr(ServerConstants.CHANNEL_NAME).set(JsonUtil.pojoToJson(node));
         }
     }
 

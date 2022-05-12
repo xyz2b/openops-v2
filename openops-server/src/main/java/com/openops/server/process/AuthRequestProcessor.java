@@ -43,6 +43,7 @@ public class AuthRequestProcessor extends AbstractProcessor {
             }
 
             // 将Session、Client关联
+            // 不管这个连接的Client是其他节点，还是真正的客户端，都会加入到LocalSession
             LocalSession localSession = (LocalSession) session;
 
             localSession.setClient(client);

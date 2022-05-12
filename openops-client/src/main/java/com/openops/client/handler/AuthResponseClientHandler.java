@@ -27,7 +27,7 @@ public class AuthResponseClientHandler extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         // 节点和节点之间进行通信的报文，clientId为发送节点的IP和端口
         // 客户端和节点之间进行通信的报文，clientId为客户端的IP
-        Client client = new Client(clientConfig.getClientIp(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", "");
+        Client client = new Client(clientConfig.getClientId(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", "");
         ctx.writeAndFlush(new AuthRequestMsgBuilder(client).build());
     }
 

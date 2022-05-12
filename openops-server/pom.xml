@@ -13,12 +13,6 @@
     <name>openops-server</name>
     <description>openops server</description>
 
-    <properties>
-        <jackson.version>2.12.3</jackson.version>
-        <eureka.version>3.1.1</eureka.version>
-        <jedis.version>4.2.3</jedis.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.openops</groupId>
@@ -30,6 +24,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
@@ -45,21 +45,6 @@
             <artifactId>org.apache.commons.lang</artifactId>
             <version>2.6</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-
 
     </dependencies>
 

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class ClientConfig {
     @Value("${client.ip}")
     private String clientIp;
+    @Value("${client.id}")
+    private String clientId;
 
     @Value("${server.ip}")
     private String serverIp;

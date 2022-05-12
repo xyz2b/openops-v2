@@ -12,6 +12,7 @@ import com.openops.client.session.ClientSession;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
+import io.netty.channel.epoll.EpollChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -63,7 +64,7 @@ public class OpenopsClient {
             log.info("连接失败! 在10s之后准备尝试第{}次重连!", reConnectCount);
             eventLoop.schedule(() -> OpenopsClient.this.doConnect(), 10, TimeUnit.SECONDS);
         } else {
-            log.info(new Date() + "节点连接成功:{}", clientConfig.getServerIp() + ":" + clientConfig.getServerPort());
+            log.info(new Date() + " 节点连接成功:{}", clientConfig.getServerIp() + ":" + clientConfig.getServerPort());
 
             Channel channel = f.channel();
             clientSession = new ClientSession(channel);
@@ -103,9 +104,9 @@ public class OpenopsClient {
                 b.option(ChannelOption.TCP_NODELAY, true)
                     .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
                     .option(ChannelOption.SO_REUSEADDR, true)
+                    .option(EpollChannelOption.SO_REUSEPORT, true)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
-
                 b.remoteAddress(serverIp, serverPort);
                 b.localAddress(localIp, 0);
 

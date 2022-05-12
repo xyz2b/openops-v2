@@ -20,10 +20,12 @@ import io.netty.channel.socket.nio.NioChannelOption;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
 
 @Data
 @Slf4j
@@ -70,15 +72,14 @@ public class OpenopsServer {
         b.localAddress(new InetSocketAddress(ip, port));
         //4 设置通道选项
         b.option(ChannelOption.SO_BACKLOG, 128)
-                .option(ChannelOption.TCP_NODELAY, true)
-                .option(ChannelOption.SO_KEEPALIVE, true)
-                .option(NioChannelOption.SO_KEEPALIVE, true)
                 .option(ChannelOption.SO_REUSEADDR, true)
-                .option(ChannelOption.SO_RCVBUF, 32 * 1024)
-                .option(ChannelOption.SO_SNDBUF, 32 * 1024)
                 .option(EpollChannelOption.SO_REUSEPORT, true)
                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
-                .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+                .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+                .childOption(ChannelOption.SO_RCVBUF, 32 * 1024)
+                .childOption(ChannelOption.SO_SNDBUF, 32 * 1024)
+                .childOption(ChannelOption.TCP_NODELAY, true)
+                .childOption(NioChannelOption.SO_KEEPALIVE, true);
 
         //5 装配流水线
         b.childHandler(new ChannelInitializer<SocketChannel>() {
@@ -94,21 +95,25 @@ public class OpenopsServer {
                 ch.pipeline().addLast("serverException", serverExceptionHandler);
             }
         });
+
         // 6 开始绑定server
         // 通过调用sync同步方法阻塞直到绑定成功
-
         ChannelFuture channelFuture = null;
         boolean isStart = false;
         while (!isStart) {
             try {
-
                 channelFuture = b.bind().sync();
                 log.info("Server 启动, 端口为： " +
                         channelFuture.channel().localAddress());
                 isStart = true;
             } catch (Exception e) {
-                log.error("Server 启动失败: " + e.getMessage());
+                log.error("Server 启动失败端口为：{} msg: {}, 10s后重新启动", ip + ":" + port , e.getMessage());
                 e.printStackTrace();
+                try {
+                    Thread.sleep(10000);
+                }  catch (InterruptedException t) {
+                    t.printStackTrace();
+                }
             }
         }
 

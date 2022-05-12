@@ -36,7 +36,7 @@ public class NodeAuthResponseClientHandler extends ChannelInboundHandlerAdapter 
         if (message.getAuthResponse() != null && message.getType() == ProtoMsg.HeadType.AUTH_RESPONSE) {
 
             // 判断握手应答结果，如果非0，说明认证失败，关闭链路，重新发起连接
-            if (message.getAuthResponse().getCode() == ProtoInstant.AuthResultCode.SUCCESS.getCode()) {
+            if (message.getAuthResponse().getCode() != ProtoInstant.AuthResultCode.SUCCESS.getCode()) {
                 log.error("验证失败，关闭连接");
                 // 握手失败，关闭连接
                 ctx.close();

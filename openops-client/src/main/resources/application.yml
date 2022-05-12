@@ -3,8 +3,12 @@ spring:
     web-application-type: none
 
 client:
-  ip: 127.0.0.1
+  id: 192.168.56.1
+  ip: 192.168.56.1
 
 server:
-  ip: 127.0.0.1
+  ip: 192.168.56.1
   port: 9999
+
+logging:
+  config: classpath:log4j2.xml

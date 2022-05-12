@@ -10,9 +10,9 @@ zookeeper:
     url: localhost:2111
     SessionTimeout: 600000
 
-logging:
-  config: classpath:logback-spring.xml
-
 node:
-  ip: 127.0.0.1
-  port: 9998
+  ip: 192.168.56.1
+  port: 9999
+
+logging:
+  config: classpath:log4j2.xml

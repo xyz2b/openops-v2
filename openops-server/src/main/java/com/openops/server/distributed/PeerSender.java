@@ -11,6 +11,7 @@ import com.openops.server.handler.NodeExceptionClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
+import io.netty.channel.epoll.EpollChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -49,7 +50,7 @@ public class PeerSender implements Sender {
             log.info("连接失败! 在10s之后准备尝试第{}次重连!",reConnectCount);
             eventLoop.schedule(() -> PeerSender.this.doConnect(), 10, TimeUnit.SECONDS);
         } else {
-            log.info(new Date() + "分布式节点连接成功:{}", rmNode.toString());
+            log.info(new Date() + " 分布式节点连接成功:{}", rmNode.toString());
 
             Channel channel = f.channel();
             // 本节点连接其他节点，本节点是作为客户端的
@@ -93,6 +94,8 @@ public class PeerSender implements Sender {
     public void doConnect() {
         // 获取本节点的信息
         Node localNode = Worker.getWorker().getLocalNodeInfo();
+        // 本节点的IP
+        String localHost = localNode.getHost();
 
         // 其他节点的ip
         String host = rmNode.getHost();
@@ -103,9 +106,14 @@ public class PeerSender implements Sender {
             if (b != null && b.group() == null) {
                 b.group(g);
                 b.channel(NioSocketChannel.class);
-                b.option(ChannelOption.SO_KEEPALIVE, true);
-                b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+                b.option(ChannelOption.TCP_NODELAY, true)
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                        .option(ChannelOption.SO_REUSEADDR, true)
+                        .option(EpollChannelOption.SO_REUSEPORT, true)
+                        .option(ChannelOption.SO_KEEPALIVE, true)
+                        .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
                 b.remoteAddress(host, port);
+                b.localAddress(localHost, 0);
 
                 // 设置通道初始化
                 b.handler(
@@ -141,7 +149,7 @@ public class PeerSender implements Sender {
     }
 
     public void writeAndFlush(Object pkg) {
-        if (clientSession == null || !clientSession.isValid()) {
+        if (clientSession == null || !clientSession.isConnected()) {
             log.error("分布式节点未连接:", rmNode.toString());
             return;
         }
