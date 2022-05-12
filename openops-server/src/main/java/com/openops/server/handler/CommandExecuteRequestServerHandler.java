@@ -15,9 +15,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service("CommandExecuteRequestServerHandler")
 @ChannelHandler.Sharable
-public class CommandExecuteRequestServerHandler extends ChannelInboundHandlerAdapter
-{
-
+public class CommandExecuteRequestServerHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     CommandExecuteRequestServerProcessor commandExecuteRequestServerProcessor;
 

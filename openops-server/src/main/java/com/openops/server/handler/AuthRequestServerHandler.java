@@ -20,6 +20,9 @@ public class AuthRequestServerHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     AuthRequestProcessor authRequestProcessor;
 
+    @Autowired
+    HeartBeatServerHandler heartBeatServerHandler;
+
     /**
      * 收到消息
      */
@@ -50,7 +53,7 @@ public class AuthRequestServerHandler extends ChannelInboundHandlerAdapter {
                 if (r) {
                     log.info("认证成功:" + ctx.channel().remoteAddress().toString());
 
-                    ctx.pipeline().addAfter("login", "heartBeat", new HeartBeatServerHandler());
+                    ctx.pipeline().addAfter("login", "heartBeat", heartBeatServerHandler);
                     ctx.pipeline().remove("login");
                 } else {
                     SessionManager.getSessionManger().closeSession(ctx);

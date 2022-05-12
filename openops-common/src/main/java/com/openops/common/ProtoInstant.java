@@ -17,12 +17,14 @@ public class ProtoInstant {
     public static final int AUTH_PROCESSOR = 0;
     public static final int COMMAND_EXECUTE_REQUEST_PROCESS = 1;
     public static final int COMMAND_EXECUTE_RESPONSE_PROCESS = 2;
+    public static final int FLUSH_CLIENT_SESSION_PROCESSOR = 3;
 
 
     public enum ProcessorType {
         AUTH(0, "登录处理器"),
         COMMAND_EXECUTE_REQUEST(1, "命令请求处理器"),
-        COMMAND_EXECUTE_RESPONSE(2, "命令响应处理器");
+        COMMAND_EXECUTE_RESPONSE(2, "命令响应处理器"),
+        FLUSH_CLIENT_SESSION_PROCESSOR(3, "客户端session刷新处理器");
 
         private Integer type;
         private String desc;

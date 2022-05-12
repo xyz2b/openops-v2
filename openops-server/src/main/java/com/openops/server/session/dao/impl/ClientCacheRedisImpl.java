@@ -3,14 +3,21 @@ package com.openops.server.session.dao.impl;
 import com.openops.server.session.entity.ClientCache;
 import com.openops.util.JsonUtil;
 import com.openops.server.session.dao.ClientCacheDAO;
+import com.openops.util.RandomUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import java.util.concurrent.TimeUnit;
+
+@Slf4j
 @Repository("ClientCacheRedisImpl")
 public class ClientCacheRedisImpl implements ClientCacheDAO {
-    public static final String REDIS_PREFIX = "ClientCache:ClientId:";
+    // 缓存过期时间，120s+随机值
+    private static final int TIMEOUT = 120;
+    private static final String REDIS_PREFIX = "ClientCache:ClientId:";
     @Autowired
     protected StringRedisTemplate stringRedisTemplate;
 
@@ -18,8 +25,7 @@ public class ClientCacheRedisImpl implements ClientCacheDAO {
     public void save(final ClientCache clientCache) {
         String key = REDIS_PREFIX + clientCache.getClientId();
         String value = JsonUtil.pojoToJson(clientCache);
-        // TODO: 设置过期时间，收到心跳自动续期
-        stringRedisTemplate.opsForValue().set(key, value);
+        stringRedisTemplate.opsForValue().set(key, value, TIMEOUT + RandomUtil.randomInt(0, 120), TimeUnit.SECONDS);
     }
 
 
@@ -38,6 +44,12 @@ public class ClientCacheRedisImpl implements ClientCacheDAO {
     public void remove(final String clientId) {
         String key = REDIS_PREFIX + clientId;
         stringRedisTemplate.delete(key);
+    }
+
+    @Override
+    public void flush(String clientId) {
+        String key = REDIS_PREFIX + clientId;
+        stringRedisTemplate.expire(key, TIMEOUT + RandomUtil.randomInt(0, 120), TimeUnit.SECONDS);
     }
 
 }

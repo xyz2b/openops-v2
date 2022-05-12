@@ -1,6 +1,7 @@
 package com.openops.server.openopsserver;
 
 import com.openops.server.nettyserver.OpenopsServer;
+import com.openops.server.process.FlushClientSessionProcessor;
 import com.openops.server.session.service.SessionManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +19,7 @@ public class OpenopsServerApplication {
     public static void main(String[] args) {
         // 启动并初始化 Spring 环境及其各 Spring 组件
         ApplicationContext context = SpringApplication.run(OpenopsServerApplication.class, args);
+
         /**
          * 将SessionManger 单例设置为spring bean
          */

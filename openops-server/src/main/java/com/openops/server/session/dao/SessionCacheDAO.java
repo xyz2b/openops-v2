@@ -13,4 +13,6 @@ public interface SessionCacheDAO {
     //删除会话
     void remove(String sessionId);
 
+    // 刷新会话缓存
+    void flush(String clientId);
 }

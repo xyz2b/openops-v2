@@ -112,8 +112,10 @@ public class SessionManager {
             return;
         }
 
+        SessionCache sessionCache = sessionCacheDAO.get(session.sessionId());
+
         session.close();
-        // 删除本地的会话和远程会话
+        // 删除本地会话
         removeLocalSession(session.sessionId());
 
         Worker.getWorker().decrBalance();
@@ -121,16 +123,16 @@ public class SessionManager {
         /**
          * 通知其他节点 ，用户下线
          */
-        notifyOtherNodeOffLine(session);
+        notifyOtherNodeOffLine(sessionCache);
     }
 
-    private void notifyOtherNodeOffLine(ServerSession session) {
-        if (null == session || session.isValid()) {
+    private void notifyOtherNodeOffLine(SessionCache session) {
+        if (null == session) {
             log.error("session is null or isValid");
             return;
         }
 
-        Notification<Notification.ContentWrapper> notification = Notification.wrapContent(Notification.SESSION_OFF ,session.sessionId());
+        Notification<SessionCache> notification = new Notification<SessionCache>(Notification.SESSION_OFF , session);
         WorkerRouter.getWorkerRouter().sendNotification(notification);
     }
 

@@ -8,10 +8,10 @@ import com.openops.common.exception.InvalidMsgTypeException;
 import com.openops.server.process.dao.CommandExecuteResponseDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Slf4j
-@Repository("CommandExecuteResponseServerProcessor")
+@Service("CommandExecuteResponseServerProcessor")
 public class CommandExecuteResponseServerProcessor extends AbstractProcessor {
     @Autowired
     CommandExecuteResponseDAO commandExecuteResponseDAO;

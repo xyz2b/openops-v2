@@ -56,7 +56,7 @@ public class PeerSender implements Sender {
 
             // 向所连接的节点发送连接成功的通知
             Node localNode = Worker.getWorker().getLocalNodeInfo();
-            Notification<Node> notification = new Notification<Node>(Notification.CONNECT_FINISHED, Worker.getWorker().getLocalNodeInfo());
+            Notification<Node> notification = new Notification<Node>(Notification.CONNECT_FINISHED, localNode);
             // 节点和节点之间进行通信的报文，clientId为发送节点的IP和端口
             // 客户端和节点之间进行通信的报文，clientId为客户端的IP
             Object pkg = new NotificationMsgBuilder(clientSession.sessionId(), notification).build();

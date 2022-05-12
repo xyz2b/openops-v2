@@ -3,20 +3,28 @@ package com.openops.server.handler;
 import com.openops.common.ServerConstants;
 import com.openops.common.msg.ProtoMsgFactory;
 import com.openops.server.builder.HeartBeatResponseMsgBuilder;
+import com.openops.server.process.FlushClientSessionProcessor;
 import com.openops.server.session.LocalSession;
 import com.openops.server.session.ServerSession;
 import com.openops.server.session.service.SessionManager;
 import com.openops.cocurrent.FutureTaskScheduler;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
 import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
+@Service("HeartBeatServerHandler")
+@ChannelHandler.Sharable
 public class HeartBeatServerHandler extends IdleStateHandler {
+    @Autowired
+    FlushClientSessionProcessor flushClientSessionProcessor;
+
     private static final int READ_IDLE_GAP = 60;
 
     public HeartBeatServerHandler() {
@@ -38,9 +46,14 @@ public class HeartBeatServerHandler extends IdleStateHandler {
             //异步处理,将心跳包，直接回复给客户端
             FutureTaskScheduler.add(() -> {
                 if (ctx.channel().isActive()) {
-                    Object message = new HeartBeatResponseMsgBuilder(LocalSession.getSession(ctx).client()).build();
+                    LocalSession localSession = LocalSession.getSession(ctx);
+                    Object message = new HeartBeatResponseMsgBuilder(localSession.client()).build();
                     ctx.writeAndFlush(message);
                     log.info("回复客户端心跳包: {}", ctx.channel().remoteAddress().toString());
+
+                    // 刷新客户端的session
+                    log.info("flush redis sessionId: {}, clientId: {}", localSession.sessionId(), localSession.client().getClientId());
+                    flushClientSessionProcessor.action(localSession, msg);
                 }
                 return null;
             });

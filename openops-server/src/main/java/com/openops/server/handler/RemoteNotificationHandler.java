@@ -47,10 +47,10 @@ public class RemoteNotificationHandler extends ChannelInboundHandlerAdapter {
 
         // 别的节点所管理的Client下线的通知
         if (notification.getType() == Notification.SESSION_OFF) {
-            String clientId = JsonUtil.jsonToPojo((String) notification.getData(), String.class);
+            SessionCache sessionCache = JsonUtil.jsonToPojo((String) notification.getData(), SessionCache.class);
 
-            log.info("收到客户端下线通知, cid={}", clientId);
-            SessionManager.getSessionManger().removeRemoteSession(clientId);
+            log.info("收到客户端下线通知, cid={}", sessionCache.getClientId());
+            SessionManager.getSessionManger().removeRemoteSession(sessionCache.getSessionId());
         }
         // 别的节点所管理的Client上线的通知
         if (notification.getType() == Notification.SESSION_ON) {

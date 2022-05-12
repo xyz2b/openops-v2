@@ -11,4 +11,7 @@ public interface ClientCacheDAO {
 
     // 删除用户缓存
     void remove(String clientId);
+
+    // 刷新用户缓存
+    void flush(String clientId);
 }
