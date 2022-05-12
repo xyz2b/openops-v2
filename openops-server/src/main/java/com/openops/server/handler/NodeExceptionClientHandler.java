@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @ChannelHandler.Sharable
-@Service("NodeExceptionClientHandler")
 public class NodeExceptionClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

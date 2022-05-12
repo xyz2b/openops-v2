@@ -2,6 +2,7 @@ package com.openops.server.nettyserver;
 
 import com.openops.common.codec.ProtobufDecoder;
 import com.openops.common.codec.ProtobufEncoder;
+import com.openops.server.config.NodeConfig;
 import com.openops.server.distributed.Worker;
 import com.openops.server.distributed.WorkerRouter;
 import com.openops.cocurrent.FutureTaskScheduler;
@@ -28,11 +29,9 @@ import java.net.InetSocketAddress;
 @Slf4j
 @Service("OpenopsServer")
 public class OpenopsServer {
-    // 服务器端口
-    @Value("${node.port}")
-    private int port;
-    @Value("${node.ip}")
-    private String ip;
+    @Autowired
+    NodeConfig nodeConfig;
+
     // 通过nio方式来接收连接和处理连接
     private EventLoopGroup bg;
     private EventLoopGroup wg;
@@ -56,6 +55,9 @@ public class OpenopsServer {
     private CommandExecuteResponseServerHandler commandExecuteResponseHandler;
 
     public void run() {
+        String ip = nodeConfig.getIp();
+        int port = nodeConfig.getPort();
+
         //连接监听线程组
         bg = new NioEventLoopGroup(1);
         //传输处理线程组
@@ -68,15 +70,15 @@ public class OpenopsServer {
         b.localAddress(new InetSocketAddress(ip, port));
         //4 设置通道选项
         b.option(ChannelOption.SO_BACKLOG, 128)
-                .childOption(ChannelOption.TCP_NODELAY, true)
-                .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .childOption(NioChannelOption.SO_KEEPALIVE, true)
-                .childOption(ChannelOption.SO_REUSEADDR, true)
-                .childOption(ChannelOption.SO_RCVBUF, 32 * 1024)
-                .childOption(ChannelOption.SO_SNDBUF, 32 * 1024)
-                .childOption(EpollChannelOption.SO_REUSEPORT, true)
-                .childOption(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
-                .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+                .option(ChannelOption.TCP_NODELAY, true)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .option(NioChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.SO_REUSEADDR, true)
+                .option(ChannelOption.SO_RCVBUF, 32 * 1024)
+                .option(ChannelOption.SO_SNDBUF, 32 * 1024)
+                .option(EpollChannelOption.SO_REUSEPORT, true)
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 
         //5 装配流水线
         b.childHandler(new ChannelInitializer<SocketChannel>() {
@@ -101,14 +103,12 @@ public class OpenopsServer {
             try {
 
                 channelFuture = b.bind().sync();
-                log.info("疯狂创客圈 CrazyIM 启动, 端口为： " +
+                log.info("Server 启动, 端口为： " +
                         channelFuture.channel().localAddress());
                 isStart = true;
             } catch (Exception e) {
-                log.error("发生启动异常", e);
-                port++;
-                log.info("尝试一个新的端口：" + port);
-                b.localAddress(new InetSocketAddress(port));
+                log.error("Server 启动失败: " + e.getMessage());
+                e.printStackTrace();
             }
         }
 

@@ -24,17 +24,9 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializer;
 import java.lang.reflect.Method;
 
-
-/**
- * Redis 配置.
- *
- * @author 尼恩
- */
 @Configuration
 @AutoConfigureBefore(RedisAutoConfiguration.class)
-public class RedisComConfig
-{
-
+public class RedisComConfig {
     @Value("${spring.redis.maxTotal}")
     private int maxTotal;
 
@@ -92,8 +84,7 @@ public class RedisComConfig
      */
 
     @Bean
-    public GenericObjectPoolConfig<?> poolConfig()
-    {
+    public GenericObjectPoolConfig<?> poolConfig() {
         GenericObjectPoolConfig<?> poolConfig = new GenericObjectPoolConfig<>();
         poolConfig.setMaxTotal(maxTotal);
         poolConfig.setMaxIdle(maxIdle);
@@ -116,8 +107,7 @@ public class RedisComConfig
      * @return 配置好的Jedis连接工厂
      */
     @Bean
-    public RedisConnectionFactory connectionFactory(GenericObjectPoolConfig<?> poolConfig)
-    {
+    public RedisConnectionFactory connectionFactory(GenericObjectPoolConfig<?> poolConfig) {
         // 单机服务配置
         RedisStandaloneConfiguration serverConfig = new RedisStandaloneConfiguration();
         // 主机、用户名、密码、端口、数据库
@@ -141,8 +131,7 @@ public class RedisComConfig
 
 
     @Bean(name = "redisTemplate")
-    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
-    {
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
         /*
          * Redis 序列化器.
          *
@@ -174,8 +163,7 @@ public class RedisComConfig
     }
 
     @Bean(name = "stringRedisTemplate")
-    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory)
-    {
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory connectionFactory) {
         // 定义RedisTemplate，并设置连接工程
         StringRedisTemplate redisTemplate = new StringRedisTemplate(connectionFactory);
         RedisSerializer stringRedisSerializer = new StringRedisSerializer();
@@ -185,25 +173,21 @@ public class RedisComConfig
     }
 
     @Bean
-    public CacheManager initRedisCacheManager(RedisConnectionFactory connectionFactory)
-    {
+    public CacheManager initRedisCacheManager(RedisConnectionFactory connectionFactory) {
         RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager
                 .RedisCacheManagerBuilder.fromConnectionFactory(connectionFactory);
         return builder.build();
     }
+
     @Bean
-    public KeyGenerator keyGenerator()
-    {
-        return new KeyGenerator()
-        {
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
             @Override
-            public Object generate(Object o, Method method, Object... objects)
-            {
+            public Object generate(Object o, Method method, Object... objects) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(o.getClass().getName());
                 sb.append(method.getName());
-                for (Object obj : objects)
-                {
+                for (Object obj : objects) {
                     sb.append(obj.toString());
                 }
                 return sb.toString();

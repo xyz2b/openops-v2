@@ -34,8 +34,8 @@ public class WorkerRouter {
     private ConcurrentHashMap<Long, PeerSender> workerMap;
 
     // 新增节点的回调处理函数
-    private BiConsumer<Node, PeerSender> runAfterAdd = (node, relaySender) -> {
-        doAfterAdd(node, relaySender);
+    private BiConsumer<Node, PeerSender> runAfterAdd = (remoteNode, relaySender) -> {
+        doAfterAdd(remoteNode, relaySender);
     };
 
     // 删除节点的回调处理函数

@@ -14,22 +14,11 @@ public class CuratorZKClient {
     private final String zkSessionTimeout;
     private CuratorFramework client;
 
-
     //Zk集群地址
     private String zkAddress;
     public static CuratorZKClient instance = null;
 
-
-    private static CuratorZKClient singleton = null;
-
-    public static CuratorZKClient getSingleton() {
-        if (null == singleton) {
-            singleton = SpringContextUtil.getBean("curatorZKClient");
-
-        }
-        return singleton;
-    }
-
+    // springboot会调用构造函数创建instance，之后使用直接使用instance
     public CuratorZKClient(String zkConnect, String zkSessionTimeout) {
         this.zkAddress = zkConnect;
         this.zkSessionTimeout = zkSessionTimeout;

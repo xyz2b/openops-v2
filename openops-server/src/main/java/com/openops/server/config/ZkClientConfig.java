@@ -12,9 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-public class ZkClientConfig implements ApplicationContextAware
-{
-
+public class ZkClientConfig implements ApplicationContextAware {
     @Value("${zookeeper.connect.url}")
     private String zkConnect;
 
@@ -29,10 +27,9 @@ public class ZkClientConfig implements ApplicationContextAware
         SpringContextUtil.setContext(applicationContext);
     }
 
+    // spring装配初始化ZK时，会调用该方法创建ZKClient实例
     @Bean(name = "curatorZKClient")
     public CuratorZKClient curatorZKClient() {
         return new CuratorZKClient(zkConnect, zkSessionTimeout);
     }
-
-
 }

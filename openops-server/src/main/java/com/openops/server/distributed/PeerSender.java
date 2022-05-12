@@ -17,6 +17,9 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.GenericFutureListener;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -68,8 +71,8 @@ public class PeerSender implements Sender {
     private Bootstrap b;
     private EventLoopGroup g;
 
-    public PeerSender(Node n) {
-        this.rmNode = n;
+    public PeerSender(Node remoteNode) {
+        this.rmNode = remoteNode;
 
         /**
          * 客户端的是Bootstrap，服务端的则是 ServerBootstrap。
@@ -88,6 +91,8 @@ public class PeerSender implements Sender {
      * 重连
      */
     public void doConnect() {
+        // 获取本节点的信息
+        Node localNode = Worker.getWorker().getLocalNodeInfo();
 
         // 其他节点的ip
         String host = rmNode.getHost();
@@ -110,7 +115,7 @@ public class PeerSender implements Sender {
                             {
                                 ch.pipeline().addLast("decoder", new ProtobufDecoder());
                                 ch.pipeline().addLast("encoder", new ProtobufEncoder());
-                                ch.pipeline().addLast("nodeLogin", new NodeAuthResponseClientHandler());
+                                ch.pipeline().addLast("nodeLogin", new NodeAuthResponseClientHandler(localNode));
                                 ch.pipeline().addLast("exceptionHandler", new NodeExceptionClientHandler());
                             }
                         }

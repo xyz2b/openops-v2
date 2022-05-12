@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @ChannelHandler.Sharable
-@Service("NodeHeartBeatClientHandler")
 public class NodeHeartBeatClientHandler extends ChannelInboundHandlerAdapter {
     //心跳的时间间隔，单位为s
     private static final int HEARTBEAT_INTERVAL = 30;

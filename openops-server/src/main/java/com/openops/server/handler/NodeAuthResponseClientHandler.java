@@ -4,30 +4,27 @@ import com.openops.server.builder.AuthRequestMsgBuilder;
 import com.openops.common.Client;
 import com.openops.common.ProtoInstant;
 import com.openops.common.msg.ProtoMsgFactory.ProtoMsg;
+import com.openops.server.distributed.Node;
 import com.openops.server.session.ClientSession;
-import com.openops.server.config.NodeConfig;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Slf4j
 @ChannelHandler.Sharable
-@Service("NodeAuthResponseClientHandler")
 public class NodeAuthResponseClientHandler extends ChannelInboundHandlerAdapter {
-    @Autowired
-    NodeConfig nodeConfig;
+    private Node localNode;
 
-    @Autowired
-    NodeHeartBeatClientHandler nodeHeartBeatClientHandler;
+    public NodeAuthResponseClientHandler(Node localNode) {
+        this.localNode = localNode;
+    }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         // 节点和节点之间进行通信的报文，clientId为发送节点的IP和端口
         // 客户端和节点之间进行通信的报文，clientId为客户端的IP
-        Client client = new Client(nodeConfig.getIp() + ":" + nodeConfig.getPort(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", "");
+        Client client = new Client(localNode.getHost() + ":" + localNode.getPort(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", "");
         ctx.writeAndFlush(new AuthRequestMsgBuilder(client).build());
     }
 
@@ -48,10 +45,11 @@ public class NodeAuthResponseClientHandler extends ChannelInboundHandlerAdapter 
 
                 ClientSession session = ctx.channel().attr(ClientSession.SESSION_KEY).get();
                 session.setSessionId(message.getSessionId());
-                Client client = new Client(nodeConfig.getIp() + ":" + nodeConfig.getPort(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", message.getSessionId());
+                Client client = new Client(localNode.getHost() + ":" + localNode.getPort(), "", "f0Bo7qXvXjj-3hCdFAh1E", "", message.getSessionId());
                 session.setClient(client);
                 session.setLogin(true);
 
+                NodeHeartBeatClientHandler nodeHeartBeatClientHandler = new NodeHeartBeatClientHandler();
                 ctx.channel().pipeline().addAfter("nodeLogin", "nodeHeartBeatClient", nodeHeartBeatClientHandler);
                 nodeHeartBeatClientHandler.channelActive(ctx);
                 ctx.channel().pipeline().remove("nodeLogin");
