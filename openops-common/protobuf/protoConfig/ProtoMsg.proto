@@ -36,7 +36,7 @@ message ProtoMsg {
 
     /*命令执行请求请求*/
     message CommandExecuteRequest {
-        repested string host = 1;
+        string host = 1;
         string cmd = 2;
         string user = 3;
         int64 timeout = 4;
