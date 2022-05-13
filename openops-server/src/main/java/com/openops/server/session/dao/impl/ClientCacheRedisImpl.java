@@ -10,6 +10,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -38,6 +40,29 @@ public class ClientCacheRedisImpl implements ClientCacheDAO {
             return JsonUtil.jsonToPojo(value, ClientCache.class);
         }
         return null;
+    }
+
+    @Override
+    public List<ClientCache> multiGet(List<String> clientIds) {
+        if(clientIds == null || clientIds.isEmpty()) {
+            return null;
+        }
+
+        List<String> keys = new ArrayList<>(clientIds.size());
+        for(String clientId : clientIds) {
+            keys.add(REDIS_PREFIX + clientId);
+        }
+
+        List<String> values = stringRedisTemplate.opsForValue().multiGet(keys);
+
+        List<ClientCache> clientCaches = new ArrayList<>(values.size());
+        if (!values.isEmpty()) {
+            for(String value : values) {
+                clientCaches.add(JsonUtil.jsonToPojo(value, ClientCache.class));
+            }
+        }
+
+        return clientCaches;
     }
 
     @Override

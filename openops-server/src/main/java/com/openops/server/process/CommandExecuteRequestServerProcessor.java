@@ -26,6 +26,7 @@ public class CommandExecuteRequestServerProcessor extends AbstractProcessor {
 
             ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest = msg.getCommandExecuteRequest();
 
+            // TODO: 批量处理对多个客户端执行相同的命令，需要将相同节点管理的Node的客户端的请求集中到一个报文中
             String to = commandExecuteRequest.getHost();
 
             Session toSession = SessionManager.getSessionManger().getSessionByClientId(to);
