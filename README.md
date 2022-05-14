@@ -1,5 +1,6 @@
 ##架构
 
+<img width="676" alt="f66db18c-96bf-40c2-b1d2-3b5d2c7e114d" src="https://user-images.githubusercontent.com/48942966/168422425-e54a0c7f-86bc-418b-9bd8-46ceb78d8915.png">
 
 ##实现组件
 1. node：一个node（netty server）的静态信息，如ip和port
