@@ -82,7 +82,7 @@ public abstract class AbstractSession implements Session {
         return connected && isLogin;
     }
 
-    protected Channel channel() {
+    public Channel channel() {
         return channel;
     }
 
