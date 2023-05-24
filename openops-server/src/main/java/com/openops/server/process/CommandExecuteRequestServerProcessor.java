@@ -10,6 +10,8 @@ import com.openops.server.session.service.SessionManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service("CommandExecuteRequestServerProcessor")
 public class CommandExecuteRequestServerProcessor extends AbstractProcessor {
@@ -26,29 +28,31 @@ public class CommandExecuteRequestServerProcessor extends AbstractProcessor {
 
             ProtoMsgFactory.ProtoMsg.CommandExecuteRequest commandExecuteRequest = msg.getCommandExecuteRequest();
 
-            // TODO: 批量处理对多个客户端执行相同的命令，需要将相同节点管理的Node的客户端的请求集中到一个报文中
-            String to = commandExecuteRequest.getHost();
+            // TODO: 批量处理对多个客户端执行相同的命令，将相同节点管理的Node的客户端的请求集中到一个报文中，避免发送很多报文
+            List<String> tos = commandExecuteRequest.getHostList();
+            boolean allSuccess = true;
+            for(String to : tos) {
+                Session toSession = SessionManager.getSessionManger().getSessionByClientId(to);
+                if (null != fromSession && fromSession.isLogin()) {
+                    boolean isRemoteSession = false;
+                    if(toSession instanceof RemoteSession) {
+                        isRemoteSession = true;
+                    }
 
-            Session toSession = SessionManager.getSessionManger().getSessionByClientId(to);
-            if (null != fromSession && fromSession.isLogin()) {
-                boolean isRemoteSession = false;
-                if(toSession instanceof RemoteSession) {
-                    isRemoteSession = true;
+                    if (null != toSession && toSession.isValid()) {
+                        toSession.send(msg);
+                    } else {
+                        // 接收方离线
+                        log.error("接收方 [{}] 不在线!，类型: {}.", to, isRemoteSession ? "remote" : "local");
+                        allSuccess = false;
+                    }
+                } else if (null != fromSession && !fromSession.isLogin()) {
+                    // 发送方未登录
+                    log.error("发送方 [{}] 未登录!", fromSession.client().getClientId());
+                    allSuccess = false;
                 }
-
-                if (null != toSession && toSession.isValid()) {
-                    toSession.send(msg);
-                    return true;
-                } else {
-                    // 接收方离线
-                    log.error("[" + to + "] 不在线!，类型: ", isRemoteSession ? "remote" : "local");
-                    return false;
-                }
-            } else if (null != fromSession && !fromSession.isLogin()) {
-                // 发送方未登录
-                log.error("发送方 [" + fromSession.client().getClientId() + "] 未登录!");
-                return false;
             }
+            return allSuccess;
         }
         return false;
     }
